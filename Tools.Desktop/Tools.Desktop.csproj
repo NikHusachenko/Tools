@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EquipmentForms\AddEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\GraphicOfEquipmentSurveys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +74,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EquipmentForms\AddEquipment.xaml.cs">
+      <DependentUpon>AddEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Equipment.xaml.cs">
+      <DependentUpon>Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\GraphicOfEquipmentSurveys.xaml.cs">
+      <DependentUpon>GraphicOfEquipmentSurveys.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Tools.Desktop.EquipmentForms;
 
 namespace Tools.Desktop
 {
@@ -9,5 +10,23 @@ namespace Tools.Desktop
         {
             InitializeComponent();
         }
-    }
+
+		private void EquipmentMenuItem_Click(object sender, RoutedEventArgs e)
+		{
+            Equipment equipment = new Equipment();
+            equipment.ShowDialog();
+        }
+
+		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)
+		{
+            AddEquipment addEquipment= new AddEquipment();
+            addEquipment.ShowDialog();
+		}
+
+		private void GraphicMenuItem_Click(object sender, RoutedEventArgs e)
+		{
+            GraphicOfEquipmentSurveys graphic = new GraphicOfEquipmentSurveys();
+            graphic.ShowDialog();
+		}
+	}
 }
