@@ -55,15 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="EquipmentForms\AddEquipment.xaml">
+    <Page Include="EquipmentForms\AddEquipmentForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\Equipment.xaml">
+    <Page Include="EquipmentForms\EquipmentForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\GraphicOfEquipmentSurveys.xaml">
+    <Page Include="EquipmentForms\GraphicOfEquipmentSurveysForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\SortByDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\SortByGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\SortingCardCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\SortForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,14 +91,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EquipmentForms\AddEquipment.xaml.cs">
-      <DependentUpon>AddEquipment.xaml</DependentUpon>
+    <Compile Include="EquipmentForms\AddEquipmentForm.xaml.cs">
+      <DependentUpon>AddEquipmentForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Equipment.xaml.cs">
-      <DependentUpon>Equipment.xaml</DependentUpon>
+    <Compile Include="EquipmentForms\EquipmentForm.xaml.cs">
+      <DependentUpon>EquipmentForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\GraphicOfEquipmentSurveys.xaml.cs">
-      <DependentUpon>GraphicOfEquipmentSurveys.xaml</DependentUpon>
+    <Compile Include="EquipmentForms\GraphicOfEquipmentSurveysForm.xaml.cs">
+      <DependentUpon>GraphicOfEquipmentSurveysForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByDepartment.xaml.cs">
+      <DependentUpon>SortByDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByGroup.xaml.cs">
+      <DependentUpon>SortByGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortingCardCatalog.xaml.cs">
+      <DependentUpon>SortingCardCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\SortForm.xaml.cs">
+      <DependentUpon>SortForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
