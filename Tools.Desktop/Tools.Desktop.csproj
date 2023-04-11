@@ -67,6 +67,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EquipmentForms\Pages\EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EquipmentForms\Pages\SortByDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +103,9 @@
     </Compile>
     <Compile Include="EquipmentForms\GraphicOfEquipmentSurveysForm.xaml.cs">
       <DependentUpon>GraphicOfEquipmentSurveysForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EquipmentForms\Pages\SortByDepartment.xaml.cs">
       <DependentUpon>SortByDepartment.xaml</DependentUpon>

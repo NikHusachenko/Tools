@@ -9,11 +9,20 @@
       Title="SortingCardCatalog">
 
     <Grid>
-        <Label Margin="31,0,400,412">Параметры для сортировки "Картотеки оборудования"</Label>
-        <Separator Width="auto" Height="10" Margin="0,0,0,383"></Separator>
-        <Label></Label>
-        <TextBox Width="400" Height="50"/>
-        <ComboBox Width="30" Height="30" RenderTransformOrigin="0.502,0.541" Margin="562,209,208,211"></ComboBox>
-        <Button Width="200" Height="50" Margin="535,364,65,36"></Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+           
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="auto"> 
+        <Label Margin="31,0,400,31">Параметры для сортировки "Картотеки оборудования"</Label>
+        <Separator Width="auto" Height="10" Margin="0,28,0,31"></Separator>
+        </Grid>
+        <Grid Grid.Row="1" Height="auto">
+        <Label Grid.RowSpan="2"></Label>
+        <TextBox Width="400" Height="50" Margin="200,131,200,200" Grid.Row="1"/>
+        <ComboBox Width="30" Height="30" RenderTransformOrigin="0.502,0.541" Margin="562,140,208,211" Grid.Row="1"></ComboBox>
+        <Button Width="200" Height="50" Margin="535,295,65,36" Grid.Row="1"></Button>
+        </Grid>
     </Grid>
 </Page>
