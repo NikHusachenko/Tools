@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Tools.Desktop.EquipmentForms;
 using Tools.Desktop.EquipmentForms.Pages;
+using Tools.Desktop.Pages;
 
 namespace Tools.Desktop
 {
@@ -21,8 +22,9 @@ namespace Tools.Desktop
 
 		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)
 		{
-            AddEquipment addEquipment= new AddEquipment();
-            addEquipment.ShowDialog();
+            pagesFrame.Navigate(new AddEquipmentPage());
+            //AddEquipment addEquipment= new AddEquipment();
+           //addEquipment.ShowDialog();
 		}
 
 		private void GraphicMenuItem_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,80 @@
+﻿<Page x:Class="Tools.Desktop.Pages.AddEquipmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tools.Desktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEquipmentPage">
+
+    <Grid Margin="0,0,-337,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35px"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" ShowGridLines="true">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+        <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Учетная карточка оборудования"></Label>
+        <Separator Width="980" Margin="0,-560,0,0" HorizontalAlignment="Center" ></Separator>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Height="auto" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" FontSize="17" FontFamily="Arial"  Margin="8,0,0,0">Структурное подразделение организации</Label>
+            <TextBox Grid.Row="0" Grid.Column="0" Height="20" Width="auto"  Margin="357,4,-212,24" />
+
+            <Label Grid.Row="1"  Grid.Column="0" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light type</Label>
+            <TextBox Grid.Row="1" Grid.Column="0" Height="20" Width="auto" Margin="137,13,-119,32" />
+
+            <Label Grid.Row="2" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Price</Label>
+            <TextBox Grid.Row="2" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="3" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
+            <TextBox Grid.Row="3" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="4" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
+            <TextBox Grid.Row="4" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="5" Grid.Column="0" FontSize="17" FontFamily="Arial"  Margin="8,0,0,0">Light name</Label>
+            <TextBox Grid.Row="5" Grid.Column="0" Height="20" Width="auto" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="6"  Grid.Column="0" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light type</Label>
+            <TextBox Grid.Row="6" Grid.Column="0" Height="20" Width="auto" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="7" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Price</Label>
+            <TextBox Grid.Row="7" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="8" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
+            <TextBox Grid.Row="8" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="9" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
+            <TextBox Grid.Row="9" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="10" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
+            <TextBox Grid.Row="10" Height="20" Width="765" Margin="13, 30, 5, 15" />
+
+            <Label Grid.Row="11" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
+            <TextBox Grid.Row="11" Height="20" Width="765" Margin="13, 30, 5, 15" />
+        </Grid>
+    </Grid>
+</Page>

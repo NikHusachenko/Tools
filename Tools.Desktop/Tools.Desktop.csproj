@@ -55,15 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="EquipmentForms\AddEquipmentForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\EquipmentForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\GraphicOfEquipmentSurveysForm.xaml">
+    <Page Include="EquipmentForms\Pages\AddEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,10 +75,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\SortForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,14 +83,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EquipmentForms\AddEquipmentForm.xaml.cs">
-      <DependentUpon>AddEquipmentForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\EquipmentForm.xaml.cs">
-      <DependentUpon>EquipmentForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\GraphicOfEquipmentSurveysForm.xaml.cs">
-      <DependentUpon>GraphicOfEquipmentSurveysForm.xaml</DependentUpon>
+    <Compile Include="EquipmentForms\Pages\AddEquipmentPage.xaml.cs">
+      <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EquipmentForms\Pages\EquipmentPage.xaml.cs">
       <DependentUpon>EquipmentPage.xaml</DependentUpon>
@@ -115,9 +97,6 @@
     </Compile>
     <Compile Include="EquipmentForms\Pages\SortingCardCatalog.xaml.cs">
       <DependentUpon>SortingCardCatalog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\SortForm.xaml.cs">
-      <DependentUpon>SortForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
