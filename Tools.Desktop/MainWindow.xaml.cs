@@ -29,8 +29,8 @@ namespace Tools.Desktop
 
 		private void GraphicMenuItem_Click(object sender, RoutedEventArgs e)
 		{
-            GraphicOfEquipmentSurveys graphic = new GraphicOfEquipmentSurveys();
-            graphic.ShowDialog();
+          //  GraphicOfEquipmentSurveys graphic = new GraphicOfEquipmentSurveys();
+          //  graphic.ShowDialog();
 		}
 	}
 }

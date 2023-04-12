@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EquipmentPage">
 
-    <Grid>
+    <Grid ShowGridLines="true">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="520"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 

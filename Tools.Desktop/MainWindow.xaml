@@ -12,7 +12,7 @@
         MinWidth="1024">
     <Grid>
         <Grid.RowDefinitions x:Uid="rowDefinitions">
-            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         

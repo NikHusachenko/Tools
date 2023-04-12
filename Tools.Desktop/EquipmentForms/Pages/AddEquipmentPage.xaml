@@ -4,77 +4,123 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Tools.Desktop.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEquipmentPage">
+      mc:Ignorable="d"
+      Title="AddEquipmentPage" Height="885" Width="1024">
 
-    <Grid Margin="0,0,-337,0">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="35px"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" ShowGridLines="true">
+
+        <Grid Grid.Row="0" ShowGridLines="False">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="1000" />
             </Grid.RowDefinitions>
-        <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Учетная карточка оборудования"></Label>
-        <Separator Width="980" Margin="0,-560,0,0" HorizontalAlignment="Center" ></Separator>
+            <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Учетная карточка оборудования"></Label>
+            <Separator Width="980" Height="10" Margin="0,-17,0,917" HorizontalAlignment="Center" ></Separator>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0" Height="auto" ShowGridLines="True">
+        <Grid Grid.Row="1" Height="auto" ShowGridLines="False" Margin="0,0,0,77" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="30*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Label Grid.Row="0" HorizontalAlignment="Left" FontSize="17" Width="350" Height="50" FontFamily="Arial"  Margin="8,0,0,0">Структурное подразделение организации</Label>
+                <TextBox Grid.Row="0" Height="20" Width="600" HorizontalAlignment="Left" Margin="0,0,0,10" />
+                <ComboBox Height="20" Width="25" Margin="-23,0,0,10"></ComboBox>
+            </StackPanel>
 
-            <Label Grid.Row="0" Grid.Column="0" FontSize="17" FontFamily="Arial"  Margin="8,0,0,0">Структурное подразделение организации</Label>
-            <TextBox Grid.Row="0" Grid.Column="0" Height="20" Width="auto"  Margin="357,4,-212,24" />
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Label Grid.Row="1"   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Группа оборудования</Label>
+                <TextBox Grid.Row="1" Height="20" Width="600" Margin="5,0,-187,15" />
+            </StackPanel>
 
-            <Label Grid.Row="1"  Grid.Column="0" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light type</Label>
-            <TextBox Grid.Row="1" Grid.Column="0" Height="20" Width="auto" Margin="137,13,-119,32" />
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Подгруппа оборудования</Label>
+                <TextBox  Height="20" Width="605" VerticalAlignment="Top" Margin="5,5,5,5" />
+                <Button Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15">Справочник</Button>
+            </StackPanel>
 
-            <Label Grid.Row="2" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Price</Label>
-            <TextBox Grid.Row="2" Height="20" Width="765" Margin="13, 30, 5, 15" />
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Label  FontSize="17" FontFamily="Arial" Margin="8,4,0,0">Название оборудования</Label>
+                <TextBox Height="20" Width="765" Margin="0,7,-190,17" />
+            </StackPanel>
 
-            <Label Grid.Row="3" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
-            <TextBox Grid.Row="3" Height="20" Width="765" Margin="13, 30, 5, 15" />
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+              <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Марка оборудования</Label>
+              <TextBox  Height="20" Width="765" Margin="0,0,-180,18" />
+            </StackPanel>
+            
+            <StackPanel Grid.Row="5" Orientation="Horizontal">
+              <Label  FontSize="17" FontFamily="Arial"  Margin="8,2,0,0">Регистрация в органах</Label>
+              <TextBox  Height="20" Width="300" Margin="5,0,181,13" />
+              <ComboBox Height="20" Width="25" Margin="-380,0,0,13"></ComboBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="6" Orientation="Horizontal">
+                <Label   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Регистрационный №</Label>
+                <TextBox  Height="20" Width="200" Margin="2,5,0,20" />
+                <Label   FontSize="17" FontFamily="Arial" Margin="50,0,0,0">Внутризаводской регистрационный №</Label>
+                <TextBox Height="20" Width="205" Margin="3, 5, 0, 20" />
+            </StackPanel>
+            
+            <StackPanel Grid.Row="7" Orientation="Horizontal">
+               <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Изготовитель</Label>
+               <TextBox  Height="20" Width="765" Margin="13, 0, 5, 17" />
+            </StackPanel>
 
-            <Label Grid.Row="4" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
-            <TextBox Grid.Row="4" Height="20" Width="765" Margin="13, 30, 5, 15" />
+            <StackPanel Grid.Row="8" Orientation="Horizontal">
+                <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Заводской №</Label>
+                <TextBox  Height="20" VerticalAlignment="Top" Width="200" Margin="3, 5, 5, 0" />
+                <Label FontSize="17" FontFamily="Arial" Margin="48,0,0,0">Дата изготовления</Label>
+                <TextBox  Height="20" VerticalAlignment="Top" Width="300" Margin="3, 5, 5, 0" />
+                <Button  Height="20"  VerticalAlignment="Top" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
+           </StackPanel>
 
-            <Label Grid.Row="5" Grid.Column="0" FontSize="17" FontFamily="Arial"  Margin="8,0,0,0">Light name</Label>
-            <TextBox Grid.Row="5" Grid.Column="0" Height="20" Width="auto" Margin="13, 30, 5, 15" />
+            <StackPanel Grid.Row="9" Orientation="Horizontal">
+                <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Дата ввода в эксплуатацию</Label>
+                <TextBox  Height="20" Width="165" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="3, 5, 5, 0" />
+                <Button  Height="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2, 5, 5, 0" Width="70">Календарь</Button>
+            </StackPanel>
 
-            <Label Grid.Row="6"  Grid.Column="0" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light type</Label>
-            <TextBox Grid.Row="6" Grid.Column="0" Height="20" Width="auto" Margin="13, 30, 5, 15" />
+            <StackPanel Grid.Row="10" Orientation="Horizontal">
+                <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Нормативный срок службы (лет)</Label>
+                <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
+            </StackPanel>
 
-            <Label Grid.Row="7" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Price</Label>
-            <TextBox Grid.Row="7" Height="20" Width="765" Margin="13, 30, 5, 15" />
+            <Grid Grid.Row="11" ShowGridLines="True" Height="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Separator Width="980" Height="10" Margin="0,0,0,0" HorizontalAlignment="Center" ></Separator>
+                <StackPanel Grid.Row="0" HorizontalAlignment="Center"  Orientation="Horizontal">
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">1</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">2</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">3</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">4</Button>
+                </StackPanel>
 
-            <Label Grid.Row="8" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
-            <TextBox Grid.Row="8" Height="20" Width="765" Margin="13, 30, 5, 15" />
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0"  Orientation="Horizontal">
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">1</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">2</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">3</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">4</Button>
+                </StackPanel>
 
-            <Label Grid.Row="9" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
-            <TextBox Grid.Row="9" Height="20" Width="765" Margin="13, 30, 5, 15" />
-
-            <Label Grid.Row="10" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Light count</Label>
-            <TextBox Grid.Row="10" Height="20" Width="765" Margin="13, 30, 5, 15" />
-
-            <Label Grid.Row="11" FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Height</Label>
-            <TextBox Grid.Row="11" Height="20" Width="765" Margin="13, 30, 5, 15" />
+            </Grid>
         </Grid>
     </Grid>
 </Page>
