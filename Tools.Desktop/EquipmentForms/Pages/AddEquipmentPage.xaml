@@ -100,12 +100,12 @@
                 <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
             </StackPanel>
 
-            <Grid Grid.Row="11" ShowGridLines="True" Height="auto">
+            <Grid Grid.Row="11" Height="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <Separator Width="980" Height="10" Margin="0,0,0,0" HorizontalAlignment="Center" ></Separator>
+                <Separator Width="980" Height="10" Margin="0,0,0,50" HorizontalAlignment="Center" ></Separator>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Center"  Orientation="Horizontal">
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">1</Button>
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">2</Button>

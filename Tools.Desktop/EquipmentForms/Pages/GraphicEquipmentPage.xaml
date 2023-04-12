@@ -1,0 +1,46 @@
+﻿<Page x:Class="Tools.Desktop.EquipmentForms.Pages.GraphicEquipmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tools.Desktop.EquipmentForms.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="885" d:DesignWidth="1024"
+      Title="GraphicEquipmentPage">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35px"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="210"/>
+            <RowDefinition Height="180"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label FontSize="17" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0">
+                Подготовить график технических (экспертных) освидетельствований оборудования с выборкой:
+            </Label>
+            <Separator Width="980" Height="10" Margin="0,-17,0,917" HorizontalAlignment="Center" ></Separator>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <RadioButton Content="First" Margin="0,10,0,10" Click="FirstRadioBtn_Click"></RadioButton>
+                <RadioButton Content="Second" Margin="0,10,0,10"></RadioButton>
+                <RadioButton Content="Third" Margin="0,10,0,10"></RadioButton>
+                <RadioButton Content="Fourth" Margin="0,10,0,10"></RadioButton>
+            </StackPanel>
+            <Separator Width="980" Height="10" Margin="0,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" ></Separator>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Frame x:Name="pagesFrame" VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,22,0,0"  Orientation="Horizontal">
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Выход</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Печать</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
