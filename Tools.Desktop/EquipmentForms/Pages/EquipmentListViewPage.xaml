@@ -1,0 +1,24 @@
+﻿<Page x:Class="Tools.Desktop.EquipmentForms.Pages.EquipmentListViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tools.Desktop.EquipmentForms.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EquipmentListViewPage">
+
+    <Grid>
+        <ListView x:Name="equipmentListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="180">Название обор.</GridViewColumn>
+                    <GridViewColumn Width="120">Марка обор.</GridViewColumn>
+                    <GridViewColumn Width="210">Структур. подразд.</GridViewColumn>
+                    <GridViewColumn Width="180">Подгруппа обор.</GridViewColumn>
+                    <GridViewColumn Width="190">Группа обор.</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tools.Desktop.EquipmentForms.Pages
+namespace Tools.Desktop
 {
 	/// <summary>
-	/// Логика взаимодействия для SortByDepartment.xaml
+	/// Логика взаимодействия для SortWindow.xaml
 	/// </summary>
-	public partial class SortByDepartment : Page
+	public partial class SortWindow : Page
 	{
-		public SortByDepartment()
+		public SortWindow()
 		{
 			InitializeComponent();
 		}

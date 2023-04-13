@@ -15,7 +15,7 @@ namespace Tools.Desktop.EquipmentForms.Pages
 
 		private void FirstRadioBtn_Click(object sender, RoutedEventArgs e)
 		{
-			pagesFrame.Navigate(new SortByDepartment());
+			//pagesFrame.Navigate(new SortByDepartment());
 		}
 	}
 }

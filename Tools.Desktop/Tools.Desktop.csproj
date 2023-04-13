@@ -55,7 +55,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EquipmentForms\Pages\EquipmentListViewPage.xaml.cs">
+      <DependentUpon>EquipmentListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByDepartmentAmmountPage.xaml.cs">
+      <DependentUpon>SortByDepartmentAmmountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByDepartmentPage.xaml.cs">
+      <DependentUpon>SortByDepartmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByExpirationPage.xaml.cs">
+      <DependentUpon>SortByExpirationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByGroupPage.xaml.cs">
+      <DependentUpon>SortByGroupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\SortByRegistrationPage.xaml.cs">
+      <DependentUpon>SortByRegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SortWindow.xaml.cs">
+      <DependentUpon>SortWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="EquipmentForms\Pages\AddEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\EquipmentListViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,15 +92,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\Pages\SortByDepartment.xaml">
+    <Page Include="EquipmentForms\Pages\SortByDepartmentAmmountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\Pages\SortByGroup.xaml">
+    <Page Include="EquipmentForms\Pages\SortByDepartmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquipmentForms\Pages\SortingCardCatalog.xaml">
+    <Page Include="EquipmentForms\Pages\SortByExpirationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\SortByGroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\SortByRegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,19 +129,14 @@
     <Compile Include="EquipmentForms\Pages\GraphicEquipmentPage.xaml.cs">
       <DependentUpon>GraphicEquipmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByDepartment.xaml.cs">
-      <DependentUpon>SortByDepartment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByGroup.xaml.cs">
-      <DependentUpon>SortByGroup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\Pages\SortingCardCatalog.xaml.cs">
-      <DependentUpon>SortingCardCatalog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SortWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -34,7 +34,7 @@
             <Separator Width="980" Height="10" Margin="0,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" ></Separator>
         </Grid>
         <Grid Grid.Row="2" >
-            <Frame x:Name="pagesFrame" VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
         </Grid>
         <Grid Grid.Row="3">
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,22,0,0"  Orientation="Horizontal">

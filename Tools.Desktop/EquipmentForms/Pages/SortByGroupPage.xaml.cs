@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Tools.Desktop.EquipmentForms.Pages
 {
 	/// <summary>
-	/// Логика взаимодействия для SortingCardCatalog.xaml
+	/// Логика взаимодействия для SortByGroupPage.xaml
 	/// </summary>
-	public partial class SortingCardCatalog : Page
+	public partial class SortByGroupPage : Page
 	{
-		public SortingCardCatalog()
+		public SortByGroupPage()
 		{
 			InitializeComponent();
 		}

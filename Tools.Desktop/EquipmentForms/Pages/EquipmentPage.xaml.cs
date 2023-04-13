@@ -20,9 +20,41 @@ namespace Tools.Desktop.EquipmentForms.Pages
 	/// </summary>
 	public partial class EquipmentPage : Page
 	{
+		
 		public EquipmentPage()
 		{
 			InitializeComponent();
+			equipmentFrame.Navigate(new EquipmentListViewPage());
+		}
+
+		private void SortByRegistrationButton_Click(object sender, RoutedEventArgs e)
+		{
+		    equipmentFrame.Navigate(new SortByRegistrationPage());
+        }
+
+		private void SortByDepartmentButton_Click(object sender, RoutedEventArgs e)
+		{
+			equipmentFrame.Navigate(new SortByDepartmentPage());
+        }
+
+		private void SortByGroupAmmountButton_Click(object sender, RoutedEventArgs e)
+		{
+			equipmentFrame.Navigate(new SortByGroupPage());
+		}
+
+		private void SortByDepartmentAmmountButton_Click(object sender, RoutedEventArgs e)
+		{
+			equipmentFrame.Navigate(new SortByDepartmentAmmountPage());
+        }
+
+		private void SortByExpiration_Click(object sender, RoutedEventArgs e)
+		{
+			equipmentFrame.Navigate(new SortByExpirationPage());
+		}
+
+		private void AddNewCard_Click(object sender, RoutedEventArgs e)
+		{
+			///Як відкрити іншу сторінку
 		}
 	}
 }

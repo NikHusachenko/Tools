@@ -15,33 +15,24 @@
             <RowDefinition Height="520"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
         <StackPanel Margin="25,5,0,0" Width="auto" x:Name="sortingPanel" HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal" Height="45">
-            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0">Сортировка по признаку рег.</Button>
-            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0">Сортировка по подразделению</Button>
-            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0">Сортировка по группе обор.</Button>
-            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0">Сортировка по подгруппе обор.</Button>
+            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByRegistrationButton_Click" >Сортировка по признаку рег.</Button>
+            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByDepartmentButton_Click">Сортировка по подразделению</Button>
+            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByGroupAmmountButton_Click">Сортировка по группе обор.</Button>
+            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByDepartmentAmmountButton_Click">Сортировка по подгруппе обор.</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Width="auto" x:Name="sortAndPrintPanel" HorizontalAlignment="Center" Height="45" Orientation="Horizontal">
-            <Button Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="33,0,5,0">Сортировка по истечению нормативного срока службы</Button>
+            <Button Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="33,0,5,0" Click="SortByExpiration_Click" >Сортировка по истечению нормативного срока службы</Button>
             <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="219,0,5,0">Печать картотеки</Button>
         </StackPanel>
 
-        <ListView x:Name="equipmentListView" Grid.Row="2" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="180">Название обор.</GridViewColumn>
-                    <GridViewColumn Width="120">Марка обор.</GridViewColumn>
-                    <GridViewColumn Width="210">Структур. подразд.</GridViewColumn>
-                    <GridViewColumn Width="180">Подгруппа обор.</GridViewColumn>
-                    <GridViewColumn Width="190">Группа обор.</GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
+        <Grid Grid.Row="2">
+            <Frame x:Name="equipmentFrame"></Frame>
+        </Grid>
         <StackPanel Margin="25,0,0,0" Width="auto" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Height="45">
-            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Добавить карточку</Button>
+            <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="AddNewCard_Click">Добавить карточку</Button>
             <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Карточка оборудования</Button>
             <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Технич (эксп.) освид-вание</Button>
             <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Выход</Button>
