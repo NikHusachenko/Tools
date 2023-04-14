@@ -15,7 +15,55 @@ namespace Tools.Desktop.EquipmentForms.Pages
 
 		private void FirstRadioBtn_Click(object sender, RoutedEventArgs e)
 		{
-			//pagesFrame.Navigate(new SortByDepartment());
+			ShowCalendarStackPanel(true);
+			pagesFrame.Navigate(null);
+		}
+
+		private void SecondRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(true);
+			pagesFrame.Navigate(new UpcomingSurveysSelectedDivisionPage());
+		}
+
+		private void ThirdRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(true);
+			pagesFrame.Navigate(new UpcomingSurveysSelectedSubgroupEquipmentPage());
+		}
+
+		private void FourthRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(true);
+			pagesFrame.Navigate(new UpcomingSurveysByTypeSurvey());
+		}
+
+		private void FifthRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(false);
+			pagesFrame.Navigate(null);
+		}
+
+		private void SixthRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(false);
+			pagesFrame.Navigate(new UpcomingSurveysSelectedDivisionPage());
+		}
+
+		private void SeventhRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(false);
+			pagesFrame.Navigate(new UpcomingSurveysSelectedSubgroupEquipmentPage());
+		}
+
+		private void EighthRadioBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ShowCalendarStackPanel(false);
+			pagesFrame.Navigate(new UpcomingSurveysByTypeSurvey());
+		}
+		private void ShowCalendarStackPanel(bool isShowing)
+		{
+			if(isShowing) calendarStackPanel.Visibility = Visibility.Visible;
+			else calendarStackPanel.Visibility = Visibility.Collapsed;
 		}
 	}
 }

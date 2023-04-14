@@ -8,7 +8,11 @@
       Title="AddEquipmentPage" Height="885" Width="1024">
 
     <Grid Margin="0,0,0,0">
-        <Grid.RowDefinitions>
+        <Grid x:Name="catalogEquipmentGrid" Visibility="Collapsed">
+            <Frame x:Name="equipmentFrame"></Frame>
+        </Grid>
+        <Grid x:Name="addEquipmentGrid">
+            <Grid.RowDefinitions>
             <RowDefinition Height="35px"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
@@ -50,7 +54,7 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Подгруппа оборудования</Label>
                 <TextBox  Height="20" Width="605" VerticalAlignment="Top" Margin="5,5,5,5" />
-                <Button Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15">Справочник</Button>
+                <Button Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15" Click="Button_Click">Справочник</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal">
@@ -107,19 +111,19 @@
                 </Grid.RowDefinitions>
                 <Separator Width="980" Height="10" Margin="0,0,0,50" HorizontalAlignment="Center" ></Separator>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Center"  Orientation="Horizontal">
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">1</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">2</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">3</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">4</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Первая запись</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Предыдущая запись</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Следующая запись</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Последняя запись</Button>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0"  Orientation="Horizontal">
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">1</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">2</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">3</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">4</Button>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Сохранить данные</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Отмена</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Удалить запись</Button>
+                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Выход</Button>
                 </StackPanel>
-
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

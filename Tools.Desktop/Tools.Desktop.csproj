@@ -55,8 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EquipmentForms\Pages\CatalogEquipmentPage.xaml.cs">
+      <DependentUpon>CatalogEquipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EquipmentForms\Pages\EquipmentListViewPage.xaml.cs">
       <DependentUpon>EquipmentListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\OverdueSurveysByTypeSurvey.xaml.cs">
+      <DependentUpon>OverdueSurveysByTypeSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\OverdueSurveysSelectedDivision.xaml.cs">
+      <DependentUpon>OverdueSurveysSelectedDivision.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\OverdueSurveysSelectedSubgroupEquipmentPage.xaml.cs">
+      <DependentUpon>OverdueSurveysSelectedSubgroupEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EquipmentForms\Pages\SortByDepartmentAmmountPage.xaml.cs">
       <DependentUpon>SortByDepartmentAmmountPage.xaml</DependentUpon>
@@ -73,10 +85,23 @@
     <Compile Include="EquipmentForms\Pages\SortByRegistrationPage.xaml.cs">
       <DependentUpon>SortByRegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EquipmentForms\Pages\UpcomingSurveysByTypeSurvey.xaml.cs">
+      <DependentUpon>UpcomingSurveysByTypeSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\UpcomingSurveysSelectedDivisionPage.xaml.cs">
+      <DependentUpon>UpcomingSurveysSelectedDivisionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentForms\Pages\UpcomingSurveysSelectedSubgroupEquipmentPage.xaml.cs">
+      <DependentUpon>UpcomingSurveysSelectedSubgroupEquipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SortWindow.xaml.cs">
       <DependentUpon>SortWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="EquipmentForms\Pages\AddEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\CatalogEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,6 +114,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EquipmentForms\Pages\GraphicEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\OverdueSurveysByTypeSurvey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\OverdueSurveysSelectedDivision.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\OverdueSurveysSelectedSubgroupEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +146,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EquipmentForms\Pages\SortByRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\UpcomingSurveysByTypeSurvey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\UpcomingSurveysSelectedDivisionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentForms\Pages\UpcomingSurveysSelectedSubgroupEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

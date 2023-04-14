@@ -54,7 +54,7 @@ namespace Tools.Desktop.EquipmentForms.Pages
 
 		private void AddNewCard_Click(object sender, RoutedEventArgs e)
 		{
-			///Як відкрити іншу сторінку
+			//Open AddEquipmmentPage
 		}
 	}
 }

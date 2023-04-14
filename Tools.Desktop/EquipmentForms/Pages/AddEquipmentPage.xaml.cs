@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Tools.Desktop.EquipmentForms.Pages;
 
 namespace Tools.Desktop.Pages
 {
@@ -11,5 +12,12 @@ namespace Tools.Desktop.Pages
 		{
 			InitializeComponent();
 		}
-	}
+
+		private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			addEquipmentGrid.Visibility = System.Windows.Visibility.Collapsed;
+			catalogEquipmentGrid.Visibility=System.Windows.Visibility.Visible;
+			equipmentFrame.Navigate(new CatalogEquipmentPage(addEquipmentGrid));
+        }
+    }
 }
