@@ -55,6 +55,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\CatalogEquipmentPage.xaml.cs">
+      <DependentUpon>CatalogEquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationCardPage.xaml.cs">
+      <DependentUpon>CertificationCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationLayoutPage.xaml.cs">
+      <DependentUpon>CertificationLayoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationListPage.xaml.cs">
+      <DependentUpon>CertificationListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationMainInfoPage.xaml.cs">
+      <DependentUpon>CertificationMainInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditCertificationPage.xaml.cs">
+      <DependentUpon>EditCertificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditEquipmentPage.xaml.cs">
+      <DependentUpon>EditEquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EquipmentListPage.xaml.cs">
+      <DependentUpon>EquipmentListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByDepartmentAmmountPage.xaml.cs">
+      <DependentUpon>SortByDepartmentAmmountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByDepartmentPage.xaml.cs">
+      <DependentUpon>SortByDepartmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByExpirationPage.xaml.cs">
+      <DependentUpon>SortByExpirationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByGroupPage.xaml.cs">
+      <DependentUpon>SortByGroupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByRegistrationPage.xaml.cs">
+      <DependentUpon>SortByRegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SurveysBySelectedDivisionPage.xaml.cs">
+      <DependentUpon>SurveysBySelectedDivisionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SurveysBySelectedSubgroupPage.xaml.cs">
+      <DependentUpon>SurveysBySelectedSubgroupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SurveysByTypeSurveyPage.xaml.cs">
+      <DependentUpon>SurveysByTypeSurveyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SortWindow.xaml.cs">
+      <DependentUpon>SortWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +121,78 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CatalogEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationCardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationLayoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationMainInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditCertificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EquipmentListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByDepartmentAmmountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByDepartmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByExpirationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByGroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysBySelectedDivisionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysBySelectedSubgroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysByTypeSurveyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SortWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,5 +220,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

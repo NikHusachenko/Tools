@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tools.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"  
+        MaxHeight="768" 
+        MaxWidth="1024"
+        MinHeight="768" 
+        MinWidth="1024">
     <Grid>
+        <Grid.RowDefinitions x:Uid="rowDefinitions">
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
+        <Menu Grid.Row="0" Height="auto" VerticalAlignment="Top">
+            <MenuItem FontSize="15" Header="Оборудование" Height="auto">
+                <MenuItem Header="Картотека оборудования" Click="EquipmentMenuItem_Click"></MenuItem>
+                <MenuItem Header="Добавить оборудование" Click="AddEquipmentMenuItem_Click" ></MenuItem>
+                <Separator Height="0" BorderBrush="Black"/>
+                <MenuItem Header="График освидетильствований" Click="GraphicMenuItem_Click" ></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Frame Grid.Row="1" x:Name="pagesFrame" VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
