@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Tools.Desktop"
         mc:Ignorable="d"
         Title="MainWindow"  
-        Height="768" 
-        Width="1024"
+        MaxHeight="768" 
+        MaxWidth="1024"
         MinHeight="768" 
         MinWidth="1024">
     <Grid>

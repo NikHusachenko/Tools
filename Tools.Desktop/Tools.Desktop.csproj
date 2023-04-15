@@ -55,112 +55,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EquipmentForms\Pages\CatalogEquipmentPage.xaml.cs">
+    <Compile Include="Pages\CatalogEquipmentPage.xaml.cs">
       <DependentUpon>CatalogEquipmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\EquipmentListViewPage.xaml.cs">
-      <DependentUpon>EquipmentListViewPage.xaml</DependentUpon>
+    <Compile Include="Pages\CertificationCardPage.xaml.cs">
+      <DependentUpon>CertificationCardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\OverdueSurveysByTypeSurvey.xaml.cs">
-      <DependentUpon>OverdueSurveysByTypeSurvey.xaml</DependentUpon>
+    <Compile Include="Pages\CertificationLayoutPage.xaml.cs">
+      <DependentUpon>CertificationLayoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\OverdueSurveysSelectedDivision.xaml.cs">
-      <DependentUpon>OverdueSurveysSelectedDivision.xaml</DependentUpon>
+    <Compile Include="Pages\CertificationListPage.xaml.cs">
+      <DependentUpon>CertificationListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\OverdueSurveysSelectedSubgroupEquipmentPage.xaml.cs">
-      <DependentUpon>OverdueSurveysSelectedSubgroupEquipmentPage.xaml</DependentUpon>
+    <Compile Include="Pages\CertificationMainInfoPage.xaml.cs">
+      <DependentUpon>CertificationMainInfoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByDepartmentAmmountPage.xaml.cs">
+    <Compile Include="Pages\EditCertificationPage.xaml.cs">
+      <DependentUpon>EditCertificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditEquipmentPage.xaml.cs">
+      <DependentUpon>EditEquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EquipmentListPage.xaml.cs">
+      <DependentUpon>EquipmentListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortByDepartmentAmmountPage.xaml.cs">
       <DependentUpon>SortByDepartmentAmmountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByDepartmentPage.xaml.cs">
+    <Compile Include="Pages\SortByDepartmentPage.xaml.cs">
       <DependentUpon>SortByDepartmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByExpirationPage.xaml.cs">
+    <Compile Include="Pages\SortByExpirationPage.xaml.cs">
       <DependentUpon>SortByExpirationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByGroupPage.xaml.cs">
+    <Compile Include="Pages\SortByGroupPage.xaml.cs">
       <DependentUpon>SortByGroupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\SortByRegistrationPage.xaml.cs">
+    <Compile Include="Pages\SortByRegistrationPage.xaml.cs">
       <DependentUpon>SortByRegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\UpcomingSurveysByTypeSurvey.xaml.cs">
-      <DependentUpon>UpcomingSurveysByTypeSurvey.xaml</DependentUpon>
+    <Compile Include="Pages\SurveysBySelectedDivisionPage.xaml.cs">
+      <DependentUpon>SurveysBySelectedDivisionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\UpcomingSurveysSelectedDivisionPage.xaml.cs">
-      <DependentUpon>UpcomingSurveysSelectedDivisionPage.xaml</DependentUpon>
+    <Compile Include="Pages\SurveysBySelectedSubgroupPage.xaml.cs">
+      <DependentUpon>SurveysBySelectedSubgroupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\UpcomingSurveysSelectedSubgroupEquipmentPage.xaml.cs">
-      <DependentUpon>UpcomingSurveysSelectedSubgroupEquipmentPage.xaml</DependentUpon>
+    <Compile Include="Pages\SurveysByTypeSurveyPage.xaml.cs">
+      <DependentUpon>SurveysByTypeSurveyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SortWindow.xaml.cs">
       <DependentUpon>SortWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="EquipmentForms\Pages\AddEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\CatalogEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\EquipmentListViewPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\EquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\GraphicEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\OverdueSurveysByTypeSurvey.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\OverdueSurveysSelectedDivision.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\OverdueSurveysSelectedSubgroupEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\SortByDepartmentAmmountPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\SortByDepartmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\SortByExpirationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\SortByGroupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\SortByRegistrationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\UpcomingSurveysByTypeSurvey.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\UpcomingSurveysSelectedDivisionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EquipmentForms\Pages\UpcomingSurveysSelectedSubgroupEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,19 +117,78 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EquipmentForms\Pages\AddEquipmentPage.xaml.cs">
-      <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\Pages\EquipmentPage.xaml.cs">
-      <DependentUpon>EquipmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EquipmentForms\Pages\GraphicEquipmentPage.xaml.cs">
-      <DependentUpon>GraphicEquipmentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CatalogEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationCardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationLayoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CertificationMainInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditCertificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EquipmentListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByDepartmentAmmountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByDepartmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByExpirationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByGroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortByRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysBySelectedDivisionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysBySelectedSubgroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SurveysByTypeSurveyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SortWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,5 +220,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
