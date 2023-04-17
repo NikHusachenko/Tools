@@ -13,32 +13,6 @@ namespace Tools.Desktop.Pages
 			InitializeComponent(); 
 			equipmentFrame.Navigate(new EquipmentListPage());
 		}
-
-		private void SortByRegistrationButton_Click(object sender, RoutedEventArgs e)
-		{
-			equipmentFrame.Navigate(new SortByRegistrationPage());
-		}
-
-		private void SortByDepartmentButton_Click(object sender, RoutedEventArgs e)
-		{
-			equipmentFrame.Navigate(new SortByDepartmentPage());
-		}
-
-		private void SortByGroupAmmountButton_Click(object sender, RoutedEventArgs e)
-		{
-			equipmentFrame.Navigate(new SortByGroupPage());
-		}
-
-		private void SortByDepartmentAmmountButton_Click(object sender, RoutedEventArgs e)
-		{
-			equipmentFrame.Navigate(new SortByDepartmentAmmountPage());
-		}
-
-		private void SortByExpiration_Click(object sender, RoutedEventArgs e)
-		{
-			equipmentFrame.Navigate(new SortByExpirationPage());
-		}
-
 		private void AddNewCard_Click(object sender, RoutedEventArgs e)
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
