@@ -13,9 +13,9 @@
     <Grid>
         <Grid.RowDefinitions x:Uid="rowDefinitions">
             <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        
+
         <Menu Grid.Row="0" Height="auto" VerticalAlignment="Top">
             <MenuItem FontSize="15" Header="Оборудование" Height="auto">
                 <MenuItem Header="Картотека оборудования" Click="EquipmentMenuItem_Click"></MenuItem>
@@ -24,6 +24,13 @@
                 <MenuItem Header="График освидетильствований" Click="GraphicMenuItem_Click" ></MenuItem>
             </MenuItem>
         </Menu>
-        <Frame Grid.Row="1" x:Name="pagesFrame" VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label FontSize="11" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="0" Foreground="Red" >Global Error Label</Label>
+            <Frame x:Name="pagesFrame" Grid.Row="1" VerticalAlignment="Center" NavigationUIVisibility="Hidden" />
+        </Grid>
     </Grid>
 </Window>

@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\CatalogEquipmentPage.xaml.cs">
-      <DependentUpon>CatalogEquipmentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CertificationCardPage.xaml.cs">
       <DependentUpon>CertificationCardPage.xaml</DependentUpon>
     </Compile>
@@ -81,21 +78,6 @@
     </Compile>
     <Compile Include="Pages\EquipmentPage.xaml.cs">
       <DependentUpon>EquipmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SortByDepartmentAmmountPage.xaml.cs">
-      <DependentUpon>SortByDepartmentAmmountPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SortByDepartmentPage.xaml.cs">
-      <DependentUpon>SortByDepartmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SortByExpirationPage.xaml.cs">
-      <DependentUpon>SortByExpirationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SortByGroupPage.xaml.cs">
-      <DependentUpon>SortByGroupPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SortByRegistrationPage.xaml.cs">
-      <DependentUpon>SortByRegistrationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SurveysBySelectedDivisionPage.xaml.cs">
       <DependentUpon>SurveysBySelectedDivisionPage.xaml</DependentUpon>
@@ -121,10 +103,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\CatalogEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\CertificationCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,26 +132,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\EquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SortByDepartmentAmmountPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SortByDepartmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SortByExpirationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SortByGroupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SortByRegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

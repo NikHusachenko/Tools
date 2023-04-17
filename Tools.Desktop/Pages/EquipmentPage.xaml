@@ -20,16 +20,22 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Margin="25,5,0,0" Width="auto" x:Name="sortingPanel" HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal" Height="45">
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByRegistrationButton_Click" >Сортировка по признаку рег.</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByDepartmentButton_Click">Сортировка по подразделению</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByGroupAmmountButton_Click">Сортировка по группе обор.</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 10, 5, 0" Click="SortByDepartmentAmmountButton_Click">Сортировка по подгруппе обор.</Button>
-            </StackPanel>
-
             <StackPanel Grid.Row="1" Width="auto" x:Name="sortAndPrintPanel" HorizontalAlignment="Center" Height="45" Orientation="Horizontal">
-                <Button Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="33,0,5,0" Click="SortByExpiration_Click" >Сортировка по истечению нормативного срока службы</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="219,0,5,0">Печать картотеки</Button>
+                <Label Height="40" Width="160" FontSize="18" Content="Тип сортировки:" Margin="33,0,0,0"></Label>
+                <ComboBox ItemsSource="{Binding MyItems}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="0,0,5,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    
+                    <ComboBoxItem FontSize="16">Сортировка по признаку рег.</ComboBoxItem>
+                    <ComboBoxItem FontSize="16">Сортировка по подразделению</ComboBoxItem>
+                    <ComboBoxItem FontSize="16">Сортировка по группе обор.</ComboBoxItem>
+                    <ComboBoxItem FontSize="16">Сортировка по истечению нормативного срока службы</ComboBoxItem>
+                    
+                </ComboBox>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="159,0,5,0">Печать картотеки</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">
