@@ -14,7 +14,7 @@ namespace Tools.Desktop.Pages
 		}
 		private void planningDateBtn_Click(object sender, RoutedEventArgs e)
 		{
-			planningDatePicker.Visibility = Visibility.Visible;
+		//	planningDatePicker.Visibility = Visibility.Visible;
 		}
 		private void planningDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
 		{
@@ -22,7 +22,7 @@ namespace Tools.Desktop.Pages
 		}
 		private void actualDateBtn_Click(object sender, RoutedEventArgs e)
 		{
-			actualDatePicker.Visibility = Visibility.Visible;
+		//	actualDatePicker.Visibility = Visibility.Visible;
 		}
 		private void actualDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
 		{
