@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using Tools.Database.Enums;
 
 namespace Tools.Desktop.Pages
 {
@@ -12,12 +14,12 @@ namespace Tools.Desktop.Pages
 		{
 			InitializeComponent(); 
 			equipmentFrame.Navigate(new EquipmentListPage());
+			sortingComboBox.ItemsSource = Enum.GetNames(typeof(SortType));	
 		}
 		private void AddNewCard_Click(object sender, RoutedEventArgs e)
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
 			pagesFrame.Navigate(new EditEquipmentPage());
-			//Open AddEquipmmentPage
 		}
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)

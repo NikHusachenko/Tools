@@ -73,7 +73,14 @@ namespace Tools.Desktop.Pages
 
 		private void CalendarButton_Click(object sender, RoutedEventArgs e)
 		{
-			datePicker.Visibility = Visibility.Visible;
+			if (datePicker.Visibility == Visibility.Visible)
+			{
+				datePicker.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+				datePicker.Visibility = Visibility.Visible;
+			}
 		}
 	}
 }

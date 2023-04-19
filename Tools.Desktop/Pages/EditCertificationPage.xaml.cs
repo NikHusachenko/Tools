@@ -12,21 +12,29 @@ namespace Tools.Desktop.Pages
 		{
 			InitializeComponent();
 		}
-		private void planningDateBtn_Click(object sender, RoutedEventArgs e)
-		{
-		//	planningDatePicker.Visibility = Visibility.Visible;
-		}
-		private void planningDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-		{
 
-		}
-		private void actualDateBtn_Click(object sender, RoutedEventArgs e)
+		private void planningCalendarBtn_Click(object sender, RoutedEventArgs e)
 		{
-		//	actualDatePicker.Visibility = Visibility.Visible;
+			if (planningDatePicker.Visibility == Visibility.Visible)
+			{
+				planningDatePicker.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+				planningDatePicker.Visibility = Visibility.Visible;
+			}
 		}
-		private void actualDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-		{
 
+		private void actualCalendarBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (actualDatePicker.Visibility == Visibility.Visible)
+			{
+				actualDatePicker.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+				actualDatePicker.Visibility = Visibility.Visible;
+			}
 		}
 	}
 }
