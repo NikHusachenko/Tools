@@ -22,18 +22,12 @@
 
             <StackPanel Grid.Row="1" Width="auto" x:Name="sortAndPrintPanel" HorizontalAlignment="Center" Height="45" Orientation="Horizontal">
                 <Label Height="40" Width="160" FontSize="18" Content="Тип сортировки:" Margin="33,0,0,0"></Label>
-                <ComboBox ItemsSource="{Binding MyItems}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="0,0,5,0">
+                <ComboBox x:Name="sortingComboBox" ItemsSource="{Binding MyItems}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="0,0,5,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
-                    
-                    <ComboBoxItem FontSize="16">Сортировка по признаку рег.</ComboBoxItem>
-                    <ComboBoxItem FontSize="16">Сортировка по подразделению</ComboBoxItem>
-                    <ComboBoxItem FontSize="16">Сортировка по группе обор.</ComboBoxItem>
-                    <ComboBoxItem FontSize="16">Сортировка по истечению нормативного срока службы</ComboBoxItem>
-                    
                 </ComboBox>
                 <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="159,0,5,0">Печать картотеки</Button>
             </StackPanel>

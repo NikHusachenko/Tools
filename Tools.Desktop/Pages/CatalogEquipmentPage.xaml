@@ -1,0 +1,39 @@
+﻿<Page x:Class="Tools.Desktop.Pages.CatalogEquipmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tools.Desktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024"
+      Title="CatalogEquipmentPage">
+
+    <Grid x:Name="catalogGrid" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Label FontSize="20" Width="auto" Height="40" Margin="0,0,0,0">Выбор группы и подгруппы оборудования</Label>
+            <Separator Width="980" Height="10" Margin="0,0,0,0" HorizontalAlignment="Center"></Separator>
+        </StackPanel></Grid>
+        <Grid Grid.Row="1">
+        <ListView x:Name="equipmentListView" Grid.Row="1" Height="560">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="500">Подгруппа обор.</GridViewColumn>
+                    <GridViewColumn Width="500">Группа обор.</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Button x:Name="cancelBtn" Click="cancelBtn_Click" FontSize="26" Width="180" Height="40" Margin="0,0,200,0">Отмена</Button>
+                <Button FontSize="26" Width="180" Height="40" Margin="200,0,0,0">Выбрать</Button>
+        </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

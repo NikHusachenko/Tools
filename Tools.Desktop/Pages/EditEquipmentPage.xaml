@@ -10,9 +10,9 @@
 
     <Grid>
         <Grid x:Name="catalogEquipmentGrid" Visibility="Collapsed">
-            <Frame x:Name="equipmentFrame"></Frame>
+            <Frame x:Name="catalogEquipmentFrame"></Frame>
         </Grid>
-        <Grid x:Name="addEquipmentGrid">
+        <Grid x:Name="editEquipmentGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35px"/>
                 <RowDefinition Height="10*"/>
@@ -55,7 +55,7 @@
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
                     <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Подгруппа оборудования</Label>
                     <TextBox  Height="20" Width="605" VerticalAlignment="Top" Margin="5,5,5,5" />
-                    <ComboBox Height="20" Width="25" Margin="-20,0,0,15"></ComboBox>
+                    <Button x:Name="catalogBtn" Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15" Click="catalogBtn_Click">Справочник</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" Orientation="Horizontal">
@@ -90,12 +90,14 @@
                     <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Заводской №</Label>
                     <TextBox  Height="20" VerticalAlignment="Top" Width="200" Margin="3, 5, 5, 0" />
                     <Label FontSize="17" FontFamily="Arial" Margin="48,0,0,0">Дата изготовления</Label>
-                    <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
+                    <DatePicker x:Name="dateCreatingPicker" Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="CreatingCalendarBtn_Click" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="9" Orientation="Horizontal">
                     <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Дата ввода в эксплуатацию</Label>
-                    <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
+                    <DatePicker x:Name="dateImplementationPicker"  Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="ImplementationBtn_Click" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="10" Orientation="Horizontal">

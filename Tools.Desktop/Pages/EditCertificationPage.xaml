@@ -46,12 +46,14 @@
 
             <StackPanel Grid.Row="4" Orientation="Horizontal">
                 <Label  FontSize="23" FontFamily="Arial" Margin="8,4,0,0">Планируемая дата обследования:</Label>
-                <TextBox  Height="20" Width="150" HorizontalAlignment="Left" Margin="0,0,0,0" />
+                <DatePicker x:Name="planningDatePicker" Visibility="Collapsed" Height="25" />
+                <Button  Height="20" x:Name="planningCalendarBtn"  VerticalAlignment="Top" Click="planningCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="5" Orientation="Horizontal">
                 <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Фактическая дата обследования:</Label>
-                <TextBox  Height="20" Width="150" HorizontalAlignment="Left" Margin="0,0,0,0" />
+                <DatePicker x:Name="actualDatePicker" Visibility="Collapsed" Height="25"/>
+                <Button  Height="20" x:Name="actualCalendarBtn"  VerticalAlignment="Top" Click="actualCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="6" Orientation="Horizontal">

@@ -12,11 +12,11 @@
         <ListView x:Name="equipmentListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="180">Название обор.</GridViewColumn>
-                    <GridViewColumn Width="120">Марка обор.</GridViewColumn>
-                    <GridViewColumn Width="210">Структур. подразд.</GridViewColumn>
-                    <GridViewColumn Width="180">Подгруппа обор.</GridViewColumn>
-                    <GridViewColumn Width="190">Группа обор.</GridViewColumn>
+                    <GridViewColumn Width="210">Название обор.</GridViewColumn>
+                    <GridViewColumn Width="150">Марка обор.</GridViewColumn>
+                    <GridViewColumn Width="240">Структур. подразд.</GridViewColumn>
+                    <GridViewColumn Width="200">Подгруппа обор.</GridViewColumn>
+                    <GridViewColumn Width="210">Группа обор.</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

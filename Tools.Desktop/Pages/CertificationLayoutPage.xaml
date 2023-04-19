@@ -59,7 +59,7 @@
                 <StackPanel x:Name="calendarStackPanel" Visibility="Collapsed" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
                     <Label FontSize="20" Height="40" Margin="0,0,20,0">Конечная дата выборки:</Label>
                     <DatePicker x:Name="datePicker" Visibility="Collapsed" SelectedDateChanged="datePicker_SelectedDateChanged"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
                 </StackPanel>
                 <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
             </Grid>
