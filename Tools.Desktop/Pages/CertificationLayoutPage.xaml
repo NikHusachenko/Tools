@@ -8,6 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CertificationLayoutPage">
 
+    <Page.Resources>
+        <Style x:Key="RadoButtonStyle">
+            <Setter Property="ItemsControl.BorderThickness" Value="3,3,3,3"/>
+            <Setter Property="ItemsControl.BorderBrush" Value="#FF0B0808"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid ShowGridLines="True">
             <Grid.RowDefinitions>
@@ -22,51 +28,51 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label FontSize="20" FontWeight="Bold" FontFamily="Arial" Height="30" Margin="10,0,0,0">
-                    Подготовить график технических (экспертных) освидетельствований оборудования с выборкой:
+                    Prepare a schedule of technical (expert) surveys of equipment with a selection of:
                 </Label>
                 <Separator Width="980" Height="10" Margin="0,21,0,0" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Margin="10,5,0,0">
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="FirstRadioBtn_Click">
-                        предстоящие технические (экспертные) освидетельствования (все подразделения)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FirstRadioBtn_Click">
+                        upcoming technical (expert) surveys (all divisions)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="SecondRadioBtn_Click">
-                        предстоящие технические (экспертные) освидетельствования (в выбраном подразделении)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SecondRadioBtn_Click">
+                        upcoming technical (expert) surveys (in the selected division)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="ThirdRadioBtn_Click">
-                        предстоящие технические (экспертные) освидетельствования (выбранной подгруппы оборудования)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="ThirdRadioBtn_Click">
+                        upcoming technical (expert) surveys (of a selected subgroup of equipment)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="FourthRadioBtn_Click">
-                        предстоящие технические (экспертные) освидетельствования (по виду тех.(эксп.) освидетельствования)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FourthRadioBtn_Click">
+                        upcoming technical (expert) surveys (by type of technical (expert) survey)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="FifthRadioBtn_Click">
-                        просроченные технические (экспертные) освидетельствования (все подразделения)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FifthRadioBtn_Click">
+                        overdue technical (expert) surveys (all divisions)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="SixthRadioBtn_Click">
-                        просроченные технические (экспертные) освидетельствования (в выбраном подразделении)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SixthRadioBtn_Click">
+                        overdue technical (expert) surveys (in the selected division)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="SeventhRadioBtn_Click">
-                        просроченные технические (экспертные) освидетельствования (выбранной подгруппы оборудования)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SeventhRadioBtn_Click">
+                        overdue technical (expert) surveys (of a selected subgroup of equipment)
                     </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Click="EighthRadioBtn_Click">
-                        просроченные технические (экспертные) освидетельствования (по виду тех.(эксп.) освидетельствования)
+                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="EighthRadioBtn_Click">
+                        overdue technical (expert) surveys (by type of technical (expert) survey)
                     </RadioButton>
                 </StackPanel>
                 <Separator Width="980" Height="10" Margin="0,365,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="2" >
                 <StackPanel x:Name="calendarStackPanel" Visibility="Collapsed" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Label FontSize="20" Height="40" Margin="0,0,20,0">Конечная дата выборки:</Label>
+                    <Label FontSize="20" Height="40" Margin="0,0,20,0">Sample end date:</Label>
                     <DatePicker x:Name="datePicker" Visibility="Collapsed" SelectedDateChanged="datePicker_SelectedDateChanged"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Calendar</Button>
                 </StackPanel>
                 <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
             </Grid>
             <Grid Grid.Row="3">
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,22,0,0"  Orientation="Horizontal">
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Выход</Button>
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Печать</Button>
+                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Exit</Button>
+                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Print</Button>
                 </StackPanel>
             </Grid>
         </Grid>

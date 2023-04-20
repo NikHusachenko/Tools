@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="1" Width="auto" x:Name="sortAndPrintPanel" HorizontalAlignment="Center" Height="45" Orientation="Horizontal">
-                <Label Height="40" Width="160" FontSize="18" Content="Тип сортировки:" Margin="33,0,0,0"></Label>
+                <Label Height="40" Width="160" FontSize="18" Content="Sorting Type:" Margin="33,0,0,0"></Label>
                 <ComboBox x:Name="sortingComboBox" ItemsSource="{Binding MyItems}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Width="400" FontSize="14" FontFamily="Arial" Height="35" Margin="0,0,5,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -29,17 +29,17 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="159,0,5,0">Печать картотеки</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="159,0,5,0">Print Equipments</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">
                 <Frame x:Name="equipmentFrame"></Frame>
             </Grid>
             <StackPanel Margin="25,0,0,0" Width="auto" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Height="45">
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="AddNewCard_Click">Добавить карточку</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="ShowSelectedCard_Click">Карточка оборудования</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="TechnicalCertification_Click">Технич (эксп.) освид-вание</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Выход</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="AddNewCard_Click">Add card</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="ShowSelectedCard_Click">Equipment card</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0" Click="TechnicalCertification_Click">Technical (exp.) inspection</Button>
+                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 5, 0">Exit</Button>
             </StackPanel>
         </Grid>
     </Grid>

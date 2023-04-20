@@ -23,7 +23,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1000" />
                 </Grid.RowDefinitions>
-                <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Учетная карточка оборудования"></Label>
+                <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0">
+                    Equipment card
+                </Label>
                 <Separator Width="980" Height="10" Margin="0,-17,0,917" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="1" Height="auto" ShowGridLines="False" Margin="0,0,0,77" Grid.RowSpan="2">
@@ -42,66 +44,66 @@
                     <RowDefinition Height="30*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Grid.Row="0" HorizontalAlignment="Left" FontSize="17" Width="350" Height="50" FontFamily="Arial"  Margin="8,0,0,0">Структурное подразделение организации</Label>
+                    <Label Grid.Row="0" HorizontalAlignment="Left" FontSize="17" Width="350" Height="50" FontFamily="Arial"  Margin="8,0,0,0">Structural division of the organization</Label>
                     <TextBox Grid.Row="0" Height="20" Width="600" HorizontalAlignment="Left" Margin="0,0,0,10" />
                     <ComboBox Height="20" Width="25" Margin="-23,0,0,10"></ComboBox>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Label Grid.Row="1"   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Группа оборудования</Label>
+                    <Label Grid.Row="1"   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment group</Label>
                     <TextBox Grid.Row="1" Height="20" Width="600" Margin="5,0,-187,15" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Подгруппа оборудования</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment subgroup</Label>
                     <TextBox  Height="20" Width="605" VerticalAlignment="Top" Margin="5,5,5,5" />
-                    <Button x:Name="catalogBtn" Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15" Click="catalogBtn_Click">Справочник</Button>
+                    <Button x:Name="catalogBtn" Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15" Click="catalogBtn_Click">Catalog</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,4,0,0">Название оборудования</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,4,0,0">Equipment name</Label>
                     <TextBox Height="20" Width="765" Margin="0,7,-190,17" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="4" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Марка оборудования</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment brand</Label>
                     <TextBox  Height="20" Width="765" Margin="0,0,-180,18" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="5" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial"  Margin="8,2,0,0">Регистрация в органах</Label>
+                    <Label  FontSize="17" FontFamily="Arial"  Margin="8,2,0,0">Registration in institutions</Label>
                     <TextBox  Height="20" Width="300" Margin="5,0,181,13" />
                     <ComboBox Height="20" Width="25" Margin="-380,0,0,13"></ComboBox>
                 </StackPanel>
 
                 <StackPanel Grid.Row="6" Orientation="Horizontal">
-                    <Label   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Регистрационный №</Label>
+                    <Label   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Registration №</Label>
                     <TextBox  Height="20" Width="200" Margin="2,5,0,20" />
-                    <Label   FontSize="17" FontFamily="Arial" Margin="50,0,0,0">Внутризаводской регистрационный №</Label>
+                    <Label   FontSize="17" FontFamily="Arial" Margin="50,0,0,0">Intra-factory registration №</Label>
                     <TextBox Height="20" Width="205" Margin="3, 5, 0, 20" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="7" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Изготовитель</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">The manufacturer</Label>
                     <TextBox  Height="20" Width="765" Margin="13, 0, 5, 17" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="8" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Заводской №</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Factory №</Label>
                     <TextBox  Height="20" VerticalAlignment="Top" Width="200" Margin="3, 5, 5, 0" />
-                    <Label FontSize="17" FontFamily="Arial" Margin="48,0,0,0">Дата изготовления</Label>
+                    <Label FontSize="17" FontFamily="Arial" Margin="48,0,0,0">Date of creating</Label>
                     <DatePicker x:Name="dateCreatingPicker" Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CreatingCalendarBtn_Click" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="CreatingCalendarBtn_Click" Margin="3, 5, 5, 0" Width="70">Calendar</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="9" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Дата ввода в эксплуатацию</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Commissioning date</Label>
                     <DatePicker x:Name="dateImplementationPicker"  Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="ImplementationBtn_Click" Margin="3, 5, 5, 0" Width="70">Календарь</Button>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="ImplementationBtn_Click" Margin="3, 5, 5, 0" Width="70">Calendar</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="10" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Нормативный срок службы (лет)</Label>
+                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Standard service life (years)</Label>
                     <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
                 </StackPanel>
 
@@ -112,17 +114,17 @@
                     </Grid.RowDefinitions>
                     <Separator Width="980" Height="10" Margin="0,0,0,50" HorizontalAlignment="Center" ></Separator>
                     <StackPanel Grid.Row="0" HorizontalAlignment="Center"  Orientation="Horizontal">
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Первая запись</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Предыдущая запись</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Следующая запись</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Последняя запись</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">First record</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Previous record</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Next record</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Last record</Button>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Сохранить данные</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Отмена</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Удалить запись</Button>
-                        <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Выход</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Save data</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Cancel</Button>
+                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Delete record</Button>
+                        <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Exit</Button>
                     </StackPanel>
                 </Grid>
             </Grid>
