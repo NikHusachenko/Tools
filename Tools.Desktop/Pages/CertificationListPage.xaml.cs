@@ -24,5 +24,28 @@ namespace Tools.Desktop.Pages
 		{
 			InitializeComponent();
 		}
-    }
+		private void creatingCalendarBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			if (creatingDatePicker.Visibility == Visibility.Visible)
+			{
+				creatingDatePicker.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+				creatingDatePicker.Visibility = Visibility.Visible;
+			}
+		}
+
+		private void implementationCalendarBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (implementationDatePicker.Visibility == Visibility.Visible)
+			{
+				implementationDatePicker.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+				implementationDatePicker.Visibility = Visibility.Visible;
+			}
+		}
+	}
 }

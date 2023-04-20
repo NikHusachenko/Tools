@@ -9,16 +9,14 @@
       Title="EquipmentListPage">
 
     <Grid>
-        <ListView x:Name="equipmentListView">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="210">Название обор.</GridViewColumn>
-                    <GridViewColumn Width="150">Марка обор.</GridViewColumn>
-                    <GridViewColumn Width="240">Структур. подразд.</GridViewColumn>
-                    <GridViewColumn Width="200">Подгруппа обор.</GridViewColumn>
-                    <GridViewColumn Width="210">Группа обор.</GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid x:Name="equipmentDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="210" Header="Equipment Name"/>
+                <DataGridTextColumn Width="150" Header="Equipment Brand"/>
+                <DataGridTextColumn Width="210" Header="Equipment structure"/>
+                <DataGridTextColumn Width="210" Header="Equipment subgroup"/>
+                <DataGridTextColumn Width="225" Header="Equipment group"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

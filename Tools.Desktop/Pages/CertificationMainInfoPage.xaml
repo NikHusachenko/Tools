@@ -16,16 +16,16 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Width="auto" >
-            <Label Height="40" Width="auto" Margin="63,0,20,0"  FontSize="20">Название оборудования</Label>
-            <TextBox Width="600" Height="30" Margin="55,0,20,0"/>
+            <Label Height="40" Width="auto" Margin="63,0,20,0"  FontSize="20">Equipment Name</Label>
+            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto">
-            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Марка оборудования</Label>
-            <TextBox Width="600" Height="30" Margin="84,0,20,0"/>
+            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Equipment Name</Label>
+            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Width="auto">
-            <Label Height="40" Width="auto" Margin="64,0,20,0" FontSize="20">Структурное подразделение</Label>
-            <TextBox Width="600" Height="30" Margin="19,0,20,0"/>
+            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Structure division</Label>
+            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
     </Grid>
 </Page>

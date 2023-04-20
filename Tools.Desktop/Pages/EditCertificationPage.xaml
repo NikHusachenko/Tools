@@ -8,65 +8,65 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditCertificationPage">
 
-    <Grid>
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Height="auto" Grid.Row="0" ShowGridLines="False" Margin="0,0,0,17" VerticalAlignment="Center">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Separator Grid.Row="0" Width="960" Margin="0,0,0,30"></Separator>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Label FontSize="23" Width="350" FontFamily="Arial"  Margin="8,0,0,0">Вид обследования:</Label>
-                <TextBox  Height="20" Width="600" Margin="-130,0,0,0" />
+                <Label FontSize="23"  FontFamily="Arial"  Margin="8,0,0,0">Type of survey:</Label>
+                <TextBox  Height="20" Width="600" Margin="29,0,0,0" />
                 <ComboBox Height="20" Width="25" Margin="-23,0,0,0"></ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Характер обследования:</Label>
+                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Manner of survey:</Label>
                 <TextBox  Height="20" Width="200" HorizontalAlignment="Left" Margin="0,0,0,0" />
                 <ComboBox Height="20" Width="25" Margin="-23,0,0,0"></ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Причина обследования:</Label>
+                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Reason of survey:</Label>
                 <TextBox Height="20" Width="600" HorizontalAlignment="Left" Margin="0,0,0,0" />
                 <ComboBox Height="20" Width="25" Margin="-23,0,0,0"></ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <Label  FontSize="23" FontFamily="Arial" Margin="8,4,0,0">Планируемая дата обследования:</Label>
+                <Label  FontSize="23" FontFamily="Arial" Margin="8,4,0,0">Date of planning survey:</Label>
                 <DatePicker x:Name="planningDatePicker" Visibility="Collapsed" Height="25" />
-                <Button  Height="20" x:Name="planningCalendarBtn"  VerticalAlignment="Top" Click="planningCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                <Button  Height="20" x:Name="planningCalendarBtn"  VerticalAlignment="Top" Click="planningCalendarBtn_Click" Margin="3, 15, 5, 0" Width="70">Calendar</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="5" Orientation="Horizontal">
-                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Фактическая дата обследования:</Label>
+                <Label  FontSize="23" FontFamily="Arial" Margin="8,0,0,0">Date of actual survey:</Label>
                 <DatePicker x:Name="actualDatePicker" Visibility="Collapsed" Height="25"/>
-                <Button  Height="20" x:Name="actualCalendarBtn"  VerticalAlignment="Top" Click="actualCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                <Button  Height="20" x:Name="actualCalendarBtn"  VerticalAlignment="Top" Click="actualCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Calendar</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="6" Orientation="Horizontal">
-                <Label  FontSize="23" FontFamily="Arial"  Margin="8,2,0,0">Результат обследования:</Label>
+                <Label  FontSize="23" FontFamily="Arial"  Margin="8,2,0,0">Result of survey:</Label>
                 <TextBox  Height="50" Width="700" Margin="5,0,181,1" />
             </StackPanel>
             <Separator Grid.Row="7" Width="960" Margin="0,10,0,0"></Separator>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="200" Height="40" FontSize="20" Margin="0,0,20,0">Сохранить данные</Button>
-                <Button Width="200" Height="40" FontSize="20" Margin="20,0,20,0">Отмена</Button>
-                <Button Width="200" Height="40" FontSize="20" Margin="100,0,0,0">Выход</Button>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Button Width="200" Height="40" FontSize="20" Margin="0,0,20,0">Save data</Button>
+                <Button Width="200" Height="40" FontSize="20" Margin="20,0,20,0">Cancel</Button>
+                <Button Width="200" Height="40" FontSize="20" Margin="100,0,0,0">Exit</Button>
             </StackPanel>
         </Grid>
     </Grid>

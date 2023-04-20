@@ -12,54 +12,54 @@
         <Grid>
             <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden"/>
         </Grid>
-        
+
         <Grid x:Name="certificationListGrid">
             <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row ="0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Label FontSize="20" Height="40" Margin="31,0,0,0">Дата изготовления</Label>
-                <TextBox Width="140" Height="30" Margin="0,0,0,0"></TextBox>
-                <Label FontSize="20" Height="40" Margin="31,0,0,0">Дата изготовления</Label>
-                <TextBox Width="140" Height="30" Margin="0,0,0,0"></TextBox>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1">
-            <ListView x:Name="equipmentListView">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Width="360">Вид технич(эксп) освид.</GridViewColumn>
-                        <GridViewColumn Width="360">Причина технич(эксп) освид</GridViewColumn>
-                        <GridViewColumn Width="115">Характер освид.</GridViewColumn>
-                        <GridViewColumn Width="90">Д. факт</GridViewColumn>
-                        <GridViewColumn Width="90">Д. план</GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0" >
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Первая запись</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Предыдущая запись</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Следующая запись</Button>
-                <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Последняя запись</Button>
-            </StackPanel>
+            <Grid Grid.Row ="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Creating date</Label>
+                    <DatePicker x:Name="creatingDatePicker" Visibility="Collapsed" Height="25"/>
+                    <Button  Height="20" x:Name="creatingCalendarBtn"  VerticalAlignment="Top" Click="creatingCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Implementation date</Label>
+                    <DatePicker x:Name="implementationDatePicker" Visibility="Collapsed" Height="25"/>
+                    <Button  Height="20" x:Name="implementationCalendarBtn"  VerticalAlignment="Top" Click="implementationCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <DataGrid x:Name="equipmentDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="310" Header="Type of technical (exp) survey."/>
+                        <DataGridTextColumn Width="310" Header="The reason for the technical (exp) inspection."/>
+                        <DataGridTextColumn Width="200" Header="Type of inspection"/>
+                        <DataGridTextColumn Width="100" Header="D. fact"/>
+                        <DataGridTextColumn Width="100" Header="D. plan"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0" >
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">First record</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Previous record</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Next record</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Last record</Button>
+                </StackPanel>
 
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
-                <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Сохранить данные</Button>
-                <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Отмена</Button>
-                <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Удалить запись</Button>
-                <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Выход</Button>
-                <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Печать</Button>
-            </StackPanel>
-        </Grid>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Save data</Button>
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Cancel</Button>
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Delete record</Button>
+                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Exit</Button>
+                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Print</Button>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

@@ -20,7 +20,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid ShowGridLines="True" Grid.Row="0"  Height="auto">
-                <Label FontSize="20" Margin="31,0,0,1">Карточки учета технических (экспертных) освидетильствований оборудования</Label>
+                <Label FontSize="20" Margin="31,0,0,1">Record cards of technical (expert) inspections of equipment</Label>
                 <Separator Width="950" Height="10" Margin="0,28,0,1"></Separator>
             </Grid>
             <Grid Grid.Row="1" VerticalAlignment="Center">
@@ -36,11 +36,15 @@
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Margin="70,0,0,0" FontSize="16">В базе данных не обнаружено</Label>
+                    <Label Grid.Row="0" Margin="70,0,0,0" FontSize="16">Not found data in database</Label>
                     <Separator Width="950" Grid.Row="1" Height="10" Margin="0,180,0,0"></Separator>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2" >
-                        <Button x:Name="backToEquipmentCatalog" Height="50" FontSize="20" Width="400" Margin="0,0,20,0" Click="backToEquipmentCatalog_Click">Вернуться в картотеку оборудования</Button>
-                        <Button Height="50" FontSize="17" Width="400" Margin="20,0,0,0" Click="CreateAccountingCard_Click">Завести карточку учета тех.освид.оборудования</Button>
+                        <Button x:Name="backToEquipmentCatalog" Height="50" FontSize="20" Width="300" Margin="0,0,100,0" Click="backToEquipmentCatalog_Click">Back to the equipment list</Button>
+                        <Button Height="55" FontSize="20" Width="300" Margin="100,0,0,0" Click="CreateAccountingCard_Click">
+                            <TextBlock TextWrapping="Wrap">
+                                Create an accounting card for technical inspection equipment
+                            </TextBlock>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Grid>

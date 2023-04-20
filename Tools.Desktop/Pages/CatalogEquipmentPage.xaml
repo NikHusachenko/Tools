@@ -15,25 +15,26 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
-            <Label FontSize="20" Width="auto" Height="40" Margin="0,0,0,0">Выбор группы и подгруппы оборудования</Label>
-            <Separator Width="980" Height="10" Margin="0,0,0,0" HorizontalAlignment="Center"></Separator>
-        </StackPanel></Grid>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Label FontSize="20" Width="auto" Height="40" Margin="0,0,0,0">Equipment group and subgroup selection</Label>
+                <Separator Width="980" Height="10" Margin="0,0,0,0" HorizontalAlignment="Center"></Separator>
+            </StackPanel>
+        </Grid>
         <Grid Grid.Row="1">
-        <ListView x:Name="equipmentListView" Grid.Row="1" Height="560">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="500">Подгруппа обор.</GridViewColumn>
-                    <GridViewColumn Width="500">Группа обор.</GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <ListView x:Name="equipmentListView" Grid.Row="1" Height="560">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="500">Equipment subgroup</GridViewColumn>
+                        <GridViewColumn Width="500">Equipment group</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
-            <Button x:Name="cancelBtn" Click="cancelBtn_Click" FontSize="26" Width="180" Height="40" Margin="0,0,200,0">Отмена</Button>
-                <Button FontSize="26" Width="180" Height="40" Margin="200,0,0,0">Выбрать</Button>
-        </StackPanel>
+                <Button x:Name="cancelBtn" Click="cancelBtn_Click" FontSize="26" Width="180" Height="40" Margin="0,0,200,0">Cancel</Button>
+                <Button FontSize="26" Width="180" Height="40" Margin="200,0,0,0">Select</Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
