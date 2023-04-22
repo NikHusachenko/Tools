@@ -9,9 +9,9 @@ namespace Tools.EntityFramework.GenericRepository
 {
 	public class GenericRepository<T> : IGenericRepository<T> where T : class
 	{
-		private readonly ApplicationContext _context;
+		private readonly ApplicationDbContext _context;
 
-		public GenericRepository(ApplicationContext context)
+		public GenericRepository(ApplicationDbContext context)
 		{
 			_context = context;
 		}

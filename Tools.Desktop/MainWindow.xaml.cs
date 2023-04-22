@@ -1,5 +1,8 @@
 ﻿using System.Windows;
+using Tools.Database.Entities;
 using Tools.Desktop.Pages;
+using Tools.EntityFramework;
+using Tools.EntityFramework.GenericRepository;
 
 namespace Tools.Desktop
 {
@@ -9,12 +12,15 @@ namespace Tools.Desktop
         private readonly EditEquipmentPage _editEquipmentPage;
         private readonly CertificationLayoutPage _certificationLayoutPage;
 
-        public MainWindow(EquipmentPage equipmentPage, EditEquipmentPage editEquipmentPage, CertificationLayoutPage certificationLayoutPage)
+        public MainWindow(EquipmentPage equipmentPage, 
+            EditEquipmentPage editEquipmentPage, 
+            CertificationLayoutPage certificationLayoutPage)
         {
-            InitializeComponent();
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
             _certificationLayoutPage = certificationLayoutPage;
+
+            InitializeComponent();
         }
 
         private void EquipmentMenuItem_Click(object sender, RoutedEventArgs e)

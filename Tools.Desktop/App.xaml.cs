@@ -2,6 +2,8 @@
 using System;
 using System.Windows;
 using Tools.Desktop.Pages;
+using Tools.EntityFramework;
+using Tools.EntityFramework.GenericRepository;
 
 namespace Tools.Desktop
 {
@@ -19,6 +21,8 @@ namespace Tools.Desktop
         private void ConfigureServices(IServiceCollection services)
         {
             // Configurations
+            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             // Services
 
@@ -34,6 +38,10 @@ namespace Tools.Desktop
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            // Requared to save default data
+            ApplicationDbContext dbContext = _serviceProvider.GetService<ApplicationDbContext>();
+            ApplicationContextInitializer.InitializeDefaultData(dbContext);
+
             MainWindow main = _serviceProvider.GetRequiredService<MainWindow>();
             main.Show();
         }

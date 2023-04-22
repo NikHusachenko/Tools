@@ -4,13 +4,13 @@ using Tools.EntityFramework.Configurations;
 
 namespace Tools.EntityFramework
 {
-	public class ApplicationContext : DbContext
+	public class ApplicationDbContext : DbContext
 	{
 		public DbSet<ToolEntity> Tools { get; set; }
 		public DbSet<ToolGroupEntity> Groups { get; set; }
 		public DbSet<ToolSubgroupEntity> Subgroups { get; set; }
 
-        public ApplicationContext() : base(Common.Configuration.DEFAULT_CONNECTION)
+        public ApplicationDbContext() : base(Common.Configuration.DEFAULT_CONNECTION)
 		{
             Database.CreateIfNotExists();
         }

@@ -13,7 +13,7 @@ namespace Tools.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202304221347441_InitialCreate"; }
+            get { return "202304221710321_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
