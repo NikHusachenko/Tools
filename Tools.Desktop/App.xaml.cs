@@ -4,6 +4,8 @@ using System.Windows;
 using Tools.Desktop.Pages;
 using Tools.EntityFramework;
 using Tools.EntityFramework.GenericRepository;
+using Tools.Services.ToolGroupServices;
+using Tools.Services.ToolSubgroupServices;
 
 namespace Tools.Desktop
 {
@@ -25,6 +27,8 @@ namespace Tools.Desktop
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             // Services
+            services.AddTransient<IToolGroupService, ToolGroupService>();
+            services.AddTransient<IToolSubgroupService, ToolSubgroupService>();
 
             // Validators
 
@@ -32,7 +36,6 @@ namespace Tools.Desktop
             services.AddTransient<EquipmentPage>();
             services.AddTransient<EditEquipmentPage>();
             services.AddTransient<CertificationLayoutPage>();
-
             services.AddTransient<MainWindow>();
         }
 

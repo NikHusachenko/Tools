@@ -31,14 +31,15 @@ namespace Tools.EntityFramework
                 }
             };
 
-            if ((await groups.ToListAsync()).Count != 0)
+            foreach (var record in groups)
             {
-                groups.RemoveRange(await groups.ToArrayAsync());
-                await context.SaveChangesAsync();
+                var dbRecord = await groups.FirstOrDefaultAsync(group => group.Name == record.Name);
+                if (record == null)
+                {
+                    groups.Add(record);
+                    await context.SaveChangesAsync();
+                }
             }
-
-            groups.AddRange(groupsRecords);
-            await context.SaveChangesAsync();
 
             var subgroups = context.Set<ToolSubgroupEntity>();
             var subgroupsRecords = new List<ToolSubgroupEntity>
@@ -160,9 +161,14 @@ namespace Tools.EntityFramework
                 },
             };
 
-            if ((await subgroups.ToListAsync()).Count != 0)
+            foreach (var record in subgroupsRecords)
             {
-                subgroups.RemoveRange(await subgroups.ToListAsync());
+                var dbRecord = await subgroups.FirstOrDefaultAsync(subgroup => subgroup.Name == record.Name);
+                if (dbRecord == null)
+                {
+                    subgroups.Add(record);
+                    await context.SaveChangesAsync();
+                }
             }
 
             subgroups.AddRange(subgroupsRecords);
