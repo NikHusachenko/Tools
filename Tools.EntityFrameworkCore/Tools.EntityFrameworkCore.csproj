@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tools.Common\Tools.Common.csproj" />
+    <ProjectReference Include="..\Tools.Database\Tools.Database.csproj" />
+    <ProjectReference Include="..\Tools.Services\Tools.Services.csproj" />
+  </ItemGroup>
+
+</Project>

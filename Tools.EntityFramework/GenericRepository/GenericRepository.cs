@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Tools.EntityFramework.GenericRepository
 
 		public async Task Create(T entity)
 		{
-			await Table.AddAsync(entity);
+			Table.Add(entity);
 			await _context.SaveChangesAsync();
 		}
 
@@ -51,7 +52,7 @@ namespace Tools.EntityFramework.GenericRepository
 
 		public async Task Update(T entity)
 		{
-			Table.Update(entity);
+			Table.AddOrUpdate(entity);
 			await _context.SaveChangesAsync();
 		}
 	}

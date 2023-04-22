@@ -1,23 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Tools.Common;
+﻿using System.Data.Entity;
+using Tools.Database.Entities;
+using Tools.EntityFramework.Configurations;
 
 namespace Tools.EntityFramework
 {
 	public class ApplicationContext : DbContext
 	{
+		public DbSet<ToolEntity> Tools { get; set; }
+		public DbSet<ToolGroupEntity> Groups { get; set; }
+		public DbSet<ToolSubgroupEntity> Subgroups { get; set; }
 
-		public ApplicationContext() 
+        public ApplicationContext() : base(Common.Configuration.DEFAULT_CONNECTION)
 		{
-			Database.Migrate();
-		}
+            Database.CreateIfNotExists();
+        }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseSqlServer(Configuration.DEFAULT_CONNECTION);
-		}
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			
-		}
-	}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ToolConfiguration());
+            modelBuilder.Configurations.Add(new ToolGroupConfiguration());
+            modelBuilder.Configurations.Add(new ToolSubgroupConfiguration());
+        }
+    }
 }
