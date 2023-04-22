@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using Tools.Database.Entities;
 
 namespace Tools.EntityFramework
@@ -31,13 +30,18 @@ namespace Tools.EntityFramework
                 }
             };
 
-            foreach (var record in groups)
+            for (int i = 0; i < groupsRecords.Count; i++)
             {
-                var dbRecord = await groups.FirstOrDefaultAsync(group => group.Name == record.Name);
-                if (record == null)
+                string groupName = groupsRecords[i].Name;
+                ToolGroupEntity dbRecord = await groups.FirstOrDefaultAsync(group => group.Name == groupName);
+                if (dbRecord == null)
                 {
-                    groups.Add(record);
+                    groups.Add(groupsRecords[i]);
                     await context.SaveChangesAsync();
+                }
+                else
+                {
+                    groupsRecords[i].Id = dbRecord.Id;
                 }
             }
 
@@ -161,12 +165,13 @@ namespace Tools.EntityFramework
                 },
             };
 
-            foreach (var record in subgroupsRecords)
+            for (int i = 0; i < subgroupsRecords.Count; i++)
             {
-                var dbRecord = await subgroups.FirstOrDefaultAsync(subgroup => subgroup.Name == record.Name);
+                string subgroupName = subgroupsRecords[i].Name;
+                ToolSubgroupEntity dbRecord = await subgroups.FirstOrDefaultAsync(subgroup => subgroup.Name == subgroupName);
                 if (dbRecord == null)
                 {
-                    subgroups.Add(record);
+                    subgroups.Add(subgroupsRecords[i]);
                     await context.SaveChangesAsync();
                 }
             }

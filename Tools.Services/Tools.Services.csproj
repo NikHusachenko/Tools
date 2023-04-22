@@ -55,8 +55,14 @@
     <Compile Include="Response\ResponseService.cs" />
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />
     <Compile Include="ToolGroupServices\ToolGroupService.cs" />
+    <Compile Include="ToolSubgroupServices\IToolSubgroupService.cs" />
+    <Compile Include="ToolSubgroupServices\ToolSubgroupService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tools.Common\Tools.Common.csproj">
+      <Project>{73df5c23-f2b9-4107-a60d-f7f53d819327}</Project>
+      <Name>Tools.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tools.Database\Tools.Database.csproj">
       <Project>{2E30DEC3-881B-4F94-B544-4AA93A4F9C2A}</Project>
       <Name>Tools.Database</Name>
