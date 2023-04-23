@@ -3,20 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tools.Desktop"
         mc:Ignorable="d"
         Title="MainWindow"  
         MaxHeight="768" 
         MaxWidth="1024"
         MinHeight="768" 
         MinWidth="1024">
-    <Grid>
-        <Grid.RowDefinitions x:Uid="rowDefinitions">
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" Height="auto" VerticalAlignment="Top">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Menu Grid.Row="0">
             <MenuItem FontSize="15" Header="Equipment" Height="auto">
                 <MenuItem Header="Equipments" Click="EquipmentMenuItem_Click"></MenuItem>
                 <MenuItem Header="Add Equipment" Click="AddEquipmentMenuItem_Click" ></MenuItem>
@@ -24,13 +24,7 @@
                 <MenuItem Header="Survey schedule" Click="GraphicMenuItem_Click" ></MenuItem>
             </MenuItem>
         </Menu>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="22"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Label FontSize="11" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="0" Foreground="Red" >Global Error Label</Label>
-            <Frame x:Name="pagesFrame" Grid.Row="1" VerticalAlignment="Center" NavigationUIVisibility="Hidden" />
-        </Grid>
+            
+        <Frame Grid.Row="1" x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

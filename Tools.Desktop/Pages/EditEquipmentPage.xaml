@@ -3,127 +3,262 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      mc:Ignorable="d" 
-      Height="885" Width="1024"
+      mc:Ignorable="d"
       Title="EditEquipmentPage">
 
-    <Grid>
-        <Grid x:Name="catalogEquipmentGrid" Visibility="Collapsed">
-            <Frame x:Name="catalogEquipmentFrame"></Frame>
+    <Page.Resources>
+        <Style TargetType="TextBox" x:Key="Input">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10, 0, 10, 0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="Calendar">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Margin" Value="10, 0, 10, 0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+        <Style TargetType="Label" x:Key="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Label" x:Key="HeaderLabel">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="ComboBox" x:Key="Selector">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Button" x:Key="Catalog">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+        </Style>
+        <Style TargetType="Button" x:Key="BottomNavigation">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="10, 5, 10, 5" />
+        </Style>
+    </Page.Resources>
+    
+    <Grid x:Name="editEquipmentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/> <!-- 1 -->
+            <RowDefinition Height="*"/> <!-- 2 -->
+            <RowDefinition Height="*"/> <!-- 3 -->
+            <RowDefinition Height="*"/> <!-- 4 -->
+            <RowDefinition Height="*"/> <!-- 5 -->
+            <RowDefinition Height="*"/> <!-- 6 -->
+            <RowDefinition Height="*"/> <!-- 7 -->
+            <RowDefinition Height="*"/> <!-- 8 -->
+            <RowDefinition Height="*"/> <!-- 9 -->
+            <RowDefinition Height="*"/> <!-- 10 -->
+            <RowDefinition Height="*"/> <!-- 11 -->
+            <RowDefinition Height="*"/> <!-- 12 -->
+            <RowDefinition Height="auto"/> <!-- 13 -->
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="Create equipment card"></Label>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Structural division of the organization</Label>
+            <ComboBox Grid.Column="1" Name="organizationUnitComboBox" Style="{StaticResource Selector}"></ComboBox>
         </Grid>
-        <Grid x:Name="editEquipmentGrid">
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0"  Style="{StaticResource Label}" >Equipment group</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment subgroup</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <Button Grid.Column="2" x:Name="catalogBtn" Style="{StaticResource Catalog}">Catalog</Button>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment name</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment brand</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}" >Registration in institutions</Label>
+            <ComboBox Grid.Column="1" Style="{StaticResource Selector}"></ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Style="{StaticResource Label}">Registration №</Label>
+                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Style="{StaticResource Label}">Intra-factory registration №</Label>
+                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}">The manufacturer</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Style="{StaticResource Label}">Factory №</Label>
+                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Style="{StaticResource Label}">Date of creating</Label>
+                <TextBox Grid.Column="1" Text="Calendar" Style="{StaticResource Calendar}" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Commissioning date</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Calendar}" Text="Calendar" />
+        </Grid>
+
+        <Grid Grid.Row="11">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Style="{StaticResource Label}">Standard service life (years)</Label>
+            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="12">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35px"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" ShowGridLines="False">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1000" />
-                </Grid.RowDefinitions>
-                <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Create equipment card"></Label>
-                <Separator Width="980" Height="10" Margin="0,-17,0,917" HorizontalAlignment="Center" ></Separator>
+            <Separator Grid.Row="0" VerticalAlignment="Top" Margin="15" Background="white" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Style="{StaticResource BottomNavigation}">First record</Button>
+                <Button Grid.Column="1" Style="{StaticResource BottomNavigation}">Previous record</Button>
+                <Button Grid.Column="2" Style="{StaticResource BottomNavigation}">Next record</Button>
+                <Button Grid.Column="3" Style="{StaticResource BottomNavigation}">Last record</Button>
             </Grid>
-            <Grid Grid.Row="1" Height="auto" ShowGridLines="False" Margin="0,0,0,77" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="30*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Grid.Row="0" HorizontalAlignment="Left" FontSize="17" Width="350" Height="50" FontFamily="Arial"  Margin="8,0,0,0">Structural division of the organization</Label>
 
-                    <ComboBox Height="25" Width="auto" Name="organizationUnitComboBox"></ComboBox>
-                </StackPanel>
-
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Label Grid.Row="1"   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment group</Label>
-                    <TextBox Grid.Row="1" Height="20" Width="600" Margin="5,0,-187,15" />
-                </StackPanel>
-
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment subgroup</Label>
-                    <TextBox  Height="20" Width="605" VerticalAlignment="Top" Margin="5,5,5,5" />
-                    <Button x:Name="catalogBtn" Width="80" Height="20" HorizontalAlignment="Right" Margin="0,0,0,15" Click="catalogBtn_Click">Catalog</Button>
-                </StackPanel>
-
-                <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,4,0,0">Equipment name</Label>
-                    <TextBox Height="20" Width="765" Margin="0,7,-190,17" />
-                </StackPanel>
-
-                <StackPanel Grid.Row="4" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Equipment brand</Label>
-                    <TextBox  Height="20" Width="765" Margin="0,0,-180,18" />
-                </StackPanel>
-
-                <StackPanel Grid.Row="5" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial"  Margin="8,2,0,0">Registration in institutions</Label>
-                    <TextBox  Height="20" Width="300" Margin="5,0,181,13" />
-                    <ComboBox Height="20" Width="25" Margin="-380,0,0,13"></ComboBox>
-                </StackPanel>
-
-                <StackPanel Grid.Row="6" Orientation="Horizontal">
-                    <Label   FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Registration №</Label>
-                    <TextBox  Height="20" Width="200" Margin="2,5,0,20" />
-                    <Label   FontSize="17" FontFamily="Arial" Margin="50,0,0,0">Intra-factory registration №</Label>
-                    <TextBox Height="20" Width="205" Margin="3, 5, 0, 20" />
-                </StackPanel>
-
-                <StackPanel Grid.Row="7" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">The manufacturer</Label>
-                    <TextBox  Height="20" Width="765" Margin="13, 0, 5, 17" />
-                </StackPanel>
-
-                <StackPanel Grid.Row="8" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Factory №</Label>
-                    <TextBox  Height="20" VerticalAlignment="Top" Width="200" Margin="3, 5, 5, 0" />
-                    <Label FontSize="17" FontFamily="Arial" Margin="48,0,0,0">Date of creating</Label>
-                    <DatePicker x:Name="dateCreatingPicker" Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CreatingCalendarBtn_Click" Margin="3, 5, 5, 0" Width="70">Calendar</Button>
-                </StackPanel>
-
-                <StackPanel Grid.Row="9" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Commissioning date</Label>
-                    <DatePicker x:Name="dateImplementationPicker"  Height="22" Margin="0 0 0 15" Visibility="Collapsed"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="ImplementationBtn_Click" Margin="3, 5, 5, 0" Width="70">Calendar</Button>
-                </StackPanel>
-
-                <StackPanel Grid.Row="10" Orientation="Horizontal">
-                    <Label  FontSize="17" FontFamily="Arial" Margin="8,0,0,0">Standard service life (years)</Label>
-                    <TextBox  Height="20" Width="100" Margin="5, 0, 5, 13" />
-                </StackPanel>
-
-                <Grid Grid.Row="11" Height="auto">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <Separator Width="980" Height="10" Margin="0,0,0,50" HorizontalAlignment="Center" ></Separator>
-                    <StackPanel Grid.Row="0" HorizontalAlignment="Center"  Orientation="Horizontal">
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">First record</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Previous record</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Next record</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Last record</Button>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Save data</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Cancel</Button>
-                        <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Delete record</Button>
-                        <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Exit</Button>
-                    </StackPanel>
-                </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" Style="{StaticResource BottomNavigation}">Save data</Button>
+                <Button Grid.Column="1" Style="{StaticResource BottomNavigation}">Cancel</Button>
+                <Button Grid.Column="2" Style="{StaticResource BottomNavigation}">Delete record</Button>
+                <Button Grid.Column="3" Style="{StaticResource BottomNavigation}">Exit</Button>
             </Grid>
         </Grid>
     </Grid>

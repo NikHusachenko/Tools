@@ -21,27 +21,26 @@ namespace Tools.Desktop.Pages
 
 		private void CreatingCalendarBtn_Click(object sender, RoutedEventArgs e)
 		{
-			
-			if (dateCreatingPicker.Visibility == Visibility.Visible)
+			/*if (dateCreatingPicker.Visibility == Visibility.Visible)
 			{
 				dateCreatingPicker.Visibility = Visibility.Collapsed;
 			}
 			else
 			{
 				dateCreatingPicker.Visibility = Visibility.Visible;
-			}
+			}*/
 		}
 
 		private void ImplementationBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (dateImplementationPicker.Visibility == Visibility.Visible)
+			/*if (dateImplementationPicker.Visibility == Visibility.Visible)
 			{
 				dateImplementationPicker.Visibility = Visibility.Collapsed;
 			}
 			else
 			{
 				dateImplementationPicker.Visibility = Visibility.Visible;
-			}
+			}*/
 		}
 
 		private void catalogBtn_Click(object sender, RoutedEventArgs e)
