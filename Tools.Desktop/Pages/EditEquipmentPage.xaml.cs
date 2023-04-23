@@ -1,16 +1,22 @@
-﻿using System.Windows;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Windows;
 using System.Windows.Controls;
+using Tools.Database.Enums;
 
 namespace Tools.Desktop.Pages
 {
-	/// <summary>
-	/// Логика взаимодействия для EditEquipmentPage.xaml
-	/// </summary>
 	public partial class EditEquipmentPage : Page
 	{
 		public EditEquipmentPage()
 		{
 			InitializeComponent();
+
+			string[] unitDisplayTypes = OrganizationalUnitDisplay.GetDisplayNames();
+			foreach (string unit in unitDisplayTypes)
+			{
+				organizationUnitComboBox.Items.Add(unit);
+			}
 		}
 
 		private void CreatingCalendarBtn_Click(object sender, RoutedEventArgs e)
@@ -40,9 +46,9 @@ namespace Tools.Desktop.Pages
 
 		private void catalogBtn_Click(object sender, RoutedEventArgs e)
 		{
-			editEquipmentGrid.Visibility = Visibility.Hidden;
+/*			editEquipmentGrid.Visibility = Visibility.Hidden;
 			catalogEquipmentGrid.Visibility = Visibility.Visible;
-			catalogEquipmentFrame.Navigate(new CatalogEquipmentPage(editEquipmentGrid));
+			catalogEquipmentFrame.Navigate(new CatalogEquipmentPage(editEquipmentGrid));*/
 		}
 	}
 }

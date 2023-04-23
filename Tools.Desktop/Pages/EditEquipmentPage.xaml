@@ -2,8 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Tools.Desktop.Pages"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
       Height="885" Width="1024"
       Title="EditEquipmentPage">
@@ -23,9 +22,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1000" />
                 </Grid.RowDefinitions>
-                <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0">
-                    Equipment card
-                </Label>
+                <Label FontSize="22" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Arial" Margin="10,0,0,0" Content="Create equipment card"></Label>
                 <Separator Width="980" Height="10" Margin="0,-17,0,917" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="1" Height="auto" ShowGridLines="False" Margin="0,0,0,77" Grid.RowSpan="2">
@@ -45,8 +42,8 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <Label Grid.Row="0" HorizontalAlignment="Left" FontSize="17" Width="350" Height="50" FontFamily="Arial"  Margin="8,0,0,0">Structural division of the organization</Label>
-                    <TextBox Grid.Row="0" Height="20" Width="600" HorizontalAlignment="Left" Margin="0,0,0,10" />
-                    <ComboBox Height="20" Width="25" Margin="-23,0,0,10"></ComboBox>
+
+                    <ComboBox Height="25" Width="auto" Name="organizationUnitComboBox"></ComboBox>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
