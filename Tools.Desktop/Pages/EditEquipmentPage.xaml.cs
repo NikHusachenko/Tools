@@ -1,15 +1,24 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using Tools.Database.Entities;
 using Tools.Database.Enums;
+using Tools.Desktop.Windows;
+using Tools.Services.Response;
+using Tools.Services.ToolGroupServices;
+using Tools.Services.ToolSubgroupServices;
 
 namespace Tools.Desktop.Pages
 {
 	public partial class EditEquipmentPage : Page
 	{
-        private bool _creatinDateCalendarIsFixed = false;
+		private readonly IToolGroupService _toolGroupService;
+		private readonly IToolSubgroupService _toolSubgroupService;
 
-		public EditEquipmentPage()
+		public EditEquipmentPage(IToolGroupService toolGroupService,
+			IToolSubgroupService toolSubgroupService)
 		{
+			_toolGroupService = toolGroupService;
+			_toolSubgroupService = toolSubgroupService;
+
 			InitializeComponent();
 
             string[] unitDisplayTypes = OrganizationalUnitDisplay.GetDisplayNames();
@@ -19,19 +28,19 @@ namespace Tools.Desktop.Pages
 			}
 		}
 
-        private void dateOfCreatingTextBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        private void showCatalogButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            dateOfCreatingCalendar.Visibility = Visibility.Visible;
-        }
+			CatalogWindow catalogWindow = new CatalogWindow(_toolGroupService,
+				_toolSubgroupService);
 
-        private void dateOfCreatingTextBox_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            dateOfCreatingCalendar.Visibility = Visibility.Hidden;
-        }
+			catalogWindow.ShowDialog();
+			var response = catalogWindow.DataContext as ResponseService<ToolSubgroupEntity>;
 
-        private void dateOfCreatingTextBox_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            _creatinDateCalendarIsFixed = true;
+			if (!response.IsError)
+			{
+				equipmentGroupTextBox.Text = response.Value.Group.Name;
+				equipmentSubgroupTextBox.Text = response.Value.Name;
+			}
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using Tools.Common;
 using Tools.Database.Entities;
@@ -35,7 +36,11 @@ namespace Tools.Services.ToolSubgroupServices
 
         public async Task<ResponseService<ToolSubgroupEntity>> GetByName(string name)
         {
-            ToolSubgroupEntity dbRecord = await _toolSubgroupRepository.GetBy(subgroup =>  subgroup.Name == name);
+            ToolSubgroupEntity dbRecord = await _toolSubgroupRepository.GetAll()
+                .Where(subgroup => subgroup.Name == name)
+                .Include(subgroup => subgroup.Group)
+                .FirstOrDefaultAsync();
+
             if (dbRecord == null)
             {
                 return ResponseService<ToolSubgroupEntity>.Error(Errors.NOT_FOUND_ERROR);

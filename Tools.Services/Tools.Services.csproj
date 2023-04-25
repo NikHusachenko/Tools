@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\ResponseService.cs" />
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />
+    <Compile Include="ToolGroupServices\Models\CatalogGetModel.cs" />
     <Compile Include="ToolGroupServices\ToolGroupService.cs" />
     <Compile Include="ToolSubgroupServices\IToolSubgroupService.cs" />
     <Compile Include="ToolSubgroupServices\ToolSubgroupService.cs" />

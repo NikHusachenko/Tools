@@ -2,24 +2,33 @@
 using System.Windows;
 using System.Windows.Controls;
 using Tools.Database.Enums;
+using Tools.Desktop.Windows;
+using Tools.Services.ToolGroupServices;
+using Tools.Services.ToolSubgroupServices;
 
 namespace Tools.Desktop.Pages
 {
-	/// <summary>
-	/// Логика взаимодействия для EquipmentPage.xaml
-	/// </summary>
 	public partial class EquipmentPage : Page
 	{
-		public EquipmentPage()
+		private readonly IToolGroupService _toolGroupService;
+		private readonly IToolSubgroupService _toolSubgroupService;
+
+		public EquipmentPage(IToolGroupService toolGroupService,
+			IToolSubgroupService toolSubgroupService)
 		{
+			_toolGroupService = toolGroupService;
+			_toolSubgroupService = toolSubgroupService;
+
 			InitializeComponent(); 
+
 			equipmentFrame.Navigate(new EquipmentListPage());
 			sortingComboBox.ItemsSource = Enum.GetNames(typeof(SortType));	
 		}
 		private void AddNewCard_Click(object sender, RoutedEventArgs e)
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
-			pagesFrame.Navigate(new EditEquipmentPage());
+			pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
+				_toolSubgroupService));
 		}
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
@@ -31,7 +40,8 @@ namespace Tools.Desktop.Pages
 		private void ShowSelectedCard_Click(object sender, RoutedEventArgs e)
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
-			pagesFrame.Navigate(new EditEquipmentPage());
+			pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
+				_toolSubgroupService));
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using Tools.Desktop.Pages;
+using Tools.Desktop.Windows;
 using Tools.EntityFramework;
 using Tools.EntityFramework.GenericRepository;
 using Tools.Services.ToolGroupServices;
@@ -33,9 +34,10 @@ namespace Tools.Desktop
             // Validators
 
             // Pages
-            services.AddTransient<EquipmentPage>();
+            services.AddTransient<CatalogWindow>();
             services.AddTransient<EditEquipmentPage>();
             services.AddTransient<CertificationLayoutPage>();
+            services.AddTransient<EquipmentPage>();
             services.AddTransient<MainWindow>();
         }
 

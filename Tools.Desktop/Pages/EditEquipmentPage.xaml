@@ -83,7 +83,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Structural division of the organization</Label>
-            <ComboBox Grid.Column="1" Name="organizationUnitComboBox" Style="{StaticResource Selector}"></ComboBox>
+            <ComboBox Grid.Column="1" Name="organizationUnitComboBox" Style="{StaticResource Selector}"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -92,8 +92,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Label Grid.Column="0"  Style="{StaticResource Label}" >Equipment group</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <Label Grid.Column="0" Style="{StaticResource Label}" >Equipment group</Label>
+            <TextBox x:Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
         </Grid>
 
         <Grid Grid.Row="3">
@@ -104,8 +104,8 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="0" Style="{StaticResource Label}">Equipment subgroup</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
-            <Button Grid.Column="2" x:Name="catalogBtn" Style="{StaticResource Catalog}">Catalog</Button>
+            <TextBox x:Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+            <Button Grid.Column="2" x:Name="showCatalogButton" Style="{StaticResource Catalog}" Click="showCatalogButton_Click">Catalog</Button>
         </Grid>
 
         <Grid Grid.Row="4">
@@ -203,7 +203,7 @@
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -232,7 +232,7 @@
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>

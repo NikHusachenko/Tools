@@ -175,9 +175,6 @@ namespace Tools.EntityFramework
                     await context.SaveChangesAsync();
                 }
             }
-
-            subgroups.AddRange(subgroupsRecords);
-            await context.SaveChangesAsync();
         }
     }
 }
