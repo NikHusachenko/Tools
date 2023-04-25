@@ -16,15 +16,6 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontFamily" Value="Arial" />
         </Style>
-        <Style TargetType="TextBox" x:Key="Calendar">
-            <Setter Property="Height" Value="25" />
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Margin" Value="10, 0, 10, 0" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontFamily" Value="Arial" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="IsReadOnly" Value="True" />
-        </Style>
         <Style TargetType="Label" x:Key="Label">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontSize" Value="17" />
@@ -58,6 +49,11 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Margin" Value="10, 5, 10, 5" />
+        </Style>
+        <Style TargetType="DatePicker" x:Key="DatePicker">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0, 0, 10 0" />
         </Style>
     </Page.Resources>
     
@@ -199,9 +195,21 @@
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                
+
                 <Label Grid.Column="0" Style="{StaticResource Label}">Date of creating</Label>
-                <TextBox Grid.Column="1" Text="Calendar" Style="{StaticResource Calendar}" />
+                <DatePicker Grid.Column="1" Name="dateOfCreatingCalendar" Style="{StaticResource DatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
             </Grid>
         </Grid>
 
@@ -212,7 +220,26 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Commissioning date</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Calendar}" Text="Calendar" />
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <DatePicker Grid.Column="0" Name="commissioningDateCalendar" Style="{StaticResource DatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+            </Grid>
         </Grid>
 
         <Grid Grid.Row="11">

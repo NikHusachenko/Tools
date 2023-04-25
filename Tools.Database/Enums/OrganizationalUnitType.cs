@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Tools.Database.Enums
 {

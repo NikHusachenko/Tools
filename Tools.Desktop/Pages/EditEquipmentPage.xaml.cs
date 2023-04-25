@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using Tools.Database.Enums;
 
@@ -8,46 +6,32 @@ namespace Tools.Desktop.Pages
 {
 	public partial class EditEquipmentPage : Page
 	{
+        private bool _creatinDateCalendarIsFixed = false;
+
 		public EditEquipmentPage()
 		{
 			InitializeComponent();
 
-			string[] unitDisplayTypes = OrganizationalUnitDisplay.GetDisplayNames();
+            string[] unitDisplayTypes = OrganizationalUnitDisplay.GetDisplayNames();
 			foreach (string unit in unitDisplayTypes)
 			{
 				organizationUnitComboBox.Items.Add(unit);
 			}
 		}
 
-		private void CreatingCalendarBtn_Click(object sender, RoutedEventArgs e)
-		{
-			/*if (dateCreatingPicker.Visibility == Visibility.Visible)
-			{
-				dateCreatingPicker.Visibility = Visibility.Collapsed;
-			}
-			else
-			{
-				dateCreatingPicker.Visibility = Visibility.Visible;
-			}*/
-		}
+        private void dateOfCreatingTextBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            dateOfCreatingCalendar.Visibility = Visibility.Visible;
+        }
 
-		private void ImplementationBtn_Click(object sender, RoutedEventArgs e)
-		{
-			/*if (dateImplementationPicker.Visibility == Visibility.Visible)
-			{
-				dateImplementationPicker.Visibility = Visibility.Collapsed;
-			}
-			else
-			{
-				dateImplementationPicker.Visibility = Visibility.Visible;
-			}*/
-		}
+        private void dateOfCreatingTextBox_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            dateOfCreatingCalendar.Visibility = Visibility.Hidden;
+        }
 
-		private void catalogBtn_Click(object sender, RoutedEventArgs e)
-		{
-/*			editEquipmentGrid.Visibility = Visibility.Hidden;
-			catalogEquipmentGrid.Visibility = Visibility.Visible;
-			catalogEquipmentFrame.Navigate(new CatalogEquipmentPage(editEquipmentGrid));*/
-		}
-	}
+        private void dateOfCreatingTextBox_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            _creatinDateCalendarIsFixed = true;
+        }
+    }
 }
