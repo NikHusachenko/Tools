@@ -23,7 +23,7 @@ namespace Tools.Desktop.Pages
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
 
-			InitializeComponent(); 
+			InitializeComponent();
 
 			equipmentFrame.Navigate(new EquipmentListPage());
 			sortingComboBox.ItemsSource = Enum.GetNames(typeof(SortType));	
