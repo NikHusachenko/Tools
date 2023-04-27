@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Tools.Desktop.Pages;
+using Tools.Services.DocumentServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
