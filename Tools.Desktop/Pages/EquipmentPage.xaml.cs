@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using Tools.Database.Enums;
 using Tools.Desktop.Windows;
 using Tools.Services.ToolGroupServices;
+using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
 
 namespace Tools.Desktop.Pages
@@ -12,12 +13,15 @@ namespace Tools.Desktop.Pages
 	{
 		private readonly IToolGroupService _toolGroupService;
 		private readonly IToolSubgroupService _toolSubgroupService;
+		private readonly IToolService _toolService;
 
 		public EquipmentPage(IToolGroupService toolGroupService,
-			IToolSubgroupService toolSubgroupService)
+			IToolSubgroupService toolSubgroupService,
+			IToolService toolService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
+			_toolService = toolService;
 
 			InitializeComponent(); 
 
@@ -28,7 +32,8 @@ namespace Tools.Desktop.Pages
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
 			pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
-				_toolSubgroupService));
+				_toolSubgroupService,
+				_toolService));
 		}
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
@@ -41,7 +46,8 @@ namespace Tools.Desktop.Pages
 		{
 			equipmentGrid.Visibility = Visibility.Hidden;
 			pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
-				_toolSubgroupService));
+				_toolSubgroupService,
+				_toolService));
 		}
 	}
 }

@@ -46,6 +46,7 @@
     <Compile Include="Entities\ToolSubgroupEntity.cs" />
     <Compile Include="Enums\OrganizationalUnitType.cs" />
     <Compile Include="Entities\ToolEntity.cs" />
+    <Compile Include="Enums\RegistrationType.cs" />
     <Compile Include="Enums\SortType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

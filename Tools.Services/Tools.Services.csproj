@@ -56,6 +56,11 @@
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />
     <Compile Include="ToolGroupServices\Models\CatalogGetModel.cs" />
     <Compile Include="ToolGroupServices\ToolGroupService.cs" />
+    <Compile Include="ToolServices\Helpers\OrganizationUnitHelper.cs" />
+    <Compile Include="ToolServices\Helpers\RegistrationTypeHelper.cs" />
+    <Compile Include="ToolServices\IToolService.cs" />
+    <Compile Include="ToolServices\Models\CreateToolEntityPostModel.cs" />
+    <Compile Include="ToolServices\ToolService.cs" />
     <Compile Include="ToolSubgroupServices\IToolSubgroupService.cs" />
     <Compile Include="ToolSubgroupServices\ToolSubgroupService.cs" />
   </ItemGroup>

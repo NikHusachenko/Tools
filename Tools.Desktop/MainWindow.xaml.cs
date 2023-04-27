@@ -1,8 +1,5 @@
 ﻿using System.Windows;
-using Tools.Database.Entities;
 using Tools.Desktop.Pages;
-using Tools.EntityFramework;
-using Tools.EntityFramework.GenericRepository;
 
 namespace Tools.Desktop
 {

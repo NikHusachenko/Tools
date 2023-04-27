@@ -115,7 +115,7 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="0" Style="{StaticResource Label}">Equipment name</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox x:Name="equipmentNameTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="5">
@@ -125,7 +125,7 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="0" Style="{StaticResource Label}">Equipment brand</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox x:Name="equipmentBrandTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="6">
@@ -135,7 +135,7 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="0" Style="{StaticResource Label}" >Registration in institutions</Label>
-            <ComboBox Grid.Column="1" Style="{StaticResource Selector}"></ComboBox>
+            <ComboBox x:Name="equipmentRegistrationComboBox" Grid.Column="1" Style="{StaticResource Selector}" SelectionChanged="equipmentRegistrationComboBox_SelectionChanged"></ComboBox>
         </Grid>
 
         <Grid Grid.Row="7">
@@ -151,7 +151,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Registration №</Label>
-                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+                <TextBox x:Name="equipmentRegistrationNumberTextBox" Grid.Column="1" IsEnabled="False" Style="{StaticResource Input}" />
             </Grid>
 
             <Grid Grid.Column="1">
@@ -161,7 +161,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Intra-factory registration №</Label>
-                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+                <TextBox x:Name="equipmentIntraFactoryNumberTextBox" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
         </Grid>
 
@@ -172,7 +172,7 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="0" Style="{StaticResource Label}">The manufacturer</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox x:Name="equipmentManufacturerTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="9">
@@ -188,7 +188,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Factory №</Label>
-                <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+                <TextBox x:Name="equipmentFactoryNumberTextBox" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -203,7 +203,7 @@
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" />
+                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -232,7 +232,7 @@
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox x:Name="PART_TextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" />
+                                        <TextBox Name="commissioningDateTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -248,44 +248,28 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Label Grid.Column="0" Style="{StaticResource Label}">Standard service life (years)</Label>
-            <TextBox Grid.Column="1" Style="{StaticResource Input}" />
+            <Label x:Name="equipmentExpirationYearLabel" Grid.Column="0" Style="{StaticResource Label}">Standard service life (years)</Label>
+            <TextBox x:Name="equipmentExpirationYearTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="12">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Separator Grid.Row="0" VerticalAlignment="Top" Margin="15" Background="white" />
+            
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" Style="{StaticResource BottomNavigation}">First record</Button>
-                <Button Grid.Column="1" Style="{StaticResource BottomNavigation}">Previous record</Button>
-                <Button Grid.Column="2" Style="{StaticResource BottomNavigation}">Next record</Button>
-                <Button Grid.Column="3" Style="{StaticResource BottomNavigation}">Last record</Button>
-            </Grid>
-
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 
-                <Button Grid.Column="0" Style="{StaticResource BottomNavigation}">Save data</Button>
-                <Button Grid.Column="1" Style="{StaticResource BottomNavigation}">Cancel</Button>
-                <Button Grid.Column="2" Style="{StaticResource BottomNavigation}">Delete record</Button>
-                <Button Grid.Column="3" Style="{StaticResource BottomNavigation}">Exit</Button>
+                <Button x:Name="saveEquipmentButton" Grid.Column="0" Style="{StaticResource BottomNavigation}" Click="saveEquipmentButton_Click">Save data</Button>
+                <Button x:Name="cancelButton" Grid.Column="1" Style="{StaticResource BottomNavigation}" Click="cancelButton_Click">Cancel</Button>
+                <Button x:Name="exiteButton" Grid.Column="3" Style="{StaticResource BottomNavigation}" Click="exiteButton_Click">Exit</Button>
             </Grid>
         </Grid>
     </Grid>
