@@ -1,0 +1,267 @@
+﻿<Page x:Class="Tools.Desktop.Pages.ToolsDataViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tools.Desktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ToolsDataViewPage">
+
+    <Page.Resources>
+        <Style TargetType="TextBox" x:Key="Input">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10, 0, 10, 0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Label" x:Key="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Label" x:Key="HeaderLabel">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="Selector">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Button" x:Key="Catalog">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+        </Style>
+        <Style TargetType="Button" x:Key="BottomNavigation">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="10, 5, 10, 5" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="DatePicker">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0, 0, 10 0" />
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="editEquipmentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- 1 -->
+            <RowDefinition Height="*"/>
+            <!-- 2 -->
+            <RowDefinition Height="*"/>
+            <!-- 3 -->
+            <RowDefinition Height="*"/>
+            <!-- 4 -->
+            <RowDefinition Height="*"/>
+            <!-- 5 -->
+            <RowDefinition Height="*"/>
+            <!-- 6 -->
+            <RowDefinition Height="*"/>
+            <!-- 7 -->
+            <RowDefinition Height="*"/>
+            <!-- 8 -->
+            <RowDefinition Height="*"/>
+            <!-- 9 -->
+            <RowDefinition Height="*"/>
+            <!-- 10 -->
+            <RowDefinition Height="*"/>
+            <!-- 11 -->
+            <RowDefinition Height="*"/>
+            <!-- 12 -->
+            <RowDefinition Height="auto"/>
+            <!-- 13 -->
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="View equipment card"></Label>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Structural division of the organization</Label>
+            <TextBox Grid.Column="1" IsReadOnly="True" Name="organizationUnitTextBox" Style="{StaticResource Selector}"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}" >Equipment group</Label>
+            <TextBox Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment subgroup</Label>
+            <TextBox Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment name</Label>
+            <TextBox x:Name="equipmentNameTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment brand</Label>
+            <TextBox x:Name="equipmentBrandTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Registration in institutions</Label>
+            <TextBox Name="equipmentRegistrationTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Style="{StaticResource Label}">Registration №</Label>
+                <TextBox x:Name="equipmentRegistrationNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Style="{StaticResource Label}">Intra-factory registration №</Label>
+                <TextBox x:Name="equipmentIntraFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">The manufacturer</Label>
+            <TextBox x:Name="equipmentManufacturerTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Style="{StaticResource Label}">Factory №</Label>
+                <TextBox x:Name="equipmentFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Style="{StaticResource Label}">Date of creating</Label>
+                <TextBox Grid.Column="1" Name="dateOfCreatingTextBox" IsReadOnly="True" Style="{StaticResource Input}"></TextBox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Style="{StaticResource Label}">Commissioning date</Label>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Name="commissioningDateTextBox" IsReadOnly="True" Style="{StaticResource Input}"></TextBox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="11">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="equipmentExpirationYearLabel" Grid.Column="0" Style="{StaticResource Label}">Standard service life (years)</Label>
+            <TextBox x:Name="equipmentExpirationYearTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Separator Grid.Row="0" VerticalAlignment="Top" Margin="15" Background="white" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="firstRecordButton" Grid.Column="0" Style="{StaticResource BottomNavigation}" Click="firstRecordButton_Click">Перший</Button>
+                <Button x:Name="previousRecordButton" Grid.Column="1" Style="{StaticResource BottomNavigation}" Click="previousRecordButton_Click">Попередній</Button>
+                <Button x:Name="nextRecordButton" Grid.Column="2" Style="{StaticResource BottomNavigation}" Click="nextRecordButton_Click">Наступний</Button>
+                <Button x:Name="lastRecordButton" Grid.Column="3" Style="{StaticResource BottomNavigation}" Click="lastRecordButton_Click">Останній</Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,18 @@
+﻿namespace Tools.EntityFramework.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddManufacturerToToolEntity : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Tools", "Manufacturer", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Tools", "Manufacturer");
+        }
+    }
+}

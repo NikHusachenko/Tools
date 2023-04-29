@@ -166,8 +166,14 @@
     <Compile Include="Pages\SurveysByTypeSurveyPage.xaml.cs">
       <DependentUpon>SurveysByTypeSurveyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ToolsDataViewPage.xaml.cs">
+      <DependentUpon>ToolsDataViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ToolDataViewWindow.xaml.cs">
+      <DependentUpon>ToolDataViewWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -229,7 +235,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ToolsDataViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ToolDataViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

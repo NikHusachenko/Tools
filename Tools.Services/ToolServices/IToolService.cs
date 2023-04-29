@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Tools.Database.Entities;
 using Tools.Services.Response;
 using Tools.Services.ToolServices.Models;
@@ -10,6 +11,7 @@ namespace Tools.Services.ToolServices
         Task<ResponseService<long>> Create(ToolEntity toolEntity);
 
         Task<ResponseService<ToolEntity>> GetById(long id);
+        Task<ICollection<ToolEntity>> GetById(ICollection<long> ids);
 
         Task<ResponseService<ToolEntity>> ValidateBeforeCreating(CreateToolEntityPostModel vm);
         Task<ToolsSortingGetModel> Sorting(ToolsSortingPostModel vm);

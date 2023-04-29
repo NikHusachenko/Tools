@@ -23,7 +23,8 @@ namespace Tools.Desktop.Pages
 		private readonly IToolService _toolService;
         private readonly IDocumentService _documentService;
 
-		private SemaphoreSlim _semaphore;
+		private SemaphoreSlim _loadingSemaphore;
+        private SemaphoreSlim _crearSemaphore;
 
         private ICollection<ToolsPostModel> _filteredTools;
 
@@ -37,7 +38,8 @@ namespace Tools.Desktop.Pages
 			_toolService = toolService;
             _documentService = documentService;
 
-			_semaphore = new SemaphoreSlim(1);
+			_loadingSemaphore = new SemaphoreSlim(1);
+            _crearSemaphore = new SemaphoreSlim(1);
 
             _filteredTools = new List<ToolsPostModel>();
 
@@ -58,15 +60,6 @@ namespace Tools.Desktop.Pages
             parent.pagesFrame.Navigate(new CertificationCardPage());
 		}
 
-		private void ShowSelectedCard_Click(object sender, RoutedEventArgs e)
-		{
-			MainWindow parent = GetParentWindow();
-			parent.pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
-				_toolSubgroupService,
-				_toolService,
-                _documentService));
-		}
-
 		private MainWindow GetParentWindow()
 		{
 			MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
@@ -75,7 +68,7 @@ namespace Tools.Desktop.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-			await _semaphore.WaitAsync();
+			await _loadingSemaphore.WaitAsync();
 
             string[] registrations = RegistrationTypeDisplay.GetDisplayNames();
             foreach (string registration in registrations) registrationSortingComboBox.Items.Add(registration);
@@ -92,43 +85,54 @@ namespace Tools.Desktop.Pages
 			string[] expirationNames = ExpirationSortingCriteriaDisplay.GetDisplayNames();
 			foreach (string name in expirationNames) expirationSortingComboBox.Items.Add(name);
 
-			_semaphore.Release();
+			_loadingSemaphore.Release();
         }
 
         private async void equipmentFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            await _semaphore.WaitAsync();
+            await _loadingSemaphore.WaitAsync();
 
             ToolsSortingGetModel vm = await _toolService.Sorting(new ToolsSortingPostModel());
             _filteredTools = vm.Tools;
-            equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
+            equipmentFrame.Navigate(new EquipmentListPage(_toolService,
+                vm.Tools));
 
-            _semaphore.Release();
+            _loadingSemaphore.Release();
         }
 
         private async void registrationSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            await _crearSemaphore.WaitAsync();
             await FilterTools();
+            _crearSemaphore.Release();
         }
 
         private async void unitSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            await _crearSemaphore.WaitAsync();
             await FilterTools();
+            _crearSemaphore.Release();
         }
 
         private async void groupSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            await _crearSemaphore.WaitAsync();
             await FilterTools();
+            _crearSemaphore.Release();
         }
 
-        private async void subgroupSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void subgroupSortingComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            await _crearSemaphore.WaitAsync();
             await FilterTools();
+            _crearSemaphore.Release();
         }
 
         private async void expirationSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            await _crearSemaphore.WaitAsync();
             await FilterTools();
+            _crearSemaphore.Release();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -148,7 +152,8 @@ namespace Tools.Desktop.Pages
 
             ToolsSortingGetModel vm = await _toolService.Sorting(response.Value);
             _filteredTools = vm.Tools;
-            equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
+            equipmentFrame.Navigate(new EquipmentListPage(_toolService,
+                vm.Tools));
         }
 
         private async Task<ResponseService<ToolsSortingPostModel>> AssemblePostModel()
@@ -166,6 +171,29 @@ namespace Tools.Desktop.Pages
             };
 
             return ResponseService<ToolsSortingPostModel>.Ok(vm);
+        }
+
+        private async void ShowSelectedCard_Click(object sender, RoutedEventArgs e)
+        {
+            ICollection<long> ids = _filteredTools.Select(tool => tool.Id).ToList();
+            ICollection<ToolEntity> dbRecords = await _toolService.GetById(ids);
+
+
+            MainWindow parent = GetParentWindow();
+            parent.pagesFrame.Navigate(new ToolsDataViewPage(dbRecords));
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            await _crearSemaphore.WaitAsync();
+
+            registrationSortingComboBox.SelectedIndex = -1;
+            unitSortingComboBox.SelectedIndex = -1;
+            groupSortingComboBox.SelectedIndex = -1;
+            subgroupSortingComboBox.SelectedIndex = -1;
+            expirationSortingComboBox.SelectedIndex = -1;
+
+            _crearSemaphore.Release();
         }
     }
 }

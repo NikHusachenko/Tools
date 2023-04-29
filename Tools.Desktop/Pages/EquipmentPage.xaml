@@ -85,7 +85,7 @@
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0">По підгрупі</Label>
-                        <ComboBox x:Name="subgroupSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch"></ComboBox>
+                        <ComboBox x:Name="subgroupSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch" SelectionChanged="subgroupSortingComboBox_SelectionChanged_1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="4" Margin="5">
@@ -95,7 +95,7 @@
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0">По строку придатності</Label>
-                        <ComboBox x:Name="expirationSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch"></ComboBox>
+                        <ComboBox x:Name="expirationSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch" SelectionChanged="expirationSortingComboBox_SelectionChanged"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="5" Margin="5">
@@ -104,7 +104,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Button Grid.Row="1" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Arial" Padding="20, 0, 20, 0">Очистити фільтри</Button>
+                        <Button Grid.Row="1" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Arial" Padding="20, 0, 20, 0" Click="Button_Click_1">Очистити фільтри</Button>
                     </Grid>
                 </Grid>
             </Grid>

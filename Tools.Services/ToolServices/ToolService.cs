@@ -108,6 +108,7 @@ namespace Tools.Services.ToolServices
                 FactoryNumber = vm.FactoryNumber,
                 IntraFactoryNumber = vm.IntraFactoryNumber,
                 Name = vm.Name,
+                Manufacturer = vm.Manufacturer,
                 OrganizationalType = organizationalUnit,
                 Registration = registrationType,
                 RegistrationNumber = vm.RegistrationNumber,
@@ -180,6 +181,20 @@ namespace Tools.Services.ToolServices
                 return ResponseService<ToolEntity>.Error(Errors.NOT_FOUND_ERROR);
             }
             return ResponseService<ToolEntity>.Ok(dbRecord);
+        }
+
+        public async Task<ICollection<ToolEntity>> GetById(ICollection<long> ids)
+        {
+            ICollection<ToolEntity> dbRecords = new List<ToolEntity>(ids.Count);
+            foreach (long id in ids)
+            {
+                var dbRecord = await _toolRepository.GetById(id);
+                if (dbRecord != null)
+                {
+                    dbRecords.Add(dbRecord);
+                }
+            }
+            return dbRecords;
         }
     }
 }

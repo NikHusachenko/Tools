@@ -168,6 +168,10 @@
     <Compile Include="Migrations\202304260705218_AddPropsToToolEntity.designer.cs">
       <DependentUpon>202304260705218_AddPropsToToolEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304291759188_AddManufacturerToToolEntity.cs" />
+    <Compile Include="Migrations\202304291759188_AddManufacturerToToolEntity.designer.cs">
+      <DependentUpon>202304291759188_AddManufacturerToToolEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304260705218_AddPropsToToolEntity.resx">
       <DependentUpon>202304260705218_AddPropsToToolEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304291759188_AddManufacturerToToolEntity.resx">
+      <DependentUpon>202304291759188_AddManufacturerToToolEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
