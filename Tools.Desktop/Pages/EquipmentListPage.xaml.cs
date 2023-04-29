@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using Tools.Database.Entities;
 using Tools.Services.ToolServices.Models;
 
 namespace Tools.Desktop.Pages

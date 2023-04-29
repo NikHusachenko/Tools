@@ -1,11 +1,20 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Collections.Generic;
 using Tools.Database.Entities;
+using Tools.Services.ToolServices;
+using Tools.Services.ToolServices.Models;
 
 namespace Tools.Services.DocumentServices
 {
     public class DocumentService : IDocumentService
     {
+        private readonly IToolService _toolService;
+
+        public DocumentService(IToolService toolService)
+        {
+            _toolService = toolService;
+        }
+
         public void PrintTools(IList<ToolEntity> tools)
         {
             Microsoft.Office.Interop.Word.Application application = new Microsoft.Office.Interop.Word.Application();
@@ -16,22 +25,35 @@ namespace Tools.Services.DocumentServices
 
             Table table = word.Tables.Add(word.Range(), tools.Count, 9);
             table.Borders.Enable = 1;
+
             for (int i = 0; i < tools.Count; i++)
             {
-                for (int j = 0; j < 0; j++)
-                {
-                    Cell cell = table.Cell(i, j);
+                Cell cell = table.Cell(i + 1, 1);
+                cell.Range.Text = tools[i].Id.ToString();
 
-                    cell.Range.Text = tools[i].Id.ToString();
-                    cell.Range.Text = tools[i].Brand;
-                    cell.Range.Text = tools[i].Name;
-                    cell.Range.Text = tools[i].Subgroup.Name;
-                    cell.Range.Text = tools[i].OrganizationalType.ToString();
-                    cell.Range.Text = tools[i].Registration.ToString();
-                    cell.Range.Text = tools[i].RegistrationNumber.ToString();
-                    cell.Range.Text = tools[i].CreatingDate.ToString("dd.MM.yyyy");
-                    cell.Range.Text = tools[i].CommissioningDate.ToString("dd.MM.yyyy");
-                }
+                cell = table.Cell(i + 1, 2);
+                cell.Range.Text = tools[i].Brand;
+
+                cell = table.Cell(i + 1, 3);
+                cell.Range.Text = tools[i].Name;
+
+                cell = table.Cell(i + 1, 4);
+                cell.Range.Text = tools[i].Subgroup.Name;
+
+                cell = table.Cell(i + 1, 5);
+                cell.Range.Text = tools[i].OrganizationalType.ToString();
+
+                cell = table.Cell(i + 1, 6);
+                cell.Range.Text = tools[i].Registration.ToString();
+
+                cell = table.Cell(i + 1, 7);
+                cell.Range.Text = tools[i].RegistrationNumber.ToString();
+
+                cell = table.Cell(i + 1, 8);
+                cell.Range.Text = tools[i].CreatingDate.ToString("dd.MM.yyyy");
+
+                cell = table.Cell(i + 1, 9);
+                cell.Range.Text = tools[i].CommissioningDate.ToString("dd.MM.yyyy");
             }
 
             application.Visible = true;
@@ -47,6 +69,21 @@ namespace Tools.Services.DocumentServices
             string savePath = dialog.SelectedPath;
             word.SaveAs(savePath);
             application.Documents.OpenNoRepairDialog(savePath);*/
+        }
+
+        public async void PrintTools(IList<long> ids)
+        {
+            List<ToolEntity> tools = new List<ToolEntity>();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                var result = await _toolService.GetById(ids[i]);
+                if (!result.IsError)
+                {
+                    tools.Add(result.Value);
+                }
+            }
+
+            PrintTools(tools);
         }
     }
 }

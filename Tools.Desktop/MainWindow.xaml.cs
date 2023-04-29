@@ -12,6 +12,7 @@ namespace Tools.Desktop
         private readonly IToolGroupService _toolGroupService;
         private readonly IToolSubgroupService _toolSubgroupService;
         private readonly IToolService _toolService;
+        private readonly IDocumentService _documentService;
 
         private readonly EquipmentPage _equipmentPage;
         private readonly EditEquipmentPage _editEquipmentPage;
@@ -20,6 +21,7 @@ namespace Tools.Desktop
         public MainWindow(IToolGroupService toolGroupService,
             IToolSubgroupService toolSubgroupService,
             IToolService toolService,
+            IDocumentService documentService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
             CertificationLayoutPage certificationLayoutPage)
@@ -27,6 +29,7 @@ namespace Tools.Desktop
             _toolGroupService = toolGroupService;
             _toolSubgroupService = toolSubgroupService;
             _toolService = toolService;
+            _documentService = documentService;
 
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
@@ -37,7 +40,7 @@ namespace Tools.Desktop
 
         private void EquipmentMenuItem_Click(object sender, RoutedEventArgs e)
 		{
-            pagesFrame.Navigate(new EquipmentPage(_toolGroupService, _toolSubgroupService, _toolService));
+            pagesFrame.Navigate(new EquipmentPage(_toolGroupService, _toolSubgroupService, _toolService, _documentService));
         }
 
 		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)

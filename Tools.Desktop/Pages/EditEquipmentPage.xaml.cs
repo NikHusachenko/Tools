@@ -7,6 +7,7 @@ using Tools.Common;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.Desktop.Windows;
+using Tools.Services.DocumentServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
@@ -21,14 +22,17 @@ namespace Tools.Desktop.Pages
 		private readonly IToolGroupService _toolGroupService;
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
+		private readonly IDocumentService _documentService;
 
 		public EditEquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
-			IToolService toolService)
+			IToolService toolService,
+			IDocumentService documentService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
+			_documentService = documentService;
 
 			InitializeComponent();
 
@@ -84,7 +88,10 @@ namespace Tools.Desktop.Pages
         private void exiteButton_Click(object sender, RoutedEventArgs e)
         {
 			var parent = Window.GetWindow(this) as MainWindow;
-			parent.pagesFrame.Navigate(new EquipmentPage(_toolGroupService, _toolSubgroupService, _toolService));
+			parent.pagesFrame.Navigate(new EquipmentPage(_toolGroupService, 
+				_toolSubgroupService, 
+				_toolService, 
+				_documentService));
         }
 
         private void equipmentRegistrationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

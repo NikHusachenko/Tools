@@ -34,7 +34,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0" FontSize="16" Margin="5">Фільтрувати:</Label>
-                <Button Grid.Row="0" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Right" FontFamily="Arial" Padding="20, 0, 20, 0" Margin="10">Очистити фільтри</Button>
+                <Button Grid.Row="0" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Right" FontFamily="Arial" Padding="20, 0, 20, 0" Margin="10" Click="Button_Click">Роздрукувати</Button>
 
                 <Separator Grid.Row="1"></Separator>
                 
@@ -65,7 +65,7 @@
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0">По підрозділу</Label>
-                        <ComboBox x:Name="unitSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch"></ComboBox>
+                        <ComboBox x:Name="unitSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch" SelectionChanged="unitSortingComboBox_SelectionChanged"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="2" Margin="5">
@@ -75,7 +75,7 @@
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0">По групі</Label>
-                        <ComboBox x:Name="groupSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch"></ComboBox>
+                        <ComboBox x:Name="groupSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch" SelectionChanged="groupSortingComboBox_SelectionChanged"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="3" Margin="5">
@@ -104,7 +104,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Button Grid.Row="1" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Arial" Padding="20, 0, 20, 0">Роздрукувати</Button>
+                        <Button Grid.Row="1" FontSize="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Arial" Padding="20, 0, 20, 0">Очистити фільтри</Button>
                     </Grid>
                 </Grid>
             </Grid>

@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
+using Tools.Services.DocumentServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
@@ -19,18 +21,25 @@ namespace Tools.Desktop.Pages
 		private readonly IToolGroupService _toolGroupService;
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
+        private readonly IDocumentService _documentService;
 
 		private SemaphoreSlim _semaphore;
 
+        private ICollection<ToolsPostModel> _filteredTools;
+
 		public EquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
-			IToolService toolService)
+			IToolService toolService,
+            IDocumentService documentService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
+            _documentService = documentService;
 
 			_semaphore = new SemaphoreSlim(1);
+
+            _filteredTools = new List<ToolsPostModel>();
 
 			InitializeComponent();
 		}
@@ -39,7 +48,8 @@ namespace Tools.Desktop.Pages
             MainWindow parent = GetParentWindow();
 			parent.pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
                 _toolSubgroupService,
-                _toolService));
+                _toolService,
+                _documentService));
 		}
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
@@ -53,7 +63,8 @@ namespace Tools.Desktop.Pages
 			MainWindow parent = GetParentWindow();
 			parent.pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
 				_toolSubgroupService,
-				_toolService));
+				_toolService,
+                _documentService));
 		}
 
 		private MainWindow GetParentWindow()
@@ -84,44 +95,77 @@ namespace Tools.Desktop.Pages
 			_semaphore.Release();
         }
 
+        private async void equipmentFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            await _semaphore.WaitAsync();
+
+            ToolsSortingGetModel vm = await _toolService.Sorting(new ToolsSortingPostModel());
+            _filteredTools = vm.Tools;
+            equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
+
+            _semaphore.Release();
+        }
+
         private async void registrationSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-			var response = await AssemblePostModel();
-			if (response.IsError)
-			{
-				MessageBox.Show(response.ErrorMessage);
-				return;
-			}
+            await FilterTools();
+        }
 
-			ToolsSortingGetModel vm = await _toolService.Sorting(response.Value);
+        private async void unitSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await FilterTools();
+        }
+
+        private async void groupSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await FilterTools();
+        }
+
+        private async void subgroupSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await FilterTools();
+        }
+
+        private async void expirationSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await FilterTools();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<long> ids = _filteredTools.Select(tool => tool.Id).ToList();
+            _documentService.PrintTools(ids);
+        }
+
+        private async Task FilterTools()
+        {
+            var response = await AssemblePostModel();
+            if (response.IsError)
+            {
+                MessageBox.Show(response.ErrorMessage);
+                return;
+            }
+
+            ToolsSortingGetModel vm = await _toolService.Sorting(response.Value);
+            _filteredTools = vm.Tools;
             equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
         }
 
-		private async Task<ResponseService<ToolsSortingPostModel>> AssemblePostModel()
-		{
+        private async Task<ResponseService<ToolsSortingPostModel>> AssemblePostModel()
+        {
             var groupResult = await _toolGroupService.GetByName(groupSortingComboBox.SelectedItem as string);
-			var subgroupResult = await _toolSubgroupService.GetByName(subgroupSortingComboBox.SelectedItem as string);
+            var subgroupResult = await _toolSubgroupService.GetByName(subgroupSortingComboBox.SelectedItem as string);
 
             ToolsSortingPostModel vm = new ToolsSortingPostModel()
             {
                 ExpirationCriteria = ExpirationSortingCriteriaDisplay.GetEnumFromDisplay(expirationSortingComboBox.SelectedItem as string),
                 GroupName = groupResult.Value?.Name,
-				OrganizationalUnit = OrganizationalUnitDisplay.GetEnumFromDisplay(unitSortingComboBox.SelectedItem as string),
-				Registration = RegistrationTypeDisplay.GetEnumFromDisplay(registrationSortingComboBox.SelectedItem as string),
-				SubgroupName = subgroupResult.Value?.Name,
+                OrganizationalUnit = OrganizationalUnitDisplay.GetEnumFromDisplay(unitSortingComboBox.SelectedItem as string),
+                Registration = RegistrationTypeDisplay.GetEnumFromDisplay(registrationSortingComboBox.SelectedItem as string),
+                SubgroupName = subgroupResult.Value?.Name,
             };
 
-			return ResponseService<ToolsSortingPostModel>.Ok(vm);
-        }
-
-        private async void equipmentFrame_Loaded(object sender, RoutedEventArgs e)
-        {
-			await _semaphore.WaitAsync();
-
-			ToolsSortingGetModel vm = await _toolService.Sorting(new ToolsSortingPostModel());
-			equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
-
-			_semaphore.Release();
+            return ResponseService<ToolsSortingPostModel>.Ok(vm);
         }
     }
 }

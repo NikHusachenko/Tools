@@ -62,6 +62,7 @@ namespace Tools.Services.ToolServices
             {
                 posts.Add(new ToolsPostModel()
                 {
+                    Id = tool.Id,
                     Brand = tool.Brand,
                     Group = tool.Subgroup.Group.Name,
                     Name = tool.Name,
@@ -169,6 +170,16 @@ namespace Tools.Services.ToolServices
                         return query;
                     }
             }
+        }
+
+        public async Task<ResponseService<ToolEntity>> GetById(long id)
+        {
+            ToolEntity dbRecord = await _toolRepository.GetById(id);
+            if (dbRecord == null)
+            {
+                return ResponseService<ToolEntity>.Error(Errors.NOT_FOUND_ERROR);
+            }
+            return ResponseService<ToolEntity>.Ok(dbRecord);
         }
     }
 }
