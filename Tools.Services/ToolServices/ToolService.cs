@@ -46,7 +46,7 @@ namespace Tools.Services.ToolServices
 
         public async Task<ToolsSortingGetModel> Sorting(ToolsSortingPostModel vm)
         {
-            IQueryable<ToolEntity> query = _toolRepository.GetAll()
+            IQueryable<ToolEntity> query = _toolRepository.Table
                 .Include(tool => tool.Subgroup)
                 .Include(tool => tool.Subgroup.Group);
 
@@ -56,7 +56,7 @@ namespace Tools.Services.ToolServices
             query = FilterQueryBySubgroup(query, vm.SubgroupName);
             query = FilterQueryByExpiration(query, vm.ExpirationCriteria);
 
-            List<ToolEntity> tools = query.ToList();
+            List<ToolEntity> tools = await query.ToListAsync();
             List<ToolsPostModel> posts = new List<ToolsPostModel>();
             foreach (ToolEntity tool in tools)
             {

@@ -32,7 +32,7 @@ namespace Tools.EntityFramework.GenericRepository
 
 		public IQueryable<T> GetAll()
 		{
-			return Table.AsNoTracking();
+			return Table.AsQueryable(); ;
 		}
 
 		public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)

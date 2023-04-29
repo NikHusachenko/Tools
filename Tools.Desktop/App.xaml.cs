@@ -45,11 +45,11 @@ namespace Tools.Desktop
             services.AddTransient<MainWindow>();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected async override void OnStartup(StartupEventArgs e)
         {
             // Requared to save default data
             ApplicationDbContext dbContext = _serviceProvider.GetService<ApplicationDbContext>();
-            ApplicationContextInitializer.InitializeDefaultData(dbContext);
+            await ApplicationContextInitializer.InitializeDefaultData(dbContext);
 
             MainWindow main = _serviceProvider.GetRequiredService<MainWindow>();
             main.Show();

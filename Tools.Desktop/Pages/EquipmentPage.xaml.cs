@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +20,8 @@ namespace Tools.Desktop.Pages
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
 
+		private SemaphoreSlim _semaphore;
+
 		public EquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService)
@@ -26,6 +29,8 @@ namespace Tools.Desktop.Pages
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
+
+			_semaphore = new SemaphoreSlim(1);
 
 			InitializeComponent();
 		}
@@ -59,6 +64,8 @@ namespace Tools.Desktop.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+			await _semaphore.WaitAsync();
+
             string[] registrations = RegistrationTypeDisplay.GetDisplayNames();
             foreach (string registration in registrations) registrationSortingComboBox.Items.Add(registration);
 
@@ -73,6 +80,8 @@ namespace Tools.Desktop.Pages
 
 			string[] expirationNames = ExpirationSortingCriteriaDisplay.GetDisplayNames();
 			foreach (string name in expirationNames) expirationSortingComboBox.Items.Add(name);
+
+			_semaphore.Release();
         }
 
         private async void registrationSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -107,8 +116,12 @@ namespace Tools.Desktop.Pages
 
         private async void equipmentFrame_Loaded(object sender, RoutedEventArgs e)
         {
+			await _semaphore.WaitAsync();
+
 			ToolsSortingGetModel vm = await _toolService.Sorting(new ToolsSortingPostModel());
 			equipmentFrame.Navigate(new EquipmentListPage(vm.Tools));
+
+			_semaphore.Release();
         }
     }
 }

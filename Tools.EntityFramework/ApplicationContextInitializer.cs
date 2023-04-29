@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Threading.Tasks;
 using Tools.Database.Entities;
 
 namespace Tools.EntityFramework
@@ -11,7 +12,7 @@ namespace Tools.EntityFramework
             base.Seed(context);
         }
 
-        public async static void InitializeDefaultData(ApplicationDbContext context)
+        public async static Task InitializeDefaultData(ApplicationDbContext context)
         {
             var groups = context.Set<ToolGroupEntity>();
             var groupsRecords = new List<ToolGroupEntity>
