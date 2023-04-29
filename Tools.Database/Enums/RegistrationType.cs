@@ -27,6 +27,19 @@ namespace Tools.Database.Enums
             }
             return registrationType.ToString();
         }
+        
+        public static RegistrationType GetEnumFromDisplay(string displayName)
+        {
+            string[] names = GetDisplayNames();
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (names[i] == displayName)
+                {
+                    return (RegistrationType)(i + 1);
+                }
+            }
+            return (RegistrationType)0;
+        }
 
         public static string[] GetDisplayNames()
         {

@@ -9,13 +9,13 @@
       Title="EquipmentListPage">
 
     <Grid>
-        <DataGrid x:Name="equipmentDataGrid">
+        <DataGrid Name="equipmentDataGrid" Loaded="equipmentDataGrid_Loaded" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="210" Header="Equipment Name"/>
-                <DataGridTextColumn Width="150" Header="Equipment Brand"/>
-                <DataGridTextColumn Width="210" Header="Equipment structure"/>
-                <DataGridTextColumn Width="210" Header="Equipment subgroup"/>
-                <DataGridTextColumn Width="225" Header="Equipment group"/>
+                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Марка" Binding="{Binding Brand}" Width="*" />
+                <DataGridTextColumn Header="Підрозділ" Binding="{Binding OranizationUnit}" Width="*" />
+                <DataGridTextColumn Header="Підгрупа" Binding="{Binding Subgroup}" Width="*" />
+                <DataGridTextColumn Header="Група" Binding="{Binding Group}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

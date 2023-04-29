@@ -63,10 +63,14 @@
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />
     <Compile Include="ToolGroupServices\Models\CatalogGetModel.cs" />
     <Compile Include="ToolGroupServices\ToolGroupService.cs" />
-    <Compile Include="ToolServices\Helpers\OrganizationUnitHelper.cs" />
+    <Compile Include="Display\DisplayService.cs" />
+    <Compile Include="ToolServices\Enums\ExpirationSortingCriteria.cs" />
     <Compile Include="ToolServices\Helpers\RegistrationTypeHelper.cs" />
     <Compile Include="ToolServices\IToolService.cs" />
     <Compile Include="ToolServices\Models\CreateToolEntityPostModel.cs" />
+    <Compile Include="ToolServices\Models\ToolsPostModel.cs" />
+    <Compile Include="ToolServices\Models\ToolsSortingPostModel.cs" />
+    <Compile Include="ToolServices\Models\ToolsSortingGetModel.cs" />
     <Compile Include="ToolServices\ToolService.cs" />
     <Compile Include="ToolSubgroupServices\IToolSubgroupService.cs" />
     <Compile Include="ToolSubgroupServices\ToolSubgroupService.cs" />
@@ -89,6 +93,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -51,6 +51,19 @@ namespace Tools.Database.Enums
             return item.ToString();
         }
 
+        public static OrganizationalUnitType GetEnumFromDisplay(string displayName)
+        {
+            string[] names = GetDisplayNames();
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (names[i] == displayName)
+                {
+                    return (OrganizationalUnitType)(i + 1);
+                }
+            }
+            return (OrganizationalUnitType)0;
+        }
+
         public static string[] GetDisplayNames()
         {
             string[] names = Enum.GetNames(typeof(OrganizationalUnitType));
