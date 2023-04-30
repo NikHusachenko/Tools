@@ -9,10 +9,10 @@
       Title="EquipmentListPage">
 
     <Grid>
-        <DataGrid Name="equipmentDataGrid" Loaded="equipmentDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="equipmentDataGrid_MouseDoubleClick">
+        <DataGrid Name="equipmentDataGrid" Loaded="equipmentDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="equipmentDataGrid_MouseDoubleClick" SelectionChanged="equipmentDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="auto" />
-                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" Width="auto" />
                 <DataGridTextColumn Header="Марка" Binding="{Binding Brand}" Width="*" />
                 <DataGridTextColumn Header="Підрозділ" Binding="{Binding OranizationUnit}" Width="*" />
                 <DataGridTextColumn Header="Підгрупа" Binding="{Binding Subgroup}" Width="*" />

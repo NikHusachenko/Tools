@@ -28,51 +28,51 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label FontSize="20" FontWeight="Bold" FontFamily="Arial" Height="30" Margin="10,0,0,0">
-                    Prepare a schedule of technical (expert) surveys of equipment with a selection of:
+                    Підготувати графік технічних (експертних) обстежень обладнання з вибором:
                 </Label>
                 <Separator Width="980" Height="10" Margin="0,21,0,0" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Margin="10,5,0,0">
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FirstRadioBtn_Click">
-                        upcoming technical (expert) surveys (all divisions)
+                        майбутні технічні (експертні) обстеження (всі підрозділи)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SecondRadioBtn_Click">
-                        upcoming technical (expert) surveys (in the selected division)
+                        майбутні технічні (експертні) дослідження (в обраному підрозділі)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="ThirdRadioBtn_Click">
-                        upcoming technical (expert) surveys (of a selected subgroup of equipment)
+                        майбутні технічні (експертні) обстеження (вибраної підгрупи обладнання)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FourthRadioBtn_Click">
-                        upcoming technical (expert) surveys (by type of technical (expert) survey)
+                        майбутні технічні (експертні) дослідження (за видами технічних (експертних) досліджень)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FifthRadioBtn_Click">
-                        overdue technical (expert) surveys (all divisions)
+                        прострочені технічні (експертні) обстеження (всі підрозділи)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SixthRadioBtn_Click">
-                        overdue technical (expert) surveys (in the selected division)
+                        прострочені технічні (експертні) обстеження (в обраному підрозділі)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SeventhRadioBtn_Click">
-                        overdue technical (expert) surveys (of a selected subgroup of equipment)
+                        прострочені технічні (експертні) обстеження (окремої підгрупи обладнання)
                     </RadioButton>
                     <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="EighthRadioBtn_Click">
-                        overdue technical (expert) surveys (by type of technical (expert) survey)
+                        прострочені технічні (експертні) обстеження (за видами технічних (експертних) обстежень)
                     </RadioButton>
                 </StackPanel>
                 <Separator Width="980" Height="10" Margin="0,365,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="2" >
                 <StackPanel x:Name="calendarStackPanel" Visibility="Collapsed" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Label FontSize="20" Height="40" Margin="0,0,20,0">Sample end date:</Label>
+                    <Label FontSize="20" Height="40" Margin="0,0,20,0">Приклад кінцевої дати:</Label>
                     <DatePicker x:Name="datePicker" Visibility="Collapsed" SelectedDateChanged="datePicker_SelectedDateChanged"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Calendar</Button>
+                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
                 </StackPanel>
                 <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
             </Grid>
             <Grid Grid.Row="3">
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,22,0,0"  Orientation="Horizontal">
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Exit</Button>
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Print</Button>
+                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Вихід</Button>
+                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Роздрукувати</Button>
                 </StackPanel>
             </Grid>
         </Grid>

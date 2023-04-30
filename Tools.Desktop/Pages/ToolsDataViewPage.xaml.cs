@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Tools.Database.Entities;
+using Tools.Database.Enums;
 
 namespace Tools.Desktop.Pages
 {
@@ -85,12 +86,12 @@ namespace Tools.Desktop.Pages
                 lastRecordButton.IsEnabled = false;
             }
 
-            organizationUnitTextBox.Text = _tools[_selectedIndex].OrganizationalType.ToString();
+            organizationUnitTextBox.Text = OrganizationalUnitDisplay.GetDisplayName(_tools[_selectedIndex].OrganizationalType);
             equipmentGroupTextBox.Text = _tools[_selectedIndex].Subgroup.Group.Name;
             equipmentSubgroupTextBox.Text = _tools[_selectedIndex].Subgroup.Name;
             equipmentNameTextBox.Text = _tools[_selectedIndex].Name;
             equipmentBrandTextBox.Text = _tools[_selectedIndex].Brand;
-            equipmentRegistrationTextBox.Text = _tools[_selectedIndex].Registration.ToString();
+            equipmentRegistrationTextBox.Text = RegistrationTypeDisplay.GetDisplayName(_tools[_selectedIndex].Registration);
             equipmentRegistrationNumberTextBox.Text = _tools[_selectedIndex].RegistrationNumber;
             equipmentIntraFactoryNumberTextBox.Text = _tools[_selectedIndex].IntraFactoryNumber;
             equipmentManufacturerTextBox.Text = _tools[_selectedIndex].Manufacturer;

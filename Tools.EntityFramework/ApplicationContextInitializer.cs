@@ -19,15 +19,15 @@ namespace Tools.EntityFramework
             {
                 new ToolGroupEntity()
                 {
-                    Name = "Lifting cranes",
+                    Name = "Вантажопідйомні крани",
                 },
                 new ToolGroupEntity()
                 {
-                    Name = "Steam and hot water boilers",
+                    Name = "Котли парові та водогрійні",
                 },
                 new ToolGroupEntity()
                 {
-                    Name = "Steam and hot water pipelines",
+                    Name = "Трубопроводи пари та гарячої води",
                 }
             };
 
@@ -52,117 +52,117 @@ namespace Tools.EntityFramework
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Mobile cranes",
+                    Name = "Автомобільні крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Tower cranes"
+                    Name = "Баштові крани"
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Cable cranes",
+                    Name = "Кабельні крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Gantry cranes",
+                    Name = "Козлові крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Mast cranes",
+                    Name = "Щоглові крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Bridge cranes",
+                    Name = "Бруківочні крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Portal cranes",
+                    Name = "Портальні крани",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[0].Id,
-                    Name = "Hot water and steam boilers",
+                    Name = "Водогрійні та пароводогрійні котли",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Steam and liquid boilers operating with high-temperature organic heat carriers",
+                    Name = "Котли парові та рідинні, що працюють з високотемпературними органічними теплоносіями",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Boilers for mobile and transportable installations and power trains",
+                    Name = "Котли пересувних та транспортабельних установок та енергопоїздів",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Waste heat boilers",
+                    Name = "Котли-утилізатори",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Steam boilers",
+                    Name = "Парові котли",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Steam and hot water pipelines within the boiler",
+                    Name = "Трубопроводи пари та гарячої води в межах котла",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[1].Id,
-                    Name = "Energy technology boilers",
+                    Name = "Енерготехнологічні котли",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category I, group 1",
+                    Name = "Трубопроводи І категорії 1 групи",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category I, group 2",
+                    Name = "Трубопроводи І категорії 2 групи",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category I, group 3",
+                    Name = "Трубопроводи І категорії 3 групи",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category I, group 4",
+                    Name = "Трубопроводи І категорії 4 групи",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category II, group 1",
+                    Name = "Трубопроводи ІІ категорії 1 групи",
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category II, group 2"
+                    Name = "Трубопроводи ІІ категорії 2 групи"
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category III, group 1"
+                    Name = "Трубопроводи ІІІ категорії 1 групи"
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category III, group 2"
+                    Name = "Трубопроводи ІІІ категорії 2 групи"
                 },
                 new ToolSubgroupEntity()
                 {
                     GroupFK = groupsRecords[2].Id,
-                    Name = "Pipelines of category IV",
+                    Name = "Трубопроводи ІV категорії",
                 },
             };
 

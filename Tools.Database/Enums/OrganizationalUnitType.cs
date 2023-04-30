@@ -6,34 +6,34 @@ namespace Tools.Database.Enums
 {
     public enum OrganizationalUnitType
     {
-        [Display(Name = "Motor Vehicle Workshop")]
+        [Display(Name = "Автомобільна майстерня")]
         MotorVehicleWorkshop = 1,
 
-        [Display(Name = "Mechanical Workshop")]
+        [Display(Name = "Механічна майстерня")]
         MechanicalWorkshop = 2,
 
-        [Display(Name = "Finished Goods Warehouse")]
+        [Display(Name = "Склад готової продукції")]
         FinishedGoodsWarehouse = 3,
 
-        [Display(Name = "Raw Material Warehouse")]
+        [Display(Name = "Склад сировини")]
         RawMaterialWarehouse = 4,
 
-        [Display(Name = "Fuel Station")]
+        [Display(Name = "АЗС")]
         FuelStation = 5,
 
-        [Display(Name = "Access Control Point")]
+        [Display(Name = "Точка контролю доступу")]
         AccessControlPoint = 6,
 
-        [Display(Name = "Medical Center")]
+        [Display(Name = "Медичний центр")]
         MedicalCenter = 7,
 
-        [Display(Name = "Fire Station")]
+        [Display(Name = "Пожежна станція")]
         FireStation = 8,
 
-        [Display(Name = "Maintenance Service")]
+        [Display(Name = "Технічне обслуговування")]
         MaintenanceService = 9,
 
-        [Display(Name = "Management")]
+        [Display(Name = "Управління")]
         Management = 10,
     }
 

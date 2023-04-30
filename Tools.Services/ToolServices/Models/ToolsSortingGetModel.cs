@@ -8,10 +8,10 @@ namespace Tools.Services.ToolServices.Models
     public class ToolsSortingGetModel
     {
         public List<ToolsPostModel> Tools { get; set; }
-        public RegistrationType Registration { get; set; }
+/*        public RegistrationType Registration { get; set; }
         public OrganizationalUnitType OrganizationalUnit { get; set; }
         public string GroupName { get; set; }
         public string SubgroupName { get; set; }
-        public ExpirationSortingCriteria ExpirationCriteria { get; set; }
+        public ExpirationSortingCriteria ExpirationCriteria { get; set; }*/
     }
 }

@@ -66,18 +66,18 @@ namespace Tools.Services.ToolServices
                     Brand = tool.Brand,
                     Group = tool.Subgroup.Group.Name,
                     Name = tool.Name,
-                    OranizationUnit = tool.OrganizationalType.ToString(),
+                    OranizationUnit = OrganizationalUnitDisplay.GetDisplayName(tool.OrganizationalType),
                     Subgroup = tool.Subgroup.Name,
                 });
             }
 
             ToolsSortingGetModel getVm = new ToolsSortingGetModel()
             {
-                ExpirationCriteria = vm.ExpirationCriteria,
+                /*ExpirationCriteria = vm.ExpirationCriteria,
                 GroupName = vm.GroupName,
                 OrganizationalUnit = vm.OrganizationalUnit,
                 Registration = vm.Registration,
-                SubgroupName = vm.SubgroupName,
+                SubgroupName = vm.SubgroupName,*/
                 Tools = posts,
             };
 

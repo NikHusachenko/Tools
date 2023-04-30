@@ -17,9 +17,9 @@ namespace Tools.Database.Enums
     {
         public static string GetDisplayName(RegistrationType registrationType)
         {
-            var type = registrationType.GetType();
-            var fieldInfo = type.GetField(registrationType.ToString());
-            var displayName = fieldInfo.GetCustomAttribute<DisplayAttribute>();
+            Type type = registrationType.GetType();
+            FieldInfo fieldInfo = type.GetField(registrationType.ToString());
+            DisplayAttribute displayName = fieldInfo.GetCustomAttribute<DisplayAttribute>();
 
             if (displayName != null)
             {

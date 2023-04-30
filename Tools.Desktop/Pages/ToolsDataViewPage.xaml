@@ -89,7 +89,7 @@
             <!-- 13 -->
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="View equipment card"></Label>
+        <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="Перегляд карти обладнання"></Label>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -97,8 +97,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Structural division of the organization</Label>
-            <TextBox Grid.Column="1" IsReadOnly="True" Name="organizationUnitTextBox" Style="{StaticResource Selector}"/>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Структурний підрозділ організації</Label>
+            <TextBox Grid.Column="1" IsReadOnly="True" Name="organizationUnitTextBox" Style="{StaticResource Input}"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -107,7 +107,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}" >Equipment group</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}" >Група обладнання</Label>
             <TextBox Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
         </Grid>
 
@@ -117,7 +117,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment subgroup</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Підгрупа обладнання</Label>
             <TextBox Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
         </Grid>
 
@@ -127,7 +127,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment name</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Назва обладнання</Label>
             <TextBox x:Name="equipmentNameTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
@@ -137,7 +137,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Equipment brand</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Марка обладнання</Label>
             <TextBox x:Name="equipmentBrandTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
@@ -147,7 +147,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Registration in institutions</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Реєстрація в установах</Label>
             <TextBox Name="equipmentRegistrationTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}"></TextBox>
         </Grid>
 
@@ -163,7 +163,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource Label}">Registration №</Label>
+                <Label Grid.Column="0" Style="{StaticResource Label}">Реєстраційний №</Label>
                 <TextBox x:Name="equipmentRegistrationNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
 
@@ -173,7 +173,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource Label}">Intra-factory registration №</Label>
+                <Label Grid.Column="0" Style="{StaticResource Label}">Внутрішньозаводський реєстраційний №</Label>
                 <TextBox x:Name="equipmentIntraFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
         </Grid>
@@ -184,7 +184,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">The manufacturer</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Виробник</Label>
             <TextBox x:Name="equipmentManufacturerTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
@@ -200,7 +200,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource Label}">Factory №</Label>
+                <Label Grid.Column="0" Style="{StaticResource Label}">Заводський №</Label>
                 <TextBox x:Name="equipmentFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
             <Grid Grid.Column="1">
@@ -209,7 +209,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource Label}">Date of creating</Label>
+                <Label Grid.Column="0" Style="{StaticResource Label}">Дата створення</Label>
                 <TextBox Grid.Column="1" Name="dateOfCreatingTextBox" IsReadOnly="True" Style="{StaticResource Input}"></TextBox>
             </Grid>
         </Grid>
@@ -220,7 +220,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Style="{StaticResource Label}">Commissioning date</Label>
+            <Label Grid.Column="0" Style="{StaticResource Label}">Дата введення в експлуатацію</Label>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -237,7 +237,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="equipmentExpirationYearLabel" Grid.Column="0" Style="{StaticResource Label}">Standard service life (years)</Label>
+            <Label x:Name="equipmentExpirationYearLabel" Grid.Column="0" Style="{StaticResource Label}">Стандартний термін служби (років)</Label>
             <TextBox x:Name="equipmentExpirationYearTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 

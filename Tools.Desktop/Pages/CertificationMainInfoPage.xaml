@@ -16,15 +16,15 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Width="auto" >
-            <Label Height="40" Width="auto" Margin="63,0,20,0"  FontSize="20">Equipment Name</Label>
+            <Label Height="40" Width="auto" Margin="63,0,20,0"  FontSize="20">Назва обладнання</Label>
             <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto">
-            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Equipment Name</Label>
+            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Назва обладнання</Label>
             <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Width="auto">
-            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Structure division</Label>
+            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Структурний підрозділ</Label>
             <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
         </StackPanel>
     </Grid>

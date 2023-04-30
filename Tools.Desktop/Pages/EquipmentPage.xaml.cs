@@ -56,8 +56,15 @@ namespace Tools.Desktop.Pages
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
 		{
-            MainWindow parent = GetParentWindow();
-            parent.pagesFrame.Navigate(new CertificationCardPage());
+            EquipmentListPage equipmentListPage = equipmentFrame.Content as EquipmentListPage;
+
+            if (equipmentListPage.DataContext != null)
+            {
+                ToolsPostModel model = equipmentListPage.DataContext as ToolsPostModel;
+                
+                MainWindow parent = GetParentWindow();
+                parent.pagesFrame.Navigate(new CertificationCardPage(model));
+            }
 		}
 
 		private MainWindow GetParentWindow()
@@ -177,7 +184,6 @@ namespace Tools.Desktop.Pages
         {
             ICollection<long> ids = _filteredTools.Select(tool => tool.Id).ToList();
             ICollection<ToolEntity> dbRecords = await _toolService.GetById(ids);
-
 
             MainWindow parent = GetParentWindow();
             parent.pagesFrame.Navigate(new ToolsDataViewPage(dbRecords));

@@ -37,5 +37,11 @@ namespace Tools.Desktop.Pages
 				toolDataViewWindow.ShowDialog();
 			}
         }
+
+        private void equipmentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ToolsPostModel vm = equipmentDataGrid.SelectedItem as ToolsPostModel;
+            DataContext = vm;
+        }
     }
 }

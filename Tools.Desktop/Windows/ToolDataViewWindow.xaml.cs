@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Tools.Database.Entities;
+using Tools.Database.Enums;
 
 namespace Tools.Desktop.Windows
 {
@@ -9,12 +10,12 @@ namespace Tools.Desktop.Windows
         {
             InitializeComponent();
 
-            organizationTextBox.Text = toolEntity.OrganizationalType.ToString();
+            organizationTextBox.Text = OrganizationalUnitDisplay.GetDisplayName(toolEntity.OrganizationalType);
             equipmentGroupTextBox.Text = toolEntity.Subgroup.Group.Name;
             equipmentSubgroupTextBox.Text = toolEntity.Subgroup.Name;
             equipmentNameTextBox.Text = toolEntity.Name;
             equipmentBrandTextBox.Text = toolEntity.Brand;
-            equipmentRegistrationTextBox.Text = toolEntity.Registration.ToString();
+            equipmentRegistrationTextBox.Text = RegistrationTypeDisplay.GetDisplayName(toolEntity.Registration);
             equipmentRegistrationNumberTextBox.Text = toolEntity.RegistrationNumber;
             equipmentIntraFactoryNumberTextBox.Text = toolEntity.IntraFactoryNumber;
             equipmentManufacturerTextBox.Text = toolEntity.Manufacturer;

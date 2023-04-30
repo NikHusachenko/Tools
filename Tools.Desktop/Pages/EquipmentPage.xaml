@@ -94,7 +94,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Label Grid.Row="0">По строку придатності</Label>
+                        <Label Grid.Row="0">По терміну придатності</Label>
                         <ComboBox x:Name="expirationSortingComboBox" Grid.Row="1" HorizontalAlignment="Stretch" SelectionChanged="expirationSortingComboBox_SelectionChanged"></ComboBox>
                     </Grid>
 

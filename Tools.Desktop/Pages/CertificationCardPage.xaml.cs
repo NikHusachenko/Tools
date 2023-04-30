@@ -1,15 +1,17 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Tools.Services.ToolServices.Models;
 
 namespace Tools.Desktop.Pages
 {
-	/// <summary>
-	/// Логика взаимодействия для CertificationCardPage.xaml
-	/// </summary>
 	public partial class CertificationCardPage : Page
 	{
-		public CertificationCardPage()
+		private readonly ToolsPostModel _model;
+
+		public CertificationCardPage(ToolsPostModel model)
 		{
+			_model = model;
+
 			InitializeComponent();
 			certificationInfoFrame.Navigate(new CertificationMainInfoPage());
 		}

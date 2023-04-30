@@ -21,12 +21,12 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row ="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Creating date</Label>
+                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Створення дати</Label>
                     <DatePicker x:Name="creatingDatePicker" Visibility="Collapsed" Height="25"/>
-                    <Button  Height="20" x:Name="creatingCalendarBtn"  VerticalAlignment="Top" Click="creatingCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
-                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Implementation date</Label>
+                    <Button  Height="20" x:Name="creatingCalendarBtn"  VerticalAlignment="Top" Click="creatingCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
+                    <Label FontSize="20" Height="40" Margin="31,0,0,0">Дата впровадження</Label>
                     <DatePicker x:Name="implementationDatePicker" Visibility="Collapsed" Height="25"/>
-                    <Button  Height="20" x:Name="implementationCalendarBtn"  VerticalAlignment="Top" Click="implementationCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календарь</Button>
+                    <Button  Height="20" x:Name="implementationCalendarBtn"  VerticalAlignment="Top" Click="implementationCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
@@ -46,18 +46,18 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0" >
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">First record</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Previous record</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Next record</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Last record</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Перший запис</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Попередній запис</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Наступний запис</Button>
+                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Останній запис</Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Save data</Button>
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Cancel</Button>
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Delete record</Button>
-                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Exit</Button>
-                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Print</Button>
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Зберегти дані</Button>
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Скасувати</Button>
+                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Видалити запис</Button>
+                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Вихід</Button>
+                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Роздрукувати</Button>
                 </StackPanel>
             </Grid>
         </Grid>
