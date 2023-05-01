@@ -63,7 +63,11 @@ namespace Tools.Desktop.Pages
                 ToolsPostModel model = equipmentListPage.DataContext as ToolsPostModel;
                 
                 MainWindow parent = GetParentWindow();
-                parent.pagesFrame.Navigate(new CertificationCardPage(model));
+                parent.pagesFrame.Navigate(new CertificationCardPage(_toolGroupService,
+                    _toolSubgroupService,
+                    _toolService,
+                    _documentService,
+                    model));
             }
 		}
 

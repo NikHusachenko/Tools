@@ -8,44 +8,73 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CertificationCardPage">
 
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="NavigationButton">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style TargetType="Label" x:Key="InformationLabel">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="InformationField">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Page.Resources>
+    
     <Grid>
-        <Grid>
-            <Frame x:Name="pagesFram" NavigationUIVisibility="Hidden"></Frame>
-        </Grid>
-        <Grid ShowGridLines="True" x:Name="accountingCardGrid">
+        <Grid x:Name="accountingCardGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="6*"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid ShowGridLines="True" Grid.Row="0"  Height="auto">
-                <Label FontSize="20" Margin="31,0,0,1">Картки обліку технічних (експертних) оглядів обладнання</Label>
-                <Separator Width="950" Height="10" Margin="0,28,0,1"></Separator>
+            
+            
+            <Grid Grid.Row="0">
+                <Label FontSize="20" Margin="10">Картки обліку технічних (експертних) оглядів обладнання</Label>
             </Grid>
-            <Grid Grid.Row="1" VerticalAlignment="Center">
-                <Frame x:Name="certificationInfoFrame" NavigationUIVisibility="Hidden"></Frame>
-            </Grid>
-            <Grid  Grid.Row="2">
-                <Grid Grid.Row="2" ShowGridLines="True">
-                    <Frame Height="400" Margin="0,30,0,0" x:Name="mainInfoFrame" NavigationUIVisibility="Hidden"></Frame>
-                </Grid>
-                <Grid x:Name="noDataGrid">
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Margin="70,0,0,0" FontSize="16">Не знайдено даних у базі даних</Label>
-                    <Separator Width="950" Grid.Row="1" Height="10" Margin="0,180,0,0"></Separator>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2" >
-                        <Button x:Name="backToEquipmentCatalog" Height="50" FontSize="20" Width="300" Margin="0,0,100,0" Click="backToEquipmentCatalog_Click">Повернутися до списку обладнання</Button>
-                        <Button Height="55" FontSize="20" Width="300" Margin="100,0,0,0" Click="CreateAccountingCard_Click">
-                            <TextBlock TextWrapping="Wrap">
-                                Створити картку обліку технічного огляду обладнання
-                            </TextBlock>
-                        </Button>
-                    </StackPanel>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource InformationLabel}">Назва інструменту</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource InformationField}">dsjgkdsjkgjkds</TextBox>
+
+                    <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource InformationLabel}">Марка обладнання</Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource InformationField}">gdsg</TextBox>
+
+                    <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource InformationLabel}">Підрозділ</Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InformationField}">dsfds</TextBox>
+                </Grid>
+                
+                <Grid  Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Style="{StaticResource NavigationButton}" Name="backToEquipmentPage" Click="backToEquipmentPage_Click">Повернутись</Button>
+                    <Button Grid.Column="1" Style="{StaticResource NavigationButton}" Name="createToolCertificate" Click="createToolCertificate_Click">Створити картку</Button>
                 </Grid>
             </Grid>
         </Grid>

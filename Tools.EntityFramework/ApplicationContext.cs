@@ -9,6 +9,7 @@ namespace Tools.EntityFramework
 		public DbSet<ToolEntity> Tools { get; set; }
 		public DbSet<ToolGroupEntity> Groups { get; set; }
 		public DbSet<ToolSubgroupEntity> Subgroups { get; set; }
+        public DbSet<ExaminutionEntity> Examinutions { get; set; }
 
         public ApplicationDbContext() : base(Common.Configuration.DEFAULT_CONNECTION)
 		{
@@ -20,6 +21,7 @@ namespace Tools.EntityFramework
             modelBuilder.Configurations.Add(new ToolConfiguration());
             modelBuilder.Configurations.Add(new ToolGroupConfiguration());
             modelBuilder.Configurations.Add(new ToolSubgroupConfiguration());
+            modelBuilder.Configurations.Add(new ExaminationConfiguration());
         }
     }
 }

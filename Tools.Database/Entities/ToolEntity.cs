@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Tools.Database.Enums;
 
 namespace Tools.Database.Entities
@@ -20,5 +21,7 @@ namespace Tools.Database.Entities
 
         public long SubgroupFK { get; set; }
         public ToolSubgroupEntity Subgroup { get; set; }
+
+        public ICollection<ExaminutionEntity> Examinutions { get; set; }
     }
 }

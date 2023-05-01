@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ExaminutionEntity.cs" />
     <Compile Include="Entities\ToolGroupEntity.cs" />
     <Compile Include="Entities\ToolSubgroupEntity.cs" />
+    <Compile Include="Enums\ExaminationNatureType.cs" />
+    <Compile Include="Enums\ExaminationReasonType.cs" />
+    <Compile Include="Enums\ExaminationType.cs" />
     <Compile Include="Enums\OrganizationalUnitType.cs" />
     <Compile Include="Entities\ToolEntity.cs" />
     <Compile Include="Enums\RegistrationType.cs" />

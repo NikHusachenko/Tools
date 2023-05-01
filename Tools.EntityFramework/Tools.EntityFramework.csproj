@@ -155,6 +155,7 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="ApplicationContextInitializer.cs" />
+    <Compile Include="Configurations\ExaminationConfiguration.cs" />
     <Compile Include="Configurations\ToolConfiguration.cs" />
     <Compile Include="Configurations\ToolGroupConfiguration.cs" />
     <Compile Include="Configurations\ToolSubgroupConfiguration.cs" />
@@ -171,6 +172,10 @@
     <Compile Include="Migrations\202304291759188_AddManufacturerToToolEntity.cs" />
     <Compile Include="Migrations\202304291759188_AddManufacturerToToolEntity.designer.cs">
       <DependentUpon>202304291759188_AddManufacturerToToolEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305010731546_CreateExaminationEntity.cs" />
+    <Compile Include="Migrations\202305010731546_CreateExaminationEntity.designer.cs">
+      <DependentUpon>202305010731546_CreateExaminationEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304291759188_AddManufacturerToToolEntity.resx">
       <DependentUpon>202304291759188_AddManufacturerToToolEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305010731546_CreateExaminationEntity.resx">
+      <DependentUpon>202305010731546_CreateExaminationEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
