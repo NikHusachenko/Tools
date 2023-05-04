@@ -18,7 +18,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="White">
         <Grid x:Name="equipmentGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -121,10 +121,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Style="{StaticResource NavigationButton}" Click="AddNewCard_Click">Add card</Button>
-                <Button Grid.Column="1" Style="{StaticResource NavigationButton}" Click="ShowSelectedCard_Click">Equipment card</Button>
-                <Button Grid.Column="2" Style="{StaticResource NavigationButton}" Click="TechnicalCertification_Click">Technical (exp.) inspection</Button>
-                <Button Grid.Column="3" Style="{StaticResource NavigationButton}">Exit</Button>
+                <Button Grid.Column="0" Style="{StaticResource NavigationButton}" Click="AddNewCard_Click">Додати картку</Button>
+                <Button Grid.Column="1" Style="{StaticResource NavigationButton}" Click="ShowSelectedCard_Click">Картка обладнання</Button>
+                <Button Grid.Column="2" Style="{StaticResource NavigationButton}" Click="TechnicalCertification_Click">Технічний (екс.) огляд</Button>
+                <Button Grid.Column="3" Style="{StaticResource NavigationButton}">Вихід</Button>
             </Grid>
         </Grid>
     </Grid>

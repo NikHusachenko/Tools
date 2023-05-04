@@ -53,5 +53,6 @@ namespace Tools.Desktop.Pages
             MainWindow main = GetParentWindow();
             main.pagesFrame.Navigate(new EditCertificationPage());
         }
+
     }
 }

@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CertificationListPage">
+    
 
     <Grid>
         <Grid>
@@ -20,21 +21,21 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row ="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Grid>
                     <Label FontSize="20" Height="40" Margin="31,0,0,0">Створення дати</Label>
                     <DatePicker x:Name="creatingDatePicker" Visibility="Collapsed" Height="25"/>
                     <Button  Height="20" x:Name="creatingCalendarBtn"  VerticalAlignment="Top" Click="creatingCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
                     <Label FontSize="20" Height="40" Margin="31,0,0,0">Дата впровадження</Label>
                     <DatePicker x:Name="implementationDatePicker" Visibility="Collapsed" Height="25"/>
                     <Button  Height="20" x:Name="implementationCalendarBtn"  VerticalAlignment="Top" Click="implementationCalendarBtn_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
-                </StackPanel>
+                </Grid>
             </Grid>
             <Grid Grid.Row="1">
                 <DataGrid x:Name="equipmentDataGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="310" Header="Type of technical (exp) survey."/>
-                        <DataGridTextColumn Width="310" Header="The reason for the technical (exp) inspection."/>
-                        <DataGridTextColumn Width="200" Header="Type of inspection"/>
+                        <DataGridTextColumn Width="310" Header="Вид технічного (екс) обстеження"/>
+                        <DataGridTextColumn Width="310" Header="Причина проведення техогляду"/>
+                        <DataGridTextColumn Width="200" Header="Вид перевірки"/>
                         <DataGridTextColumn Width="100" Header="D. fact"/>
                         <DataGridTextColumn Width="100" Header="D. plan"/>
                     </DataGrid.Columns>
@@ -45,20 +46,20 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0" >
+                <Grid Grid.Row="0">
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Перший запис</Button>
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Попередній запис</Button>
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Наступний запис</Button>
                     <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Останній запис</Button>
-                </StackPanel>
+                </Grid>
 
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0"  Orientation="Horizontal">
+                <Grid Grid.Row="1">
                     <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Зберегти дані</Button>
                     <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Скасувати</Button>
                     <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Видалити запис</Button>
                     <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Вихід</Button>
                     <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Роздрукувати</Button>
-                </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
