@@ -8,24 +8,41 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CertificationMainInfoPage">
 
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="InformationLabel">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="InformationField">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Page.Resources>
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Width="auto" >
-            <Label Height="40" Width="auto" Margin="63,0,20,0"  FontSize="20">Назва обладнання</Label>
-            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto">
-            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Назва обладнання</Label>
-            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Width="auto">
-            <Label Height="40" Width="auto" Margin="63,0,20,0" FontSize="20">Структурний підрозділ</Label>
-            <TextBox Width="600" Height="30" Margin="5,0,20,0"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource InformationLabel}">Назва обладнання</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource InformationField}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource InformationLabel}">Назва обладнання</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource InformationField}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource InformationLabel}">Структурний підрозділ</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InformationField}"/>
+        </Grid>
     </Grid>
 </Page>
