@@ -90,6 +90,7 @@ namespace Tools.Desktop.Windows.CreateWindows
             }
 
             createNewGroupName.Text = string.Empty;
+            selectGroupComboBox.Items.Add(newName);
             MessageBox.Show(Messages.CREATED_SUCCESSFULY);
         }
     }

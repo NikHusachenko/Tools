@@ -14,6 +14,7 @@ namespace Tools.Services.ToolGroupServices
 
         Task<ResponseService<ToolGroupEntity>> GetById(long id);
         Task<ResponseService<ToolGroupEntity>> GetByName(string name);
+
         Task<ICollection<ToolGroupEntity>> GetAll();
     }
 }

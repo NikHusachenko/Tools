@@ -5,69 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tools.Desktop.Windows.CreateWindows"
         mc:Ignorable="d"
-        SizeToContent="WidthAndHeight">
-    
-    <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
-            <ColumnDefinition Width="300" />
-        </Grid.ColumnDefinitions>
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize">
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="300" />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+        <Label Grid.Row="0" Foreground="Red">Видалення групи призведе до каскадного видалення підгруп та усього обладнання, яке відноситься до вказаної підгрупи</Label>
+
+        <Grid Grid.Row="1" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="350" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="300" />
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Content="Група"></Label>
-                <ComboBox Grid.Row="1" Margin="5" Height="28" Name="selectGroupComboBox" SelectionChanged="ComboBox_SelectionChanged" Loaded="ComboBox_Loaded"></ComboBox>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
-                <Grid Grid.Row="2" Name="selectedGroupRenameContainer" Visibility="Hidden">
+                    <Label Grid.Row="0" Content="Група"></Label>
+                    <ComboBox Grid.Row="1" Margin="5" Height="28" Name="selectGroupComboBox" SelectionChanged="ComboBox_SelectionChanged" Loaded="ComboBox_Loaded"></ComboBox>
+
+                    <Grid Grid.Row="2" Name="selectedGroupRenameContainer" Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Content="Нова назва"></Label>
+                        <TextBox Grid.Row="1" Name="selectedGroupNameTextBox" FontSize="16" Height="28" Margin="5" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1" VerticalAlignment="Bottom" Name="selectedGroupControlContainer" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Background="IndianRed" Margin="5" Height="28" Click="Button_Click">Видалити</Button>
+                    <Button Grid.Column="1" Margin="5" Height="28" Name="renameGroupButton" Click="renameGroupButton_Click">Зберегти</Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Content="Нова назва"></Label>
-                    <TextBox Grid.Row="1" Name="selectedGroupNameTextBox" FontSize="16" Height="28" Margin="5" />
+                    <Label Grid.Row="0">Назва групи</Label>
+                    <TextBox Name="createNewGroupName" Grid.Row="1" FontSize="16" Height="28" Margin="5" />
                 </Grid>
+
+                <Button Grid.Row="1" Height="28" Margin="5" VerticalAlignment="Bottom" Content="Створити" Click="Button_Click_1"></Button>
             </Grid>
-
-            <Grid Grid.Row="1" VerticalAlignment="Bottom" Name="selectedGroupControlContainer" Visibility="Hidden">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" Background="IndianRed" Margin="5" Height="28" Click="Button_Click">Видалити</Button>
-                <Button Grid.Column="1" Margin="5" Height="28" Name="renameGroupButton" Click="renameGroupButton_Click">Зберегти</Button>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-
-                <Label Grid.Row="0">Назва групи</Label>
-                <TextBox Name="createNewGroupName" Grid.Row="1" FontSize="16" Height="28" Margin="5" />
-            </Grid>
-            
-            <Button Grid.Row="1" Height="28" Margin="5" VerticalAlignment="Bottom" Content="Створити" Click="Button_Click_1"></Button>
         </Grid>
     </Grid>
 </Window>

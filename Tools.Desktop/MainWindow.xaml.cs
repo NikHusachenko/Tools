@@ -41,7 +41,10 @@ namespace Tools.Desktop
 
         private void EquipmentMenuItem_Click(object sender, RoutedEventArgs e)
 		{
-            pagesFrame.Navigate(new EquipmentPage(_toolGroupService, _toolSubgroupService, _toolService, _documentService));
+            pagesFrame.Navigate(new EquipmentPage(_toolGroupService, 
+                _toolSubgroupService, 
+                _toolService, 
+                _documentService));
         }
 
 		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)
@@ -62,7 +65,9 @@ namespace Tools.Desktop
 
         private void CreateNewSubgroup_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateSubgroupWindow window = new CreateSubgroupWindow(_toolSubgroupService, 
+                _toolGroupService);
+            window.ShowDialog();
         }
 
         private void CreateNewExaminationNature_Click(object sender, RoutedEventArgs e)
