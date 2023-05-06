@@ -2,6 +2,7 @@
 using Tools.Desktop.Pages;
 using Tools.Desktop.Windows.CreateWindows;
 using Tools.Services.DocumentServices;
+using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -14,6 +15,7 @@ namespace Tools.Desktop
         private readonly IToolSubgroupService _toolSubgroupService;
         private readonly IToolService _toolService;
         private readonly IDocumentService _documentService;
+        private readonly IExaminationNatureService _examinationNatureService;
 
         private readonly EquipmentPage _equipmentPage;
         private readonly EditEquipmentPage _editEquipmentPage;
@@ -23,6 +25,7 @@ namespace Tools.Desktop
             IToolSubgroupService toolSubgroupService,
             IToolService toolService,
             IDocumentService documentService,
+            IExaminationNatureService examinationNatureService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
             CertificationLayoutPage certificationLayoutPage)
@@ -31,6 +34,7 @@ namespace Tools.Desktop
             _toolSubgroupService = toolSubgroupService;
             _toolService = toolService;
             _documentService = documentService;
+            _examinationNatureService = examinationNatureService;
 
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
@@ -72,7 +76,8 @@ namespace Tools.Desktop
 
         private void CreateNewExaminationNature_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateExaminationNatureWindow window = new CreateExaminationNatureWindow(_examinationNatureService);
+            window.ShowDialog();
         }
 
         private void CreateNewExaminationSeason_Click(object sender, RoutedEventArgs e)

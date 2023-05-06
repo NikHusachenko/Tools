@@ -78,6 +78,8 @@ namespace Tools.Desktop.Windows.CreateWindows
             selectGroupComboBox.Items.Remove(groupName);
             selectGroupComboBox.Items.Add(newName);
             selectedGroupNameTextBox.Text = string.Empty;
+
+            MessageBox.Show(Messages.REMANED_SUCCESSFULY);
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)

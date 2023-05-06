@@ -17,5 +17,6 @@ namespace Tools.Common
 	{
 		public const string CREATED_SUCCESSFULY = "Створено успішно";
 		public const string DELETED_SUCCESSFULY = "Видалено успішно";
+		public const string REMANED_SUCCESSFULY = "Перейменовано успішно";
 	}
 }

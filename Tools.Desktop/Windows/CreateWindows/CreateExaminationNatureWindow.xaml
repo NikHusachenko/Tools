@@ -3,10 +3,71 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tools.Desktop.Windows.CreateWindows"
         mc:Ignorable="d"
-        Title="CreateExaminationNatureWindow" Height="450" Width="800">
-    <Grid>
-        
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize">
+
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="350" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="300" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Характер обстеження"></Label>
+                <ComboBox Grid.Row="1" Margin="5" Height="28" Name="selectExaminationNatureComboBox" SelectionChanged="selectExaminationNatureComboBox_SelectionChanged" Loaded="selectExaminationNatureComboBox_Loaded"></ComboBox>
+
+                <Grid Grid.Row="2" Name="examinationNatureRenameContainer">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Content="Нова назва"></Label>
+                    <TextBox Grid.Row="1" FontSize="16" Name="natureRename" Height="28" Margin="5" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" VerticalAlignment="Bottom" Name="examinationNatureControlPanel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Background="IndianRed" Margin="5" Height="28" Click="Button_Click_1">Видалити</Button>
+                <Button Grid.Column="1" Margin="5" Height="28" Click="Button_Click_2">Зберегти</Button>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0">Характер обстеження</Label>
+                <TextBox Grid.Row="1" FontSize="16" Height="28" Margin="5" Name="newNatureName" />
+            </Grid>
+
+            <Button Grid.Row="1" Height="28" Margin="5" VerticalAlignment="Bottom" Content="Створити" Click="Button_Click"></Button>
+        </Grid>
     </Grid>
 </Window>

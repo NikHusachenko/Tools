@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="DocumentServices\DocumentService.cs" />
     <Compile Include="DocumentServices\IDocumentService.cs" />
+    <Compile Include="ExaminationNatureServices\ExaminationNatureService.cs" />
+    <Compile Include="ExaminationNatureServices\IExaminationNatureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\ResponseService.cs" />
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />

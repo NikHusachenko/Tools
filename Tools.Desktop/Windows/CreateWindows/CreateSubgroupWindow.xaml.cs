@@ -122,6 +122,7 @@ namespace Tools.Desktop.Windows.CreateWindows
             }
 
             selectSubgroupComboBox_Loaded(sender, e);
+            MessageBox.Show(Messages.REMANED_SUCCESSFULY);
         }
 
         private async void createNewSubgroupButton_Click(object sender, RoutedEventArgs e)
