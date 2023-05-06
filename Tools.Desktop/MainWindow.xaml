@@ -24,12 +24,12 @@
                 <MenuItem Header="Графік оглядів" Click="GraphicMenuItem_Click" />
             </MenuItem>
             <MenuItem FontSize="15" Header="Довідники">
-                <MenuItem Header="Групи інструментів" Click="" />
-                <MenuItem Header="Підгрупи інструментів" />
+                <MenuItem Header="Групи інструментів" Click="CreateNewGroup_Click" />
+                <MenuItem Header="Підгрупи інструментів" Click="CreateNewSubgroup_Click" />
                 <Separator Height="1" BorderBrush="Black" BorderThickness="1" />
-                <MenuItem Header="Характер обстеження" />
-                <MenuItem Header="Причина обстеження" />
-                <MenuItem Header="Тип обстеження" />
+                <MenuItem Header="Характер обстеження" Click="CreateNewExaminationNature_Click" />
+                <MenuItem Header="Причина обстеження" Click="CreateNewExaminationSeason_Click" />
+                <MenuItem Header="Тип обстеження" Click="CreateNewExaminationType_Click" />
             </MenuItem>
         </Menu>
             

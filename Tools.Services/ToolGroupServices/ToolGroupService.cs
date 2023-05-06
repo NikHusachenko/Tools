@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,6 +32,30 @@ namespace Tools.Services.ToolGroupServices
             return ResponseService<long>.Ok(dbRecord.Id);
         }
 
+        public async Task<ResponseService<long>> Delete(ToolGroupEntity entity)
+        {
+            try
+            {
+                await _toolGroupRepository.Delete(entity);
+                return ResponseService<long>.Ok(entity.Id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseService<long>.Error(ex.Message);
+            }
+        }
+
+        public async Task<ResponseService<long>> Delete(string name)
+        {
+            var response = await GetByName(name);
+            if (response.IsError)
+            {
+                return ResponseService<long>.Error(response.ErrorMessage);
+            }
+
+            return await Delete(response.Value);
+        }
+
         public async Task<ICollection<ToolGroupEntity>> GetAll()
         {
             return await _toolGroupRepository.GetAll()
@@ -56,6 +81,19 @@ namespace Tools.Services.ToolGroupServices
                 return ResponseService<ToolGroupEntity>.Error(Errors.NOT_FOUND_ERROR);
             }
             return ResponseService<ToolGroupEntity>.Ok(dbRecord);
+        }
+
+        public async Task<ResponseService> Update(ToolGroupEntity entity)
+        {
+            try
+            {
+                await _toolGroupRepository.Update(entity);
+                return ResponseService.Ok();
+            }
+            catch (Exception ex)
+            {
+                return ResponseService.Error(ex.Message);
+            }
         }
     }
 }

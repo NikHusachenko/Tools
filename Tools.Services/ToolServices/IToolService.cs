@@ -9,6 +9,8 @@ namespace Tools.Services.ToolServices
     public interface IToolService
     {
         Task<ResponseService<long>> Create(ToolEntity toolEntity);
+        Task<ResponseService<long>> Delete(ToolEntity toolEntity);
+        Task<ResponseService> Update(ToolEntity toolEntity);
 
         Task<ResponseService<ToolEntity>> GetById(long id);
         Task<ICollection<ToolEntity>> GetById(ICollection<long> ids);

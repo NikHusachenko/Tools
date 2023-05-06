@@ -196,5 +196,31 @@ namespace Tools.Services.ToolServices
             }
             return dbRecords;
         }
+
+        public async Task<ResponseService<long>> Delete(ToolEntity toolEntity)
+        {
+            try
+            {
+                await _toolRepository.Delete(toolEntity);
+                return ResponseService<long>.Ok(toolEntity.Id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseService<long>.Error(ex.Message);
+            }
+        }
+
+        public async Task<ResponseService> Update(ToolEntity toolEntity)
+        {
+            try
+            {
+                await _toolRepository.Update(toolEntity);
+                return ResponseService.Ok();
+            }
+            catch (Exception ex)
+            {
+                return ResponseService.Error(ex.Message);
+            }
+        }
     }
 }

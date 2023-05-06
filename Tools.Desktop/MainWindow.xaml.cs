@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Tools.Desktop.Pages;
+using Tools.Desktop.Windows.CreateWindows;
 using Tools.Services.DocumentServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
@@ -55,7 +56,8 @@ namespace Tools.Desktop
 
         private void CreateNewGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateGroupWindow window = new CreateGroupWindow(_toolGroupService);
+            window.ShowDialog();
         }
 
         private void CreateNewSubgroup_Click(object sender, RoutedEventArgs e)
