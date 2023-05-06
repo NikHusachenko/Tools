@@ -28,7 +28,7 @@
                 <MenuItem Header="Підгрупи інструментів" Click="CreateNewSubgroup_Click" />
                 <Separator Height="1" BorderBrush="Black" BorderThickness="1" />
                 <MenuItem Header="Характер обстеження" Click="CreateNewExaminationNature_Click" />
-                <MenuItem Header="Причина обстеження" Click="CreateNewExaminationSeason_Click" />
+                <MenuItem Header="Причина обстеження" Click="CreateNewExaminationReason_Click" />
                 <MenuItem Header="Тип обстеження" Click="CreateNewExaminationType_Click" />
             </MenuItem>
         </Menu>

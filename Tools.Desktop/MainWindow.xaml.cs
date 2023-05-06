@@ -3,6 +3,7 @@ using Tools.Desktop.Pages;
 using Tools.Desktop.Windows.CreateWindows;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
+using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -16,6 +17,7 @@ namespace Tools.Desktop
         private readonly IToolService _toolService;
         private readonly IDocumentService _documentService;
         private readonly IExaminationNatureService _examinationNatureService;
+        private readonly IExaminationReasonService _examinationReasonService;
 
         private readonly EquipmentPage _equipmentPage;
         private readonly EditEquipmentPage _editEquipmentPage;
@@ -26,6 +28,7 @@ namespace Tools.Desktop
             IToolService toolService,
             IDocumentService documentService,
             IExaminationNatureService examinationNatureService,
+            IExaminationReasonService examinationReasonService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
             CertificationLayoutPage certificationLayoutPage)
@@ -35,6 +38,7 @@ namespace Tools.Desktop
             _toolService = toolService;
             _documentService = documentService;
             _examinationNatureService = examinationNatureService;
+            _examinationReasonService = examinationReasonService;
 
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
@@ -80,9 +84,10 @@ namespace Tools.Desktop
             window.ShowDialog();
         }
 
-        private void CreateNewExaminationSeason_Click(object sender, RoutedEventArgs e)
+        private void CreateNewExaminationReason_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateExaminationSeasonWindow window = new CreateExaminationSeasonWindow(_examinationReasonService);
+            window.ShowDialog();
         }
 
         private void CreateNewExaminationType_Click(object sender, RoutedEventArgs e)

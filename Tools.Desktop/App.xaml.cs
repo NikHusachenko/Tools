@@ -3,10 +3,12 @@ using System;
 using System.Windows;
 using Tools.Desktop.Pages;
 using Tools.Desktop.Windows;
+using Tools.Desktop.Windows.CreateWindows;
 using Tools.EntityFramework;
 using Tools.EntityFramework.GenericRepository;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
+using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -36,6 +38,7 @@ namespace Tools.Desktop
             services.AddTransient<IToolService, ToolService>();
             services.AddTransient<IDocumentService, DocumentService>();
             services.AddTransient<IExaminationNatureService, ExaminationNatureService>();
+            services.AddTransient<IExaminationReasonService, ExaminationReasonService>();
 
             // Validators
 

@@ -60,6 +60,8 @@
     <Compile Include="DocumentServices\IDocumentService.cs" />
     <Compile Include="ExaminationNatureServices\ExaminationNatureService.cs" />
     <Compile Include="ExaminationNatureServices\IExaminationNatureService.cs" />
+    <Compile Include="ExaminationReasonServices\ExaminationReasonService.cs" />
+    <Compile Include="ExaminationReasonServices\IExaminationReasonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\ResponseService.cs" />
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />
