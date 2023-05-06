@@ -156,6 +156,9 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="ApplicationContextInitializer.cs" />
     <Compile Include="Configurations\ExaminationConfiguration.cs" />
+    <Compile Include="Configurations\ExaminationNatureConfiguration.cs" />
+    <Compile Include="Configurations\ExaminationReasonConfiguration.cs" />
+    <Compile Include="Configurations\ExaminationTypeConfiguration.cs" />
     <Compile Include="Configurations\ToolConfiguration.cs" />
     <Compile Include="Configurations\ToolGroupConfiguration.cs" />
     <Compile Include="Configurations\ToolSubgroupConfiguration.cs" />
@@ -176,6 +179,10 @@
     <Compile Include="Migrations\202305010731546_CreateExaminationEntity.cs" />
     <Compile Include="Migrations\202305010731546_CreateExaminationEntity.designer.cs">
       <DependentUpon>202305010731546_CreateExaminationEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305060928151_AddedExaminationsTypesAsTables.cs" />
+    <Compile Include="Migrations\202305060928151_AddedExaminationsTypesAsTables.designer.cs">
+      <DependentUpon>202305060928151_AddedExaminationsTypesAsTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305010731546_CreateExaminationEntity.resx">
       <DependentUpon>202305010731546_CreateExaminationEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305060928151_AddedExaminationsTypesAsTables.resx">
+      <DependentUpon>202305060928151_AddedExaminationsTypesAsTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,10 @@ namespace Tools.EntityFramework
 		public DbSet<ToolEntity> Tools { get; set; }
 		public DbSet<ToolGroupEntity> Groups { get; set; }
 		public DbSet<ToolSubgroupEntity> Subgroups { get; set; }
-        public DbSet<ExaminutionEntity> Examinutions { get; set; }
+        public DbSet<ExaminationEntity> Examinutions { get; set; }
+        public DbSet<ExaminationNatureEntity> Natures { get; set; }
+        public DbSet<ExaminationReasonEntity> Reasons { get; set; }
+        public DbSet<ExaminationTypeEntity> Types { get; set; }
 
         public ApplicationDbContext() : base(Common.Configuration.DEFAULT_CONNECTION)
 		{
@@ -22,6 +25,9 @@ namespace Tools.EntityFramework
             modelBuilder.Configurations.Add(new ToolGroupConfiguration());
             modelBuilder.Configurations.Add(new ToolSubgroupConfiguration());
             modelBuilder.Configurations.Add(new ExaminationConfiguration());
+            modelBuilder.Configurations.Add(new ExaminationNatureConfiguration());
+            modelBuilder.Configurations.Add(new ExaminationReasonConfiguration());
+            modelBuilder.Configurations.Add(new ExaminationTypeConfiguration());
         }
     }
 }

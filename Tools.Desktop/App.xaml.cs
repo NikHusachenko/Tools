@@ -48,8 +48,8 @@ namespace Tools.Desktop
         protected async override void OnStartup(StartupEventArgs e)
         {
             // Requared to save default data
-            ApplicationDbContext dbContext = _serviceProvider.GetService<ApplicationDbContext>();
-            await ApplicationContextInitializer.InitializeDefaultData(dbContext);
+            // ApplicationDbContext dbContext = _serviceProvider.GetService<ApplicationDbContext>();
+            // await ApplicationContextInitializer.InitializeDefaultData(dbContext);
 
             MainWindow main = _serviceProvider.GetRequiredService<MainWindow>();
             main.Show();

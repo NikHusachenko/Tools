@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ExaminationNatureEntity.cs" />
+    <Compile Include="Entities\ExaminationReasonEntity.cs" />
+    <Compile Include="Entities\ExaminationTypeEntity.cs" />
     <Compile Include="Entities\ExaminutionEntity.cs" />
     <Compile Include="Entities\ToolGroupEntity.cs" />
     <Compile Include="Entities\ToolSubgroupEntity.cs" />
