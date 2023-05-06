@@ -18,6 +18,25 @@ namespace Tools.Services.ToolSubgroupServices
             _toolSubgroupRepository = toolSubgroupRepository;
         }
 
+        public async Task<ResponseService<long>> Create(string name, long groupId)
+        {
+            ToolSubgroupEntity dbRecord = await _toolSubgroupRepository.GetBy(subgroup => subgroup.Name == name &&
+                subgroup.GroupFK == groupId);
+            if (dbRecord != null)
+            {
+                return ResponseService<long>.Error(Errors.WAS_CREATED_ERROR);
+            }
+
+            dbRecord = new ToolSubgroupEntity()
+            {
+                GroupFK = groupId,
+                Name = name,
+            };
+
+            await _toolSubgroupRepository.Create(dbRecord);
+            return ResponseService<long>.Ok(dbRecord.Id);
+        }
+
         public async Task<ICollection<ToolSubgroupEntity>> GetAll()
         {
             return await _toolSubgroupRepository.GetAll()

@@ -172,6 +172,21 @@
     <Compile Include="Windows\CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CreateWindows\CreateExaminationNatureWindow.xaml.cs">
+      <DependentUpon>CreateExaminationNatureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateWindows\CreateExaminationSeasonWindow.xaml.cs">
+      <DependentUpon>CreateExaminationSeasonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateWindows\CreateExaminationTypeWindow.xaml.cs">
+      <DependentUpon>CreateExaminationTypeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateWindows\CreateGroupWindow.xaml.cs">
+      <DependentUpon>CreateGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateWindows\CreateSubgroupWindow.xaml.cs">
+      <DependentUpon>CreateSubgroupWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ToolDataViewWindow.xaml.cs">
       <DependentUpon>ToolDataViewWindow.xaml</DependentUpon>
     </Compile>
@@ -240,6 +255,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateExaminationNatureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateExaminationSeasonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateExaminationTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateSubgroupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

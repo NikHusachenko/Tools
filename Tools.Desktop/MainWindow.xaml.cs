@@ -52,5 +52,30 @@ namespace Tools.Desktop
 		{
             pagesFrame.Navigate(_certificationLayoutPage);
 		}
-	}
+
+        private void CreateNewGroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateNewSubgroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateNewExaminationNature_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateNewExaminationSeason_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateNewExaminationType_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

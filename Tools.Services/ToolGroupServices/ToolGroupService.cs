@@ -18,6 +18,19 @@ namespace Tools.Services.ToolGroupServices
             _toolGroupRepository = toolGroupRepository;
         }
 
+        public async Task<ResponseService<long>> Create(string name)
+        {
+            ToolGroupEntity dbRecord = await _toolGroupRepository.GetBy(group => group.Name == name);
+            if (dbRecord != null)
+            {
+                return ResponseService<long>.Error(Errors.WAS_CREATED_ERROR);
+            }
+
+            dbRecord = new ToolGroupEntity() { Name = name };
+            await _toolGroupRepository.Create(dbRecord);
+            return ResponseService<long>.Ok(dbRecord.Id);
+        }
+
         public async Task<ICollection<ToolGroupEntity>> GetAll()
         {
             return await _toolGroupRepository.GetAll()
