@@ -36,7 +36,7 @@
             
             
             <Grid Grid.Row="0">
-                <Label FontSize="20" Margin="10">Картки обліку технічних (експертних) оглядів обладнання</Label>
+                <Label Style="{StaticResource InformationLabel}">Картки обліку технічних (експертних) оглядів обладнання</Label>
             </Grid>
 
             <Grid Grid.Row="1">

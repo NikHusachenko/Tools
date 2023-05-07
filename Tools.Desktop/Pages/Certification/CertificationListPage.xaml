@@ -11,63 +11,75 @@
     <Page.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="31,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
         <Style x:Key="DatePickerStyle" TargetType="DatePicker">
-            <Setter Property="Visibility" Value="Collapsed"/>
-            <Setter Property="Height" Value="25"/>
-        </Style>
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="195"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="Height" Value="35"/>
-            <Setter Property="Margin" Value="8, 0, 8, 0"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0, 0, 10 0" />
         </Style>
         <Style x:Key="SmallButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="176"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="Height" Value="35"/>
-            <Setter Property="Margin" Value="8, 0, 8, 0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="10, 5, 10, 5" />
         </Style>
     </Page.Resources>
 
     <Grid>
-        <Grid>
-            <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden"/>
-        </Grid>
-
-        <Grid x:Name="certificationListGrid">
+        <Grid x:Name="certificationListGrid" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+
             <Grid Grid.Row ="0">
-                <Grid>
-                    <Label Style="{StaticResource LabelStyle}">Створення дати</Label>
-                    <DatePicker x:Name="creatingDatePicker" Style="{StaticResource DatePickerStyle}"/>
-                    <Button Style="{StaticResource ButtonStyle}" x:Name="creatingCalendarBtn" Click="creatingCalendarBtn_Click" Content="Календар" VerticalAlignment="Top"/>
-                    <Label Style="{StaticResource LabelStyle}">Дата впровадження</Label>
-                    <DatePicker x:Name="implementationDatePicker" Style="{StaticResource DatePickerStyle}"/>
-                    <Button Style="{StaticResource ButtonStyle}" x:Name="implementationCalendarBtn" Click="implementationCalendarBtn_Click" Content="Календар" VerticalAlignment="Top"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Style="{StaticResource LabelStyle}">Створення дати</Label>
+                <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Name="creatingDatePicker" Style="{StaticResource DatePickerStyle}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <Label Grid.Column="3" Style="{StaticResource LabelStyle}">Дата впровадження</Label>
+                <DatePicker Grid.Column="5" Grid.ColumnSpan="2" Name="implementationDatePicker" Style="{StaticResource DatePickerStyle}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
                 </Grid>
-            </Grid>
+
             <Grid Grid.Row="1">
                 <DataGrid x:Name="equipmentDataGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="310" Header="Вид технічного (екс) обстеження"/>
-                        <DataGridTextColumn Width="310" Header="Причина проведення техогляду"/>
-                        <DataGridTextColumn Width="200" Header="Вид перевірки"/>
-                        <DataGridTextColumn Width="100" Header="Д. факт"/>
-                        <DataGridTextColumn Width="100" Header="D. план"/>
+                        <DataGridTextColumn Width="auto" Header="Вид технічного (екс) обстеження"/>
+                        <DataGridTextColumn Width="auto" Header="Причина проведення техогляду"/>
+                        <DataGridTextColumn Width="*" Header="Вид перевірки"/>
+                        <DataGridTextColumn Width="*" Header="Д. факт"/>
+                        <DataGridTextColumn Width="*" Header="D. план"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -76,19 +88,33 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
+                
                 <Grid Grid.Row="0">
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Перший запис</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Попередній запис</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Наступний запис</Button>
-                    <Button Width="195" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Останній запис</Button>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Style="{StaticResource SmallButtonStyle}">Перший запис</Button>
+                    <Button Grid.Column="1" Style="{StaticResource SmallButtonStyle}">Попередній запис</Button>
+                    <Button Grid.Column="2" Style="{StaticResource SmallButtonStyle}">Наступний запис</Button>
+                    <Button Grid.Column="3" Style="{StaticResource SmallButtonStyle}">Останній запис</Button>
                 </Grid>
 
-                <Grid Grid.Row="1">
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Зберегти дані</Button>
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Скасувати</Button>
-                    <Button Width="176" FontSize="13" FontFamily="Arial" Height="35" Margin="8, 0, 8, 0">Видалити запис</Button>
-                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="78, 0, 8, 0">Вихід</Button>
-                    <Button Width="125" FontSize="13" FontFamily="Arial" Height="35" Margin="28, 0, 8, 0">Роздрукувати</Button>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Style="{StaticResource SmallButtonStyle}">Зберегти дані</Button>
+                    <Button Grid.Column="1" Style="{StaticResource SmallButtonStyle}">Скасувати</Button>
+                    <Button Grid.Column="2" Style="{StaticResource SmallButtonStyle}">Видалити запис</Button>
+                    <Button Grid.Column="3" Style="{StaticResource SmallButtonStyle}">Вихід</Button>
+                    <Button Grid.Column="4" Style="{StaticResource SmallButtonStyle}">Роздрукувати</Button>
                 </Grid>
             </Grid>
         </Grid>

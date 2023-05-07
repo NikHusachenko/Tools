@@ -9,71 +9,113 @@
       Title="CertificationLayoutPage">
 
     <Page.Resources>
-        <Style x:Key="RadoButtonStyle">
-            <Setter Property="ItemsControl.BorderThickness" Value="3,3,3,3"/>
+        <Style TargetType="RadioButton" x:Key="RadoButtonStyle">
             <Setter Property="ItemsControl.BorderBrush" Value="#FF0B0808"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="10,5,0,5"/>
+        </Style>
+        <Style TargetType="Label" x:Key="DefaultTextSize">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="FontSize" Value="23" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="10, 5, 10, 5" />
+        </Style>
+        <Style TargetType="DatePicker" x:Key="DatePicker">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0, 0, 10 0" />
         </Style>
     </Page.Resources>
-    <Grid>
+
+    <Grid Background="White">
         <Grid ShowGridLines="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35px"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" ShowGridLines="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label FontSize="20" FontWeight="Bold" FontFamily="Arial" Height="30" Margin="10,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource DefaultTextSize}" >
                     Підготувати графік технічних (експертних) обстежень обладнання з вибором:
                 </Label>
-                <Separator Width="980" Height="10" Margin="0,21,0,0" HorizontalAlignment="Center" ></Separator>
             </Grid>
             <Grid Grid.Row="1">
-                <StackPanel Margin="10,5,0,0">
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FirstRadioBtn_Click">
-                        майбутні технічні (експертні) обстеження (всі підрозділи)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SecondRadioBtn_Click">
-                        майбутні технічні (експертні) дослідження (в обраному підрозділі)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="ThirdRadioBtn_Click">
-                        майбутні технічні (експертні) обстеження (вибраної підгрупи обладнання)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FourthRadioBtn_Click">
-                        майбутні технічні (експертні) дослідження (за видами технічних (експертних) досліджень)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="FifthRadioBtn_Click">
-                        прострочені технічні (експертні) обстеження (всі підрозділи)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SixthRadioBtn_Click">
-                        прострочені технічні (експертні) обстеження (в обраному підрозділі)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="SeventhRadioBtn_Click">
-                        прострочені технічні (експертні) обстеження (окремої підгрупи обладнання)
-                    </RadioButton>
-                    <RadioButton FontSize="20" Margin="0,10,0,10" Style="{StaticResource RadoButtonStyle}" Click="EighthRadioBtn_Click">
-                        прострочені технічні (експертні) обстеження (за видами технічних (експертних) обстежень)
-                    </RadioButton>
-                </StackPanel>
-                <Separator Width="980" Height="10" Margin="0,365,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" ></Separator>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <RadioButton Grid.Row="0" Style="{StaticResource RadoButtonStyle}">
+                    майбутні технічні (експертні) обстеження (всі підрозділи)
+                </RadioButton>
+                <RadioButton Grid.Row="1" Style="{StaticResource RadoButtonStyle}">
+                    майбутні технічні (експертні) дослідження (в обраному підрозділі)
+                </RadioButton>
+                <RadioButton Grid.Row="2" Style="{StaticResource RadoButtonStyle}">
+                    майбутні технічні (експертні) обстеження (вибраної підгрупи обладнання)
+                </RadioButton>
+                <RadioButton Grid.Row="3" Style="{StaticResource RadoButtonStyle}">
+                    майбутні технічні (експертні) дослідження (за видами технічних (експертних) досліджень)
+                </RadioButton>
+                <RadioButton Grid.Row="4" Style="{StaticResource RadoButtonStyle}">
+                    прострочені технічні (експертні) обстеження (всі підрозділи)
+                </RadioButton>
+                <RadioButton Grid.Row="5" Style="{StaticResource RadoButtonStyle}">
+                    прострочені технічні (експертні) обстеження (в обраному підрозділі)
+                </RadioButton>
+                <RadioButton Grid.Row="6" Style="{StaticResource RadoButtonStyle}">
+                    прострочені технічні (експертні) обстеження (окремої підгрупи обладнання)
+                </RadioButton>
+                <RadioButton Grid.Row="7" Style="{StaticResource RadoButtonStyle}">
+                    прострочені технічні (експертні) обстеження (за видами технічних (експертних) обстежень)
+                </RadioButton>
             </Grid>
             <Grid Grid.Row="2" >
-                <StackPanel x:Name="calendarStackPanel" Visibility="Collapsed" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Label FontSize="20" Height="40" Margin="0,0,20,0">Приклад кінцевої дати:</Label>
-                    <DatePicker x:Name="datePicker" Visibility="Collapsed" SelectedDateChanged="datePicker_SelectedDateChanged"/>
-                    <Button  Height="20"  VerticalAlignment="Top" Click="CalendarButton_Click" Margin="3, 10, 5, 0" Width="70">Календар</Button>
-                </StackPanel>
-                <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Приклад кінцевої дати:"></Label>
+                <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Name="dateOfCreatingCalendar" Style="{StaticResource DatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
             </Grid>
             <Grid Grid.Row="3">
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,22,0,0"  Orientation="Horizontal">
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Вихід</Button>
-                    <Button Width="195" FontSize="23" FontFamily="Arial" Height="35" Margin="70, 0, 70, 0">Роздрукувати</Button>
-                </StackPanel>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Style="{StaticResource ButtonStyle}">Вихід</Button>
+                <Button Grid.Column="1" Style="{StaticResource ButtonStyle}">Роздрукувати</Button>
             </Grid>
         </Grid>
     </Grid>
