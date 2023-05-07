@@ -24,6 +24,7 @@
                 <MenuItem Header="Графік оглядів" Click="GraphicMenuItem_Click" />
             </MenuItem>
             <MenuItem FontSize="15" Header="Довідники">
+                <MenuItem Header="Підрозділи організації" Click="MenuItem_Click" />
                 <MenuItem Header="Групи інструментів" Click="CreateNewGroup_Click" />
                 <MenuItem Header="Підгрупи інструментів" Click="CreateNewSubgroup_Click" />
                 <Separator Height="1" BorderBrush="Black" BorderThickness="1" />

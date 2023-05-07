@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Tools.Services.DocumentServices;
+using Tools.Services.OrganizationUnitServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolServices.Models;
@@ -14,6 +15,7 @@ namespace Tools.Desktop.Pages
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
 		private readonly IDocumentService _documentService;
+		private readonly IOrganizationUnitService _organizationUnitService;
 
         private readonly ToolsPostModel _model;
 
@@ -21,6 +23,7 @@ namespace Tools.Desktop.Pages
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService,
 			IDocumentService documentService,
+			IOrganizationUnitService organizationUnitService,
 			ToolsPostModel model)
 		{
 			_toolGroupService = toolGroupService;
@@ -45,7 +48,8 @@ namespace Tools.Desktop.Pages
             main.pagesFrame.Navigate(new EquipmentPage(_toolGroupService,
                 _toolSubgroupService,
                 _toolService,
-                _documentService));
+                _documentService,
+				_organizationUnitService));
         }
 
         private void createToolCertificate_Click(object sender, RoutedEventArgs e)

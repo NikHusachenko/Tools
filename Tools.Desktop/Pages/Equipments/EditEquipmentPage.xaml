@@ -83,7 +83,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Структурний підрозділ організації</Label>
-            <ComboBox Grid.Column="1" Name="organizationUnitComboBox" Style="{StaticResource Selector}"/>
+            <ComboBox Grid.Column="1" Name="organizationUnitComboBox" Style="{StaticResource Selector}" Loaded="organizationUnitComboBox_Loaded"/>
         </Grid>
 
         <Grid Grid.Row="2">

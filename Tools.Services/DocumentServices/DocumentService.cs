@@ -41,7 +41,7 @@ namespace Tools.Services.DocumentServices
                 cell.Range.Text = tools[i].Subgroup.Name;
 
                 cell = table.Cell(i + 1, 5);
-                cell.Range.Text = tools[i].OrganizationalType.ToString();
+                cell.Range.Text = tools[i].OrganizationUnit.Name;
 
                 cell = table.Cell(i + 1, 6);
                 cell.Range.Text = tools[i].Registration.ToString();

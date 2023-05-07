@@ -7,6 +7,7 @@ using Tools.Common;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.EntityFramework.GenericRepository;
+using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices.Enums;
@@ -21,14 +22,17 @@ namespace Tools.Services.ToolServices
         private readonly IGenericRepository<ToolEntity> _toolRepository;
         private readonly IToolGroupService _toolGroupService;
         private readonly IToolSubgroupService _toolSubgroupService;
+        private readonly IOrganizationUnitService _organizationUnitService;
 
         public ToolService(IGenericRepository<ToolEntity> toolRepository,
             IToolGroupService toolGroupService,
-            IToolSubgroupService toolSubgroupService)
+            IToolSubgroupService toolSubgroupService,
+            IOrganizationUnitService organizationUnitService)
         {
             _toolRepository = toolRepository;
             _toolGroupService = toolGroupService;
             _toolSubgroupService = toolSubgroupService;
+            _organizationUnitService = organizationUnitService;
         }
 
         public async Task<ResponseService<long>> Create(ToolEntity toolEntity)
@@ -47,11 +51,12 @@ namespace Tools.Services.ToolServices
         public async Task<ToolsSortingGetModel> Sorting(ToolsSortingPostModel vm)
         {
             IQueryable<ToolEntity> query = _toolRepository.Table
+                .Include(tool => tool.OrganizationUnit)
                 .Include(tool => tool.Subgroup)
                 .Include(tool => tool.Subgroup.Group);
 
             query = FilterQueryByRegistration(query, vm.Registration);
-            query = FilterQueryByOrganizationUnitType(query, vm.OrganizationalUnit);
+            query = FilterQueryByOrganizationUnitType(query, vm.OrganizationalUnitName);
             query = FilterQueryByGroup(query, vm.GroupName);
             query = FilterQueryBySubgroup(query, vm.SubgroupName);
             query = FilterQueryByExpiration(query, vm.ExpirationCriteria);
@@ -66,7 +71,7 @@ namespace Tools.Services.ToolServices
                     Brand = tool.Brand,
                     Group = tool.Subgroup.Group.Name,
                     Name = tool.Name,
-                    OranizationUnit = OrganizationalUnitDisplay.GetDisplayName(tool.OrganizationalType),
+                    OranizationUnit = tool.OrganizationUnit.Name,
                     Subgroup = tool.Subgroup.Name,
                 });
             }
@@ -86,9 +91,6 @@ namespace Tools.Services.ToolServices
 
         public async Task<ResponseService<ToolEntity>> ValidateBeforeCreating(CreateToolEntityPostModel vm)
         {
-            OrganizationalUnitType organizationalUnit = OrganizationalUnitDisplay.GetEnumFromDisplay(vm.OrganizationUnit);
-            if (organizationalUnit == 0) return ResponseService<ToolEntity>.Error(Errors.INVALID_VALUE_ERROR);
-
             if (!DateTime.TryParse(vm.CommissioningDate, out DateTime commisioningDate)) return ResponseService<ToolEntity>.Error(Errors.INVALID_DATE);
             if (!DateTime.TryParse(vm.CreatingDate, out DateTime creatingDate)) return ResponseService<ToolEntity>.Error(Errors.INVALID_DATE);
 
@@ -98,6 +100,9 @@ namespace Tools.Services.ToolServices
             var response = await _toolSubgroupService.GetByName(vm.Subgroup);
             if (response.IsError) return ResponseService<ToolEntity>.Error(response.ErrorMessage);
             long subgroupId = response.Value.Id;
+
+            var unitResponse = await _organizationUnitService.GetByName(vm.OrganizationUnit);
+            if (unitResponse.IsError) return ResponseService<ToolEntity>.Error(unitResponse.ErrorMessage);
 
             ToolEntity dbRecord = new ToolEntity()
             {
@@ -109,7 +114,7 @@ namespace Tools.Services.ToolServices
                 IntraFactoryNumber = vm.IntraFactoryNumber,
                 Name = vm.Name,
                 Manufacturer = vm.Manufacturer,
-                OrganizationalType = organizationalUnit,
+                OrganizationUnitFK = unitResponse.Value.Id,
                 Registration = registrationType,
                 RegistrationNumber = vm.RegistrationNumber,
                 SubgroupFK = subgroupId,
@@ -127,13 +132,13 @@ namespace Tools.Services.ToolServices
             return query.Where(tool => tool.Registration == registration);
         }
 
-        private IQueryable<ToolEntity> FilterQueryByOrganizationUnitType(IQueryable<ToolEntity> query, OrganizationalUnitType organizationalUnit)
+        private IQueryable<ToolEntity> FilterQueryByOrganizationUnitType(IQueryable<ToolEntity> query, string unitName)
         {
-            if (organizationalUnit == 0)
+            if (string.IsNullOrEmpty(unitName))
             {
                 return query;
             }
-            return query.Where(tool => tool.OrganizationalType == organizationalUnit);
+            return query.Where(tool => tool.OrganizationUnit.Name == unitName);
         }
 
         private IQueryable<ToolEntity> FilterQueryByGroup(IQueryable<ToolEntity> query, string groupName)

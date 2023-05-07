@@ -184,6 +184,9 @@
     <Compile Include="Windows\CreateWindows\CreateGroupWindow.xaml.cs">
       <DependentUpon>CreateGroupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CreateWindows\CreateOrganizationUnitWindow.xaml.cs">
+      <DependentUpon>CreateOrganizationUnitWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateWindows\CreateSubgroupWindow.xaml.cs">
       <DependentUpon>CreateSubgroupWindow.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CreateWindows\CreateGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateWindows\CreateOrganizationUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

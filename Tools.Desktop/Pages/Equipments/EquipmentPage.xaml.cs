@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.Services.DocumentServices;
+using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
@@ -22,6 +23,7 @@ namespace Tools.Desktop.Pages
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
         private readonly IDocumentService _documentService;
+        private readonly IOrganizationUnitService _organizationUnitService;
 
 		private SemaphoreSlim _loadingSemaphore;
         private SemaphoreSlim _crearSemaphore;
@@ -31,12 +33,14 @@ namespace Tools.Desktop.Pages
 		public EquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService,
-            IDocumentService documentService)
+            IDocumentService documentService,
+            IOrganizationUnitService organizationUnitService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
             _documentService = documentService;
+            _organizationUnitService = organizationUnitService;
 
 			_loadingSemaphore = new SemaphoreSlim(1);
             _crearSemaphore = new SemaphoreSlim(1);
@@ -51,7 +55,8 @@ namespace Tools.Desktop.Pages
 			parent.pagesFrame.Navigate(new EditEquipmentPage(_toolGroupService,
                 _toolSubgroupService,
                 _toolService,
-                _documentService));
+                _documentService,
+                _organizationUnitService));
 		}
 
 		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
@@ -67,6 +72,7 @@ namespace Tools.Desktop.Pages
                     _toolSubgroupService,
                     _toolService,
                     _documentService,
+                    _organizationUnitService,
                     model));
             }
 		}
@@ -84,8 +90,8 @@ namespace Tools.Desktop.Pages
             string[] registrations = RegistrationTypeDisplay.GetDisplayNames();
             foreach (string registration in registrations) registrationSortingComboBox.Items.Add(registration);
 
-			string[] units = OrganizationalUnitDisplay.GetDisplayNames();
-			foreach (string unit in units) unitSortingComboBox.Items.Add(unit);
+            ICollection<OrganizationUnitEntity> units = await _organizationUnitService.GetAll();
+			foreach (OrganizationUnitEntity unit in units) unitSortingComboBox.Items.Add(unit.Name);
 
 			ICollection<ToolGroupEntity> groups = await _toolGroupService.GetAll();
 			foreach (ToolGroupEntity group in groups) groupSortingComboBox.Items.Add(group.Name);
@@ -176,7 +182,7 @@ namespace Tools.Desktop.Pages
             {
                 ExpirationCriteria = ExpirationSortingCriteriaDisplay.GetEnumFromDisplay(expirationSortingComboBox.SelectedItem as string),
                 GroupName = groupResult.Value?.Name,
-                OrganizationalUnit = OrganizationalUnitDisplay.GetEnumFromDisplay(unitSortingComboBox.SelectedItem as string),
+                OrganizationalUnitName = unitSortingComboBox.SelectedItem as string,
                 Registration = RegistrationTypeDisplay.GetEnumFromDisplay(registrationSortingComboBox.SelectedItem as string),
                 SubgroupName = subgroupResult.Value?.Name,
             };

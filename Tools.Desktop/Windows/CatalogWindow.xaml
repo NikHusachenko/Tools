@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="CatalogWindow" Height="450" Width="800">
+        Title="CatalogWindow" Height="450" Width="800"
+        ResizeMode="NoResize">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -12,11 +13,11 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0" x:Name="groupCatalogGrid" AutoGenerateColumns="False" Loaded="groupCatalogGrid_Loaded" MouseDoubleClick="groupCatalogGrid_MouseDoubleClick">
+        <DataGrid Grid.Row="0" x:Name="groupCatalogGrid" AutoGenerateColumns="False" Loaded="groupCatalogGrid_Loaded" MouseDoubleClick="groupCatalogGrid_MouseDoubleClick" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="N" Binding="{Binding Number}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Підгрупа" Binding="{Binding SubgroupName}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Група" Binding="{Binding GroupName}" />
+                <DataGridTextColumn IsReadOnly="True" Header="N" Binding="{Binding Number}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Підгрупа" Binding="{Binding SubgroupName}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Група" Binding="{Binding GroupName}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Row="1" Content="Виберіть" Width="150" Height="35" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click" />

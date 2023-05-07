@@ -10,7 +10,7 @@ namespace Tools.Desktop.Windows
         {
             InitializeComponent();
 
-            organizationTextBox.Text = OrganizationalUnitDisplay.GetDisplayName(toolEntity.OrganizationalType);
+            organizationTextBox.Text = toolEntity.OrganizationUnit.Name;
             equipmentGroupTextBox.Text = toolEntity.Subgroup.Group.Name;
             equipmentSubgroupTextBox.Text = toolEntity.Subgroup.Name;
             equipmentNameTextBox.Text = toolEntity.Name;

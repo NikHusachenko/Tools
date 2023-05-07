@@ -64,6 +64,8 @@
     <Compile Include="ExaminationReasonServices\IExaminationReasonService.cs" />
     <Compile Include="ExaminationTypeService\ExaminationTypeService.cs" />
     <Compile Include="ExaminationTypeService\IExaminationTypeService.cs" />
+    <Compile Include="OrganizationUnitServices\IOrganizationUnitService.cs" />
+    <Compile Include="OrganizationUnitServices\OrganizationUnitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\ResponseService.cs" />
     <Compile Include="ToolGroupServices\IToolGroupService.cs" />

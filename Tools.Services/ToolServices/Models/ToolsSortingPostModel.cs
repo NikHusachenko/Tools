@@ -8,7 +8,7 @@ namespace Tools.Services.ToolServices.Models
     public class ToolsSortingPostModel
     {
         public RegistrationType Registration { get; set; }
-        public OrganizationalUnitType OrganizationalUnit { get; set; }
+        public string OrganizationalUnitName { get; set; }
         public string GroupName { get; set; }
         public string SubgroupName { get; set; }
         public ExpirationSortingCriteria ExpirationCriteria { get; set; }

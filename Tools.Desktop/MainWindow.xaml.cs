@@ -5,6 +5,7 @@ using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationTypeService;
+using Tools.Services.OrganizationUnitServices;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -20,6 +21,7 @@ namespace Tools.Desktop
         private readonly IExaminationNatureService _examinationNatureService;
         private readonly IExaminationReasonService _examinationReasonService;
         private readonly IExaminationTypeService _examinationTypeService;
+        private readonly IOrganizationUnitService _organizationUnitService;
 
         private readonly EquipmentPage _equipmentPage;
         private readonly EditEquipmentPage _editEquipmentPage;
@@ -32,6 +34,7 @@ namespace Tools.Desktop
             IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
+            IOrganizationUnitService organizationUnitService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
             CertificationLayoutPage certificationLayoutPage)
@@ -43,6 +46,7 @@ namespace Tools.Desktop
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
             _examinationTypeService = examinationTypeService;
+            _organizationUnitService = organizationUnitService;
 
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
@@ -56,7 +60,8 @@ namespace Tools.Desktop
             pagesFrame.Navigate(new EquipmentPage(_toolGroupService, 
                 _toolSubgroupService, 
                 _toolService, 
-                _documentService));
+                _documentService,
+                _organizationUnitService));
         }
 
 		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)
@@ -97,6 +102,12 @@ namespace Tools.Desktop
         private void CreateNewExaminationType_Click(object sender, RoutedEventArgs e)
         {
             CreateExaminationTypeWindow window = new CreateExaminationTypeWindow(_examinationTypeService);
+            window.ShowDialog();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            CreateOrganizationUnitWindow window = new CreateOrganizationUnitWindow(_organizationUnitService);
             window.ShowDialog();
         }
     }

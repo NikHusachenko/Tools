@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,6 +10,7 @@ using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.Desktop.Windows;
 using Tools.Services.DocumentServices;
+using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
@@ -23,24 +26,21 @@ namespace Tools.Desktop.Pages
 		private readonly IToolSubgroupService _toolSubgroupService;
 		private readonly IToolService _toolService;
 		private readonly IDocumentService _documentService;
+		private readonly IOrganizationUnitService _organizationUnitService;
 
 		public EditEquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService,
-			IDocumentService documentService)
+			IDocumentService documentService,
+			IOrganizationUnitService organizationUnitService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
 			_documentService = documentService;
+			_organizationUnitService = organizationUnitService;
 
 			InitializeComponent();
-
-            string[] unitDisplayTypes = OrganizationalUnitDisplay.GetDisplayNames();
-			foreach (string unit in unitDisplayTypes)
-			{
-				organizationUnitComboBox.Items.Add(unit);
-			}
 
 			string[] registrationTypes = RegistrationTypeDisplay.GetDisplayNames();
 			foreach (string type in registrationTypes)
@@ -91,7 +91,8 @@ namespace Tools.Desktop.Pages
 			parent.pagesFrame.Navigate(new EquipmentPage(_toolGroupService, 
 				_toolSubgroupService, 
 				_toolService, 
-				_documentService));
+				_documentService,
+				_organizationUnitService));
         }
 
         private void equipmentRegistrationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,7 +100,8 @@ namespace Tools.Desktop.Pages
 			if (equipmentRegistrationComboBox.SelectedItem != null)
 			{
 				string item = equipmentRegistrationComboBox.SelectedItem as string;
-				if (RegistrationTypeHelper.GetEnumAsStringFromDisplayName(item) == RegistrationType.NonRegister)
+				if (RegistrationTypeHelper.GetEnumAsStringFromDisplayName(item) == RegistrationType.NonRegister ||
+					item == null)
 				{
                     equipmentRegistrationNumberTextBox.IsEnabled = false;
 					equipmentRegistrationNumberTextBox.Text = string.Empty;
@@ -121,7 +123,7 @@ namespace Tools.Desktop.Pages
                 timer.Interval = TimeSpan.FromSeconds(3);
                 timer.Tick += (s, args) =>
                 {
-                    equipmentExpirationYearLabel.Foreground = Brushes.Transparent;
+                    equipmentExpirationYearLabel.Foreground = Brushes.Black;
                     timer.Stop();
                 };
                 timer.Start();
@@ -161,6 +163,15 @@ namespace Tools.Desktop.Pages
 
 			MessageBox.Show(Messages.CREATED_SUCCESSFULY);
             cancelButton_Click(sender, e);
+        }
+
+        private async void organizationUnitComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            ICollection<OrganizationUnitEntity> units = await _organizationUnitService.GetAll();
+            foreach (OrganizationUnitEntity unit in units)
+            {
+                organizationUnitComboBox.Items.Add(unit.Name);
+            }
         }
     }
 }

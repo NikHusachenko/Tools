@@ -86,7 +86,7 @@ namespace Tools.Desktop.Pages
                 lastRecordButton.IsEnabled = false;
             }
 
-            organizationUnitTextBox.Text = OrganizationalUnitDisplay.GetDisplayName(_tools[_selectedIndex].OrganizationalType);
+            organizationUnitTextBox.Text = _tools[_selectedIndex].OrganizationUnit.Name;
             equipmentGroupTextBox.Text = _tools[_selectedIndex].Subgroup.Group.Name;
             equipmentSubgroupTextBox.Text = _tools[_selectedIndex].Subgroup.Name;
             equipmentNameTextBox.Text = _tools[_selectedIndex].Name;
