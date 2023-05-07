@@ -54,7 +54,10 @@ namespace Tools.Desktop.Windows
         private async void groupCatalogGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             CatalogGetModel selectedData = groupCatalogGrid.SelectedItem as CatalogGetModel;
-            DataContext = await _toolSubgroupService.GetByName(selectedData.SubgroupName);
+            if (selectedData != null)
+            {
+                DataContext = await _toolSubgroupService.GetByName(selectedData.SubgroupName);
+            }
             this.Close();
         }
     }

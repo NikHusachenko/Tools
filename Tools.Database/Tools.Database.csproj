@@ -46,6 +46,7 @@
     <Compile Include="Entities\ExaminationReasonEntity.cs" />
     <Compile Include="Entities\ExaminationTypeEntity.cs" />
     <Compile Include="Entities\ExaminutionEntity.cs" />
+    <Compile Include="Entities\OrganizationUnitEntity.cs" />
     <Compile Include="Entities\ToolGroupEntity.cs" />
     <Compile Include="Entities\ToolSubgroupEntity.cs" />
     <Compile Include="Enums\ExaminationNatureType.cs" />

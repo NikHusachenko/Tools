@@ -64,7 +64,7 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0">Причина обстеження</Label>
+                <Label Grid.Row="0">Тип обстеження</Label>
                 <TextBox Grid.Row="1" FontSize="16" Height="28" Margin="5" Name="newTypeNameTextBox" />
             </Grid>
 

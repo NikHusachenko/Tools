@@ -12,6 +12,10 @@ namespace Tools.EntityFramework.Configurations
             HasRequired<ToolSubgroupEntity>(tool => tool.Subgroup)
                 .WithMany(subgroup => subgroup.Tools)
                 .HasForeignKey(tool => tool.SubgroupFK);
+
+            HasRequired<OrganizationUnitEntity>(tool => tool.OrganizationUnit)
+                .WithMany(unit => unit.Tools)
+                .HasForeignKey(tool => tool.OrganizationUnitFK);
         }
     }
 }

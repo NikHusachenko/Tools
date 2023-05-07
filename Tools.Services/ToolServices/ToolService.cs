@@ -93,7 +93,7 @@ namespace Tools.Services.ToolServices
             if (!DateTime.TryParse(vm.CreatingDate, out DateTime creatingDate)) return ResponseService<ToolEntity>.Error(Errors.INVALID_DATE);
 
             RegistrationType registrationType = RegistrationTypeHelper.GetEnumAsStringFromDisplayName(vm.Registration);
-            if (registrationType == 0) return ResponseService<ToolEntity>.Error(Errors.INVALID_VALUE_ERROR);
+            if (registrationType == 0) registrationType = RegistrationType.NonRegister;
 
             var response = await _toolSubgroupService.GetByName(vm.Subgroup);
             if (response.IsError) return ResponseService<ToolEntity>.Error(response.ErrorMessage);
@@ -160,11 +160,11 @@ namespace Tools.Services.ToolServices
             {
                 case ExpirationSortingCriteria.NonExpired:
                     {
-                        return query.Where(tool => tool.ExpirationYear > DateTime.Now.Year);
+                        return query.Where(tool => tool.CommissioningDate.AddYears(tool.ExpirationYear) > DateTime.Now);
                     }
                 case ExpirationSortingCriteria.Expired:
                     {
-                        return query.Where(tool => tool.ExpirationYear <= DateTime.Now.Year);
+                        return query.Where(tool => tool.CommissioningDate.AddYears(tool.ExpirationYear) <= DateTime.Now);
                     }
                 default:
                     {

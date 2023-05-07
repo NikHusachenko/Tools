@@ -115,13 +115,13 @@ namespace Tools.Desktop.Pages
         {
 			if (!int.TryParse(equipmentExpirationYearTextBox.Text, out int years))
 			{
-				equipmentExpirationYearLabel.Background = Brushes.Red;
+				equipmentExpirationYearLabel.Foreground = Brushes.Red;
 
                 var timer = new DispatcherTimer();
                 timer.Interval = TimeSpan.FromSeconds(3);
                 timer.Tick += (s, args) =>
                 {
-                    equipmentExpirationYearLabel.Background = Brushes.Transparent;
+                    equipmentExpirationYearLabel.Foreground = Brushes.Transparent;
                     timer.Stop();
                 };
                 timer.Start();
@@ -148,19 +148,19 @@ namespace Tools.Desktop.Pages
 			var validateResponse = await _toolService.ValidateBeforeCreating(vm);
 			if (validateResponse.IsError)
 			{
-				cancelButton_Click(null, null);
+				cancelButton_Click(sender, e);
 				return;
 			}
 
 			var createResponse = await _toolService.Create(validateResponse.Value);
 			if (createResponse.IsError)
 			{
-				cancelButton_Click(null, null);
+				cancelButton_Click(sender, e);
 				return;
 			}
 
 			MessageBox.Show(Messages.CREATED_SUCCESSFULY);
-            cancelButton_Click(null, null);
+            cancelButton_Click(sender, e);
         }
     }
 }

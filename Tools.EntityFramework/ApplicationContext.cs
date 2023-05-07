@@ -7,6 +7,7 @@ namespace Tools.EntityFramework
 	public class ApplicationDbContext : DbContext
 	{
 		public DbSet<ToolEntity> Tools { get; set; }
+        public DbSet<OrganizationUnitEntity> OrganizationUnits { get; set; }
 		public DbSet<ToolGroupEntity> Groups { get; set; }
 		public DbSet<ToolSubgroupEntity> Subgroups { get; set; }
         public DbSet<ExaminationEntity> Examinutions { get; set; }
@@ -22,6 +23,7 @@ namespace Tools.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ToolConfiguration());
+            modelBuilder.Configurations.Add(new OrganizationUnitConfiguration());
             modelBuilder.Configurations.Add(new ToolGroupConfiguration());
             modelBuilder.Configurations.Add(new ToolSubgroupConfiguration());
             modelBuilder.Configurations.Add(new ExaminationConfiguration());
