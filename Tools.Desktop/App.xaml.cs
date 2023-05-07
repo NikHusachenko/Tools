@@ -9,6 +9,7 @@ using Tools.EntityFramework.GenericRepository;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationTypeService;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -39,6 +40,7 @@ namespace Tools.Desktop
             services.AddTransient<IDocumentService, DocumentService>();
             services.AddTransient<IExaminationNatureService, ExaminationNatureService>();
             services.AddTransient<IExaminationReasonService, ExaminationReasonService>();
+            services.AddTransient<IExaminationTypeService, ExaminationTypeService>();
 
             // Validators
 
@@ -50,7 +52,7 @@ namespace Tools.Desktop
             services.AddTransient<MainWindow>();
         }
 
-        protected async override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
             // Requared to save default data
             // ApplicationDbContext dbContext = _serviceProvider.GetService<ApplicationDbContext>();

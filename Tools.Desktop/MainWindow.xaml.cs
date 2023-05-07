@@ -4,6 +4,7 @@ using Tools.Desktop.Windows.CreateWindows;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationTypeService;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
 using Tools.Services.ToolSubgroupServices;
@@ -18,6 +19,7 @@ namespace Tools.Desktop
         private readonly IDocumentService _documentService;
         private readonly IExaminationNatureService _examinationNatureService;
         private readonly IExaminationReasonService _examinationReasonService;
+        private readonly IExaminationTypeService _examinationTypeService;
 
         private readonly EquipmentPage _equipmentPage;
         private readonly EditEquipmentPage _editEquipmentPage;
@@ -29,6 +31,7 @@ namespace Tools.Desktop
             IDocumentService documentService,
             IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
+            IExaminationTypeService examinationTypeService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
             CertificationLayoutPage certificationLayoutPage)
@@ -39,6 +42,7 @@ namespace Tools.Desktop
             _documentService = documentService;
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
+            _examinationTypeService = examinationTypeService;
 
             _equipmentPage = equipmentPage;
             _editEquipmentPage = editEquipmentPage;
@@ -92,7 +96,8 @@ namespace Tools.Desktop
 
         private void CreateNewExaminationType_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateExaminationTypeWindow window = new CreateExaminationTypeWindow(_examinationTypeService);
+            window.ShowDialog();
         }
     }
 }
