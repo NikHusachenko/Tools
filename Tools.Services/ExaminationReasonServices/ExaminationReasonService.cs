@@ -22,7 +22,7 @@ namespace Tools.Services.ExaminationReasonServices
         public async Task<ResponseService<long>> Create(string name)
         {
             var response = await GetByName(name);
-            if (response.IsError)
+            if (!response.IsError)
             {
                 return ResponseService<long>.Error(response.ErrorMessage);
             }

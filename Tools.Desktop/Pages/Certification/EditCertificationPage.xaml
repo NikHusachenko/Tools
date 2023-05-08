@@ -121,8 +121,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Style="{StaticResource BottomNavigation}" Name="saveExaminationbutton">Зберегти дані</Button>
-            <Button Grid.Column="1" Style="{StaticResource BottomNavigation}" Name="cancelButton">Скасувати</Button>
+            <Button Grid.Column="0" Style="{StaticResource BottomNavigation}" Name="saveExaminationbutton" Click="saveExaminationbutton_Click">Зберегти дані</Button>
+            <Button Grid.Column="1" Style="{StaticResource BottomNavigation}" Name="cancelButton" Click="cancelButton_Click">Скасувати</Button>
             <Button Grid.Column="2" Style="{StaticResource BottomNavigation}" Name="exitButton" Click="exitButton_Click">Вихід</Button>
         </Grid>
     </Grid>

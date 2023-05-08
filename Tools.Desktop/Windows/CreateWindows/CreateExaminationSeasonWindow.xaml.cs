@@ -20,9 +20,18 @@ namespace Tools.Desktop.Windows.CreateWindows
 
         private void selectedReasonComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string reason = selectedReasonComboBox.SelectedItem as string;
+            if (reason == null)
+            {
+                reasonControlContainer.Visibility = Visibility.Hidden;
+                reasonRenameContainer.Visibility = Visibility.Hidden;
+                reasonRenameTextBox.Text = string.Empty;
+                return;
+            }
+
             reasonControlContainer.Visibility = Visibility.Visible;
-            reasonRenameContainer.Visibility = Visibility.Collapsed;
-            reasonRenameTextBox.Text = string.Empty;
+            reasonRenameContainer.Visibility = Visibility.Visible;
+            reasonRenameTextBox.Text = reason;
         }
 
         private async void selectedReasonComboBox_Loaded(object sender, RoutedEventArgs e)

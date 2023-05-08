@@ -14,15 +14,20 @@ namespace Tools.Desktop.Pages
         private readonly IExaminationTypeService _examinationTypeService;
         private readonly IExaminationService _examinationService;
 
+        private readonly long _toolFK;
+
         public CertificationListPage(IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
-            IExaminationService examinationService)
+            IExaminationService examinationService,
+            long toolFK)
 		{
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
             _examinationTypeService = examinationTypeService;
             _examinationService = examinationService;
+
+            _toolFK = toolFK;
 
 			InitializeComponent();
 		}
@@ -33,7 +38,8 @@ namespace Tools.Desktop.Pages
             parent.pagesFrame.Navigate(new EditCertificationPage(_examinationNatureService,
                 _examinationReasonService,
                 _examinationTypeService,
-                _examinationService));
+                _examinationService,
+                _toolFK));
         }
 
         private void deleteSelectedCertificate_Click(object sender, RoutedEventArgs e)

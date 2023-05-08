@@ -112,7 +112,8 @@ namespace Tools.Desktop.Pages
                     parent.pagesFrame.Navigate(new CertificationListPage(_examinationNatureService,
                         _examinationReasonService,
                         _examinationTypeService,
-                        _examinationService));
+                        _examinationService,
+                        model.Id));
                 }
             }
 		}

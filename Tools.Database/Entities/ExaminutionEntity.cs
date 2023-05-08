@@ -1,5 +1,4 @@
 ﻿using System;
-using Tools.Database.Enums;
 
 namespace Tools.Database.Entities
 {
