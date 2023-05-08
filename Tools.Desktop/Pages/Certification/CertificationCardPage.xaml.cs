@@ -42,6 +42,7 @@ namespace Tools.Desktop.Pages
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
 			_documentService = documentService;
+			_organizationUnitService = organizationUnitService;
 			_examinationNatureService = examinationNatureService;
 			_examinationReasonService = examinationReasonService;
 			_examinationTypeService = examinationTypeService;
@@ -83,7 +84,8 @@ namespace Tools.Desktop.Pages
 				_examinationReasonService,
 				_examinationTypeService,
 				_examinationService,
-				_model.Id));
+				_toolService,
+				_model));
         }
 
     }

@@ -65,6 +65,7 @@
     <Compile Include="ExaminationServices\ExaminationService.cs" />
     <Compile Include="ExaminationServices\IExaminationService.cs" />
     <Compile Include="ExaminationServices\Models\CreateExaminationPostModel.cs" />
+    <Compile Include="ExaminationServices\Models\ExaminationPostMode .cs" />
     <Compile Include="ExaminationTypeService\ExaminationTypeService.cs" />
     <Compile Include="ExaminationTypeService\IExaminationTypeService.cs" />
     <Compile Include="OrganizationUnitServices\IOrganizationUnitService.cs" />

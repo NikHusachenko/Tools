@@ -15,8 +15,8 @@
 
         <DataGrid Grid.Row="0" x:Name="groupCatalogGrid" AutoGenerateColumns="False" Loaded="groupCatalogGrid_Loaded" MouseDoubleClick="groupCatalogGrid_MouseDoubleClick" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="N" Binding="{Binding Number}" Width="*"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Підгрупа" Binding="{Binding SubgroupName}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Header="N" Binding="{Binding Number}" Width="auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Підгрупа" Binding="{Binding SubgroupName}" Width="*" />
                 <DataGridTextColumn IsReadOnly="True" Header="Група" Binding="{Binding GroupName}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

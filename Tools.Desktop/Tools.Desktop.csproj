@@ -172,6 +172,9 @@
     <Compile Include="Windows\CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CertificationDataViewWindow.xaml.cs">
+      <DependentUpon>CertificationDataViewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateWindows\CreateExaminationNatureWindow.xaml.cs">
       <DependentUpon>CreateExaminationNatureWindow.xaml</DependentUpon>
     </Compile>
@@ -258,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CertificationDataViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

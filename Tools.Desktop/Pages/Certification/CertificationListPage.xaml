@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:Tools.Desktop.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CertificationListPage">
+      Title="CertificationListPage"
+      Loaded="Page_Loaded">
 
     <Page.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="20"/>
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
@@ -21,7 +21,6 @@
         </Style>
         <Style x:Key="SmallButtonStyle" TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="FontSize" Value="18" />
             <Setter Property="Margin" Value="10, 5, 10, 5" />
         </Style>
         <Style TargetType="TextBox" x:Key="informationTextBox">
@@ -49,92 +48,42 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Назва обладнання"></Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="equipmentNameTextBox" Style="{StaticResource informationTextBox}"></TextBox>
 
-                    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Назва обладнання"></Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource informationTextBox}"></TextBox>
+                <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Марка обладнання"></Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Name="equipmentBrandTextBox" Style="{StaticResource informationTextBox}" />
 
-                    <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Марка обладнання"></Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource informationTextBox}" />
+                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Структурний підрозділ"></Label>
+                <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Name="equipmentUnitTextBox" Style="{StaticResource informationTextBox}" />
 
-                    <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Структурний підрозділ"></Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource informationTextBox}" />
-                </Grid>
-                
-                <Grid Grid.Row="1">
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource LabelStyle}" Content="Дата створення"></Label>
+                <TextBox Grid.Row="3" Grid.Column="1" Name="equipmentCreateDate" Style="{StaticResource informationTextBox}" />
 
-                        <Grid Grid.Column="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Column="0" Style="{StaticResource LabelStyle}">Дата створення</Label>
-                            <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Name="creatingDatePicker" Style="{StaticResource DatePickerStyle}">
-                                <DatePicker.Resources>
-                                    <Style TargetType="{x:Type DatePickerTextBox}">
-                                        <Setter Property="Control.Template">
-                                            <Setter.Value>
-                                                <ControlTemplate>
-                                                    <TextBox Height="28" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
-                        </Grid>
-
-                        <Grid Grid.Column="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Column="0" Style="{StaticResource LabelStyle}">Введення в експлуатацію</Label>
-                            <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource DatePickerStyle}">
-                                <DatePicker.Resources>
-                                    <Style TargetType="{x:Type DatePickerTextBox}">
-                                        <Setter Property="Control.Template">
-                                            <Setter.Value>
-                                                <ControlTemplate>
-                                                    <TextBox Height="28" Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                <Label Grid.Row="3" Grid.Column="2" Style="{StaticResource LabelStyle}" Content="Дата введення в експлуатацію"></Label>
+                <TextBox Grid.Row="3" Grid.Column="3" Name="equipmentCommissionDate" Style="{StaticResource informationTextBox}" />
             </Grid>
 
             <Grid Grid.Row="1">
-                <DataGrid x:Name="equipmentDataGrid" Margin="5">
+                <DataGrid Name="certificationsDataGrid" Margin="5" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" Loaded="equipmentDataGrid_Loaded">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="auto" FontSize="16" Header="Вид технічного (екс) обстеження"/>
-                        <DataGridTextColumn Width="auto" FontSize="16" Header="Причина проведення техогляду"/>
-                        <DataGridTextColumn Width="*" FontSize="16" Header="Вид перевірки"/>
-                        <DataGridTextColumn Width="*" FontSize="16" Header="Д. факт"/>
-                        <DataGridTextColumn Width="*" FontSize="16" Header="D. план"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="auto"  Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид технічного (екс) обстеження" Binding="{Binding Type}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Причина проведення техогляду" Binding="{Binding Reason}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид перевірки" Binding="{Binding Nature}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Планова дата" Binding="{Binding ScheduleDate}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Фактична дата" Binding="{Binding FactDate}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -147,8 +96,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Style="{StaticResource defaultButtonStyle}" Name="addNewCertificateButton" Content="Додати" Click="addNewCertificateButton_Click"></Button>
-                <Button Grid.Column="1" Style="{StaticResource defaultButtonStyle}" Name="deleteSelectedCertificate" Content="Видалити" Click="deleteSelectedCertificate_Click" ></Button>
-                <Button Grid.Column="2" Style="{StaticResource defaultButtonStyle}" Name="editSelectedCertificate" Content="Редагувати" Click="editSelectedCertificate_Click" ></Button>
+                <Button Grid.Column="1" Style="{StaticResource defaultButtonStyle}" Name="editSelectedCertificate" Content="Редагувати" Click="editSelectedCertificate_Click" ></Button>
+                <Button Grid.Column="2" Style="{StaticResource defaultButtonStyle}" Background="IndianRed" Name="deleteSelectedCertificate" Content="Видалити" Click="deleteSelectedCertificate_Click" ></Button>
             </Grid>
         </Grid>
     </Grid>

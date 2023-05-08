@@ -10,6 +10,8 @@ using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationServices;
 using Tools.Services.ExaminationServices.Models;
 using Tools.Services.ExaminationTypeService;
+using Tools.Services.ToolServices;
+using Tools.Services.ToolServices.Models;
 
 namespace Tools.Desktop.Pages
 {
@@ -19,8 +21,9 @@ namespace Tools.Desktop.Pages
         private readonly IExaminationReasonService _examinationReasonService;
         private readonly IExaminationTypeService _examinationTypeService;
         private readonly IExaminationService _examinationService;
+        private readonly IToolService _toolService;
 
-        private readonly long _toolFk;
+        private readonly ToolsPostModel _model;
 
         private readonly SemaphoreSlim _semaphore;
 
@@ -28,14 +31,15 @@ namespace Tools.Desktop.Pages
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
             IExaminationService examinationService,
-            long toolFK)
+            IToolService toolService,
+            ToolsPostModel model)
 		{
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
             _examinationTypeService = examinationTypeService;
             _examinationService = examinationService;
-
-            _toolFk = toolFK;
+            _toolService = toolService;
+            _model = model;
 
             _semaphore = new SemaphoreSlim(1);
 
@@ -91,7 +95,8 @@ namespace Tools.Desktop.Pages
                 _examinationReasonService,
                 _examinationTypeService,
                 _examinationService,
-                _toolFk));
+                _toolService,
+                _model));
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
@@ -155,7 +160,7 @@ namespace Tools.Desktop.Pages
                 ExaminationTypeName = type,
                 FactDate = factDate,
                 ScheduleDate = scheduleDate,
-                ToolFK = _toolFk,
+                ToolFK = _model.Id,
             };
 
             var response = await _examinationService.Create(vm);

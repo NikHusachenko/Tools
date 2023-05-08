@@ -1,9 +1,15 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
+using Tools.Database.Entities;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationServices;
+using Tools.Services.ExaminationServices.Models;
 using Tools.Services.ExaminationTypeService;
+using Tools.Services.ToolServices;
+using Tools.Services.ToolServices.Models;
 
 namespace Tools.Desktop.Pages
 {
@@ -13,21 +19,26 @@ namespace Tools.Desktop.Pages
         private readonly IExaminationReasonService _examinationReasonService;
         private readonly IExaminationTypeService _examinationTypeService;
         private readonly IExaminationService _examinationService;
+        private readonly IToolService _toolService;
+        private readonly ToolsPostModel _toolsPostModel;
 
-        private readonly long _toolFK;
+        private readonly SemaphoreSlim _semaphore;
 
         public CertificationListPage(IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
             IExaminationService examinationService,
-            long toolFK)
+            IToolService toolService,
+            ToolsPostModel toolsPostModel)
 		{
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
             _examinationTypeService = examinationTypeService;
             _examinationService = examinationService;
+            _toolService = toolService;
+            _toolsPostModel = toolsPostModel;
 
-            _toolFK = toolFK;
+            _semaphore = new SemaphoreSlim(1);
 
 			InitializeComponent();
 		}
@@ -39,17 +50,74 @@ namespace Tools.Desktop.Pages
                 _examinationReasonService,
                 _examinationTypeService,
                 _examinationService,
-                _toolFK));
+                _toolService,
+                _toolsPostModel));
         }
 
-        private void deleteSelectedCertificate_Click(object sender, RoutedEventArgs e)
+        private async void deleteSelectedCertificate_Click(object sender, RoutedEventArgs e)
         {
+            ExaminationPostMode model = certificationsDataGrid.SelectedItem as ExaminationPostMode;
+            if (model == null)
+            {
+                return;
+            }
 
+            var response = await _examinationService.Delete(model.Id);
+            if (response.IsError)
+            {
+                return;
+            }
+
+            equipmentDataGrid_Loaded(sender, e);
         }
 
-        private void editSelectedCertificate_Click(object sender, RoutedEventArgs e)
+        private async void editSelectedCertificate_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private async void equipmentDataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            await _semaphore.WaitAsync();
+
+            certificationsDataGrid.Items.Clear();
+
+            ICollection<ExaminationEntity> examinations = await _examinationService.GetByToolFK(_toolsPostModel.Id);
+            ICollection<ExaminationPostMode> model = new List<ExaminationPostMode>();
+            foreach (ExaminationEntity examination in examinations)
+            {
+                model.Add(new ExaminationPostMode()
+                {
+                    Id = examination.Id,
+                    FactDate = examination.ActualExaminationDate,
+                    Nature = examination.ExaminationNature.Name,
+                    Reason = examination.ExaminationReason.Name,
+                    ScheduleDate = examination.ScheduleExaminationDate,
+                    Type = examination.ExaminationType.Name,
+                });
+            }
+            certificationsDataGrid.ItemsSource = model;
+
+            _semaphore.Release();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await _semaphore.WaitAsync();
+
+            var response = await _toolService.GetById(_toolsPostModel.Id);
+            if (response.IsError)
+            {
+                return;
+            }
+
+            equipmentBrandTextBox.Text = response.Value.Brand;
+            equipmentCommissionDate.Text = response.Value.CommissioningDate.ToString("dd.MM.yyyy");
+            equipmentCreateDate.Text = response.Value.CreatingDate.ToString("dd.MM.yyyy");
+            equipmentNameTextBox.Text = response.Value.Name;
+            equipmentUnitTextBox.Text = response.Value.OrganizationUnit.Name;
+
+            _semaphore.Release();
         }
     }
 }

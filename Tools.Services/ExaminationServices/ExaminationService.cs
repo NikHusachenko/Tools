@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
+using Tools.Common;
 using Tools.Database.Entities;
 using Tools.EntityFramework.GenericRepository;
 using Tools.Services.ExaminationNatureServices;
@@ -68,6 +72,35 @@ namespace Tools.Services.ExaminationServices
                 return ResponseService<long>.Error(ex.Message);
             }
             return ResponseService<long>.Ok(dbrecord.Id);
+        }
+
+        public async Task<ResponseService> Delete(long id)
+        {
+            ExaminationEntity dbrecord = await _examinationRepository.GetById(id);
+            if (dbrecord == null)
+            {
+                return ResponseService.Error(Errors.NOT_FOUND_ERROR);
+            }
+
+            try
+            {
+                await _examinationRepository.Delete(dbrecord);
+            }
+            catch (Exception ex)
+            {
+                return ResponseService.Error(ex.Message);
+            }
+            return ResponseService.Ok();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetByToolFK(long toolFk)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => examination.ToolFK == toolFk)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .ToListAsync();
         }
     }
 }

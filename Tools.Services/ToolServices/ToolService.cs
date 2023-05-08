@@ -182,6 +182,7 @@ namespace Tools.Services.ToolServices
         {
             ToolEntity dbRecord = await _toolRepository.GetAll(tool => tool.Id == id)
                 .Include(tool => tool.Examinutions)
+                .Include(tool => tool.OrganizationUnit)
                 .FirstOrDefaultAsync();
 
             if (dbRecord == null)

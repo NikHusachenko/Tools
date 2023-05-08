@@ -113,7 +113,8 @@ namespace Tools.Desktop.Pages
                         _examinationReasonService,
                         _examinationTypeService,
                         _examinationService,
-                        model.Id));
+                        _toolService,
+                        model));
                 }
             }
 		}
