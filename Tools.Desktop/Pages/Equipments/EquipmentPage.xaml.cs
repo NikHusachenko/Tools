@@ -8,6 +8,10 @@ using System.Windows.Controls;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.Services.DocumentServices;
+using Tools.Services.ExaminationNatureServices;
+using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationServices;
+using Tools.Services.ExaminationTypeService;
 using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
@@ -25,6 +29,10 @@ namespace Tools.Desktop.Pages
 		private readonly IToolService _toolService;
         private readonly IDocumentService _documentService;
         private readonly IOrganizationUnitService _organizationUnitService;
+        private readonly IExaminationNatureService _examinationNatureService;
+        private readonly IExaminationReasonService _examinationReasonService;
+        private readonly IExaminationTypeService _examinationTypeService;
+        private readonly IExaminationService _examinationService;
 
 		private SemaphoreSlim _loadingSemaphore;
         private SemaphoreSlim _crearSemaphore;
@@ -35,13 +43,21 @@ namespace Tools.Desktop.Pages
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService,
             IDocumentService documentService,
-            IOrganizationUnitService organizationUnitService)
+            IOrganizationUnitService organizationUnitService,
+            IExaminationNatureService examinationNatureService,
+            IExaminationReasonService examinationReasonService,
+            IExaminationTypeService examinationTypeService,
+            IExaminationService examinationService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
             _documentService = documentService;
             _organizationUnitService = organizationUnitService;
+            _examinationNatureService = examinationNatureService;
+            _examinationReasonService = examinationReasonService;
+            _examinationTypeService = examinationTypeService;
+            _examinationService = examinationService;
 
 			_loadingSemaphore = new SemaphoreSlim(1);
             _crearSemaphore = new SemaphoreSlim(1);
@@ -57,7 +73,11 @@ namespace Tools.Desktop.Pages
                 _toolSubgroupService,
                 _toolService,
                 _documentService,
-                _organizationUnitService));
+                _organizationUnitService,
+                _examinationNatureService,
+                _examinationReasonService,
+                _examinationTypeService,
+                _examinationService));
 		}
 
 		private async void TechnicalCertification_Click(object sender, RoutedEventArgs e)
@@ -81,11 +101,18 @@ namespace Tools.Desktop.Pages
                         _toolService,
                         _documentService,
                         _organizationUnitService,
+                        _examinationNatureService,
+                        _examinationReasonService,
+                        _examinationTypeService,
+                        _examinationService,
                         model));
                 }
                 else
                 {
-                    parent.pagesFrame.Navigate(new CertificationListPage());
+                    parent.pagesFrame.Navigate(new CertificationListPage(_examinationNatureService,
+                        _examinationReasonService,
+                        _examinationTypeService,
+                        _examinationService));
                 }
             }
 		}

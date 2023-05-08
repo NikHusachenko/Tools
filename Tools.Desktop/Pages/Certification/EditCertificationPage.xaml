@@ -71,23 +71,23 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource HeaderLabel}">Тип опитування:</Label>
-            <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource SelectSomthing}"></ComboBox>
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource HeaderLabel}">Характер обстеження:</Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource SelectSomthing}" Name="examinationNatureComboBox" Loaded="examinationNatureComboBox_Loaded"></ComboBox>
 
-            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource HeaderLabel}" >Спосіб опитування:</Label>
-            <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource SelectSomthing}"></ComboBox>
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource HeaderLabel}" >Причина обстеження:</Label>
+            <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource SelectSomthing}" Name="examinationReasonComboBox" Loaded="examinationReasonComboBox_Loaded"></ComboBox>
 
-            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource HeaderLabel}">Причина опитування:</Label>
-            <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource SelectSomthing}"></ComboBox>
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource HeaderLabel}">Тип обстеження:</Label>
+            <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource SelectSomthing}" Name="examinationTypeComboBox" Loaded="examinationTypeComboBox_Loaded"></ComboBox>
 
             <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource HeaderLabel}">Дата планового обстеження:</Label>
-            <DatePicker Grid.Row="3" Grid.Column="1" Name="dateOfCreatingCalendar" Style="{StaticResource DatePicker}">
+            <DatePicker Grid.Row="3" Grid.Column="1" Name="scheduleExaminationDate" Style="{StaticResource DatePicker}">
                 <DatePicker.Resources>
                     <Style TargetType="{x:Type DatePickerTextBox}">
                         <Setter Property="Control.Template">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="scheduleExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
@@ -96,13 +96,13 @@
             </DatePicker>
 
             <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource HeaderLabel}">Дата фактичного опитування:</Label>
-            <DatePicker Grid.Row="4" Grid.Column="1" Name="dateCalendar" Style="{StaticResource DatePicker}">
+            <DatePicker Grid.Row="4" Grid.Column="1" Name="factExaminationDate" Style="{StaticResource DatePicker}">
                 <DatePicker.Resources>
                     <Style TargetType="{x:Type DatePickerTextBox}">
                         <Setter Property="Control.Template">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
@@ -111,7 +111,7 @@
             </DatePicker>
 
             <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource HeaderLabel}">Результат опитування:</Label>
-            <RichTextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource RichTextBox}" />
+            <RichTextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource RichTextBox}" Name="examinationResultTextBox" />
         </Grid>
         
         <Grid Grid.Row="1">
@@ -121,9 +121,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Style="{StaticResource BottomNavigation}">Зберегти дані</Button>
-            <Button Grid.Column="1" Style="{StaticResource BottomNavigation}">Скасувати</Button>
-            <Button Grid.Column="2" Style="{StaticResource BottomNavigation}">Вихід</Button>
+            <Button Grid.Column="0" Style="{StaticResource BottomNavigation}" Name="saveExaminationbutton">Зберегти дані</Button>
+            <Button Grid.Column="1" Style="{StaticResource BottomNavigation}" Name="cancelButton">Скасувати</Button>
+            <Button Grid.Column="2" Style="{StaticResource BottomNavigation}" Name="exitButton" Click="exitButton_Click">Вихід</Button>
         </Grid>
     </Grid>
 </Page>

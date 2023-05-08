@@ -4,6 +4,7 @@ using Tools.Desktop.Windows.CreateWindows;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationServices;
 using Tools.Services.ExaminationTypeService;
 using Tools.Services.OrganizationUnitServices;
 using Tools.Services.ToolGroupServices;
@@ -21,6 +22,7 @@ namespace Tools.Desktop
         private readonly IExaminationNatureService _examinationNatureService;
         private readonly IExaminationReasonService _examinationReasonService;
         private readonly IExaminationTypeService _examinationTypeService;
+        private readonly IExaminationService _examinationService;
         private readonly IOrganizationUnitService _organizationUnitService;
 
         private readonly EquipmentPage _equipmentPage;
@@ -34,6 +36,7 @@ namespace Tools.Desktop
             IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
+            IExaminationService examinationService,
             IOrganizationUnitService organizationUnitService,
             EquipmentPage equipmentPage, 
             EditEquipmentPage editEquipmentPage, 
@@ -46,6 +49,7 @@ namespace Tools.Desktop
             _examinationNatureService = examinationNatureService;
             _examinationReasonService = examinationReasonService;
             _examinationTypeService = examinationTypeService;
+            _examinationService = examinationService;
             _organizationUnitService = organizationUnitService;
 
             _equipmentPage = equipmentPage;
@@ -61,7 +65,11 @@ namespace Tools.Desktop
                 _toolSubgroupService, 
                 _toolService, 
                 _documentService,
-                _organizationUnitService));
+                _organizationUnitService,
+                _examinationNatureService,
+                _examinationReasonService,
+                _examinationTypeService,
+                _examinationService));
         }
 
 		private void AddEquipmentMenuItem_Click(object sender, RoutedEventArgs e)

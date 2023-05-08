@@ -10,6 +10,10 @@ using Tools.Database.Entities;
 using Tools.Database.Enums;
 using Tools.Desktop.Windows;
 using Tools.Services.DocumentServices;
+using Tools.Services.ExaminationNatureServices;
+using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationServices;
+using Tools.Services.ExaminationTypeService;
 using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
@@ -27,18 +31,30 @@ namespace Tools.Desktop.Pages
 		private readonly IToolService _toolService;
 		private readonly IDocumentService _documentService;
 		private readonly IOrganizationUnitService _organizationUnitService;
+		private readonly IExaminationNatureService _examinationNatureService;
+		private readonly IExaminationReasonService _examinationReasonService;
+		private readonly IExaminationTypeService _examinationTypeService;
+		private readonly IExaminationService _examinationService;
 
 		public EditEquipmentPage(IToolGroupService toolGroupService,
 			IToolSubgroupService toolSubgroupService,
 			IToolService toolService,
 			IDocumentService documentService,
-			IOrganizationUnitService organizationUnitService)
+			IOrganizationUnitService organizationUnitService,
+			IExaminationNatureService examinationNatureService,
+			IExaminationReasonService examinationReasonService,
+			IExaminationTypeService examinationTypeService,
+			IExaminationService examinationService)
 		{
 			_toolGroupService = toolGroupService;
 			_toolSubgroupService = toolSubgroupService;
 			_toolService = toolService;
 			_documentService = documentService;
 			_organizationUnitService = organizationUnitService;
+			_examinationNatureService = examinationNatureService;
+			_examinationReasonService = examinationReasonService;
+			_examinationTypeService = examinationTypeService;
+			_examinationService = examinationService;
 
 			InitializeComponent();
 
@@ -92,7 +108,11 @@ namespace Tools.Desktop.Pages
 				_toolSubgroupService, 
 				_toolService, 
 				_documentService,
-				_organizationUnitService));
+				_organizationUnitService,
+				_examinationNatureService,
+				_examinationReasonService,
+				_examinationTypeService,
+				_examinationService));
         }
 
         private void equipmentRegistrationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

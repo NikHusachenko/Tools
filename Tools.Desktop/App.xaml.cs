@@ -8,6 +8,7 @@ using Tools.EntityFramework.GenericRepository;
 using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
+using Tools.Services.ExaminationServices;
 using Tools.Services.ExaminationTypeService;
 using Tools.Services.OrganizationUnitServices;
 using Tools.Services.ToolGroupServices;
@@ -41,9 +42,8 @@ namespace Tools.Desktop
             services.AddTransient<IExaminationNatureService, ExaminationNatureService>();
             services.AddTransient<IExaminationReasonService, ExaminationReasonService>();
             services.AddTransient<IExaminationTypeService, ExaminationTypeService>();
+            services.AddTransient<IExaminationService, ExaminationService>();
             services.AddTransient<IOrganizationUnitService, OrganizationUnitService>();
-
-            // Validators
 
             // Pages
             services.AddTransient<CatalogWindow>();
