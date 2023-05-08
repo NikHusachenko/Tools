@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -59,21 +60,33 @@ namespace Tools.Desktop.Pages
                 _organizationUnitService));
 		}
 
-		private void TechnicalCertification_Click(object sender, RoutedEventArgs e)
+		private async void TechnicalCertification_Click(object sender, RoutedEventArgs e)
 		{
             EquipmentListPage equipmentListPage = equipmentFrame.Content as EquipmentListPage;
 
             if (equipmentListPage.DataContext != null)
             {
                 ToolsPostModel model = equipmentListPage.DataContext as ToolsPostModel;
-                
+                var response = await _toolService.GetById(model.Id);
+                if (response.IsError)
+                {
+                    return;
+                }
+
                 MainWindow parent = GetParentWindow();
-                parent.pagesFrame.Navigate(new CertificationCardPage(_toolGroupService,
-                    _toolSubgroupService,
-                    _toolService,
-                    _documentService,
-                    _organizationUnitService,
-                    model));
+                if (response.Value.Examinutions.Count == 0)
+                {
+                    parent.pagesFrame.Navigate(new CertificationCardPage(_toolGroupService,
+                        _toolSubgroupService,
+                        _toolService,
+                        _documentService,
+                        _organizationUnitService,
+                        model));
+                }
+                else
+                {
+                    parent.pagesFrame.Navigate(new CertificationListPage());
+                }
             }
 		}
 
@@ -210,6 +223,11 @@ namespace Tools.Desktop.Pages
             expirationSortingComboBox.SelectedIndex = -1;
 
             _crearSemaphore.Release();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

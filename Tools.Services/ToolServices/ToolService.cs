@@ -180,7 +180,10 @@ namespace Tools.Services.ToolServices
 
         public async Task<ResponseService<ToolEntity>> GetById(long id)
         {
-            ToolEntity dbRecord = await _toolRepository.GetById(id);
+            ToolEntity dbRecord = await _toolRepository.GetAll(tool => tool.Id == id)
+                .Include(tool => tool.Examinutions)
+                .FirstOrDefaultAsync();
+
             if (dbRecord == null)
             {
                 return ResponseService<ToolEntity>.Error(Errors.NOT_FOUND_ERROR);

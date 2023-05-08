@@ -62,6 +62,8 @@
     <Compile Include="ExaminationNatureServices\IExaminationNatureService.cs" />
     <Compile Include="ExaminationReasonServices\ExaminationReasonService.cs" />
     <Compile Include="ExaminationReasonServices\IExaminationReasonService.cs" />
+    <Compile Include="ExaminationServices\ExaminationService.cs" />
+    <Compile Include="ExaminationServices\IExaminationService.cs" />
     <Compile Include="ExaminationTypeService\ExaminationTypeService.cs" />
     <Compile Include="ExaminationTypeService\IExaminationTypeService.cs" />
     <Compile Include="OrganizationUnitServices\IOrganizationUnitService.cs" />

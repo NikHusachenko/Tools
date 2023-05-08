@@ -58,13 +58,13 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource InformationLabel}">Назва інструменту</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource InformationField}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource InformationField}" Name="equipmentNameTextBox"/>
 
                     <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource InformationLabel}">Марка обладнання</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource InformationField}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource InformationField}" Name="equipmentBrandTextBox"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource InformationLabel}">Підрозділ</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InformationField}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InformationField}" Name="equipmentUnitTextBox"/>
                 </Grid>
                 
                 <Grid  Grid.Row="2">

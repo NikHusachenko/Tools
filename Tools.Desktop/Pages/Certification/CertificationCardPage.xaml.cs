@@ -34,6 +34,10 @@ namespace Tools.Desktop.Pages
 			_model = model;
 
 			InitializeComponent();
+
+			equipmentNameTextBox.Text = _model.Name;
+			equipmentBrandTextBox.Text = _model.Brand;
+			equipmentUnitTextBox.Text = _model.OranizationUnit;
 		}
 
 		private MainWindow GetParentWindow()
@@ -55,7 +59,7 @@ namespace Tools.Desktop.Pages
         private void createToolCertificate_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = GetParentWindow();
-            main.pagesFrame.Navigate(new EditCertificationPage());
+            main.pagesFrame.Navigate(new CertificationListPage());
         }
 
     }
