@@ -1,8 +1,9 @@
 ﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Tools.Database.Entities;
 using Tools.Services.ToolServices;
-using Tools.Services.ToolServices.Models;
 
 namespace Tools.Services.DocumentServices
 {
@@ -17,18 +18,66 @@ namespace Tools.Services.DocumentServices
 
         public void PrintTools(IList<ToolEntity> tools)
         {
-            Microsoft.Office.Interop.Word.Application application = new Microsoft.Office.Interop.Word.Application();
+            Application application = new Application();
             Document word = application.Documents.Add();
+            word.PageSetup.PageWidth = application.InchesToPoints(12f);
+
+            var para1 = word.Content.Paragraphs.Add();
+            para1.Range.Bold = 1;
+            para1.Range.Text = "Картотека обладнання";
+            para1.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            para1.Range.InsertParagraphAfter();
+
+            Paragraph para2 = word.Content.Paragraphs.Add(para1.Range);
+            para2.Range.Text = $"(Станом на {DateTime.Now.ToString("dd.MM.yyyy")})\n";
+            para2.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            para1.Range.InsertParagraphAfter();
 
             //  1     2      3         4             5                6                  7                8               9
             // Id | Brand | Name | Subgroup | OrganizationUnit | Registration | RegistrationNumber | CreatingDate | CommissionDate
 
-            Table table = word.Tables.Add(word.Range(), tools.Count, 9);
+            Table table = word.Tables.Add(para2.Range, tools.Count, 9);
             table.Borders.Enable = 1;
 
-            for (int i = 0; i < tools.Count; i++)
+            Cell cell = table.Cell(0 + 1, 1);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Id";
+
+            cell = table.Cell(0 + 1, 2);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Марка";
+
+            cell = table.Cell(0 + 1, 3);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Назва";
+
+            cell = table.Cell(0 + 1, 4);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Підгрупа обладнання";
+
+            cell = table.Cell(0 + 1, 5);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Структурний підрозділ";
+
+            cell = table.Cell(0 + 1, 6);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Підлягає реєстрації";
+
+            cell = table.Cell(0 + 1, 7);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Рєстраційний номер";
+
+            cell = table.Cell(0 + 1, 8);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Дата виготовлення";
+
+            cell = table.Cell(0 + 1, 9);
+            cell.Range.Bold = 1;
+            cell.Range.Text = "Введення в експлуатацію";
+
+            for (int i = 1; i < tools.Count; i++)
             {
-                Cell cell = table.Cell(i + 1, 1);
+                cell = table.Cell(i + 1, 1);
                 cell.Range.Text = tools[i].Id.ToString();
 
                 cell = table.Cell(i + 1, 2);
