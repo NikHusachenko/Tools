@@ -2,7 +2,9 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using Tools.Common;
 using Tools.Database.Entities;
+using Tools.Desktop.Windows;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationServices;
@@ -62,6 +64,15 @@ namespace Tools.Desktop.Pages
                 return;
             }
 
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxResult result = MessageBox.Show(Messages.CONFIRM_REMOVING, "", button);
+
+            if (result != MessageBoxResult.OK &&
+                result != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
             var response = await _examinationService.Delete(model.Id);
             if (response.IsError)
             {
@@ -73,14 +84,25 @@ namespace Tools.Desktop.Pages
 
         private async void editSelectedCertificate_Click(object sender, RoutedEventArgs e)
         {
-            
+            ExaminationPostMode model = certificationsDataGrid.SelectedItem as ExaminationPostMode;
+            if (model == null)
+            {
+                return;
+            }
+
+            CertificationDataViewWindow window = new CertificationDataViewWindow(_examinationNatureService,
+                _examinationReasonService,
+                _examinationTypeService,
+                _examinationService,
+                model.Id);
+            window.ShowDialog();
+
+            Page_Loaded(sender, e);
         }
 
         private async void equipmentDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             await _semaphore.WaitAsync();
-
-            certificationsDataGrid.Items.Clear();
 
             ICollection<ExaminationEntity> examinations = await _examinationService.GetByToolFK(_toolsPostModel.Id);
             ICollection<ExaminationPostMode> model = new List<ExaminationPostMode>();
@@ -118,6 +140,24 @@ namespace Tools.Desktop.Pages
             equipmentUnitTextBox.Text = response.Value.OrganizationUnit.Name;
 
             _semaphore.Release();
+        }
+
+        private void certificationsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ExaminationPostMode model = certificationsDataGrid.SelectedItem as ExaminationPostMode;
+            if (model == null)
+            {
+                return;
+            }
+
+            CertificationDataViewWindow window = new CertificationDataViewWindow(_examinationNatureService,
+                _examinationReasonService,
+                _examinationTypeService,
+                _examinationService,
+                model.Id);
+            window.ShowDialog();
+
+            equipmentDataGrid_Loaded(sender, e);
         }
     }
 }

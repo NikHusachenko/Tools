@@ -10,7 +10,9 @@ namespace Tools.Services.ExaminationServices
     {
         Task<ResponseService<long>> Create(CreateExaminationPostModel vm);
         Task<ResponseService> Delete(long id);
+        Task<ResponseService<ExaminationEntity>> Update(UpdateExaminationPostModel vm);
 
+        Task<ResponseService<ExaminationEntity>> GetById(long id);
         Task<ICollection<ExaminationEntity>> GetByToolFK(long toolFk);
     }
 }

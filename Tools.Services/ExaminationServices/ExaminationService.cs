@@ -93,6 +93,16 @@ namespace Tools.Services.ExaminationServices
             return ResponseService.Ok();
         }
 
+        public async Task<ResponseService<ExaminationEntity>> GetById(long id)
+        {
+            ExaminationEntity dbRecord = await _examinationRepository.GetById(id);
+            if (dbRecord == null)
+            {
+                return ResponseService<ExaminationEntity>.Error(Errors.NOT_FOUND_ERROR);
+            }
+            return ResponseService<ExaminationEntity>.Ok(dbRecord);
+        }
+
         public async Task<ICollection<ExaminationEntity>> GetByToolFK(long toolFk)
         {
             return await _examinationRepository.GetAll()
@@ -101,6 +111,50 @@ namespace Tools.Services.ExaminationServices
                 .Include(examination => examination.ExaminationReason)
                 .Include(examination => examination.ExaminationType)
                 .ToListAsync();
+        }
+
+        public async Task<ResponseService<ExaminationEntity>> Update(UpdateExaminationPostModel vm)
+        {
+            ExaminationEntity dbRecord = await _examinationRepository.GetBy(examination => examination.Id == vm.Id);
+            if (dbRecord == null)
+            {
+                return ResponseService<ExaminationEntity>.Error(Errors.NOT_FOUND_ERROR);
+            }
+
+            var natureResponse = await _examinationNatureService.GetByName(vm.ExaminationNatureName);
+            if (natureResponse.IsError)
+            {
+                return ResponseService<ExaminationEntity>.Error(natureResponse.ErrorMessage);
+            }
+
+            var reasonResponse = await _examinationReasonService.GetByName(vm.ExaminationReasonName);
+            if (reasonResponse.IsError)
+            {
+                return ResponseService<ExaminationEntity>.Error(reasonResponse.ErrorMessage);
+            }
+
+            var typeResponse = await _examinationTypeService.GetByName(vm.ExaminationTypeName);
+            if (typeResponse.IsError)
+            {
+                return ResponseService<ExaminationEntity>.Error(typeResponse.ErrorMessage);
+            }
+
+            dbRecord.ActualExaminationDate = vm.FactDate;
+            dbRecord.ExaminationNatureFK = natureResponse.Value.Id;
+            dbRecord.ExaminationReasonFK = reasonResponse.Value.Id;
+            dbRecord.ExaminationResult = vm.ExaminationResult;
+            dbRecord.ExaminationTypeFK = typeResponse.Value.Id;
+            dbRecord.ScheduleExaminationDate = vm.ScheduleDate;
+
+            try
+            {
+                await _examinationRepository.Update(dbRecord);
+            }
+            catch (Exception ex)
+            {
+                return ResponseService<ExaminationEntity>.Error(ex.Message);
+            }
+            return ResponseService<ExaminationEntity>.Ok(dbRecord);
         }
     }
 }

@@ -76,14 +76,14 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <DataGrid Name="certificationsDataGrid" Margin="5" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" Loaded="equipmentDataGrid_Loaded">
+                <DataGrid Name="certificationsDataGrid" Margin="5" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" Loaded="equipmentDataGrid_Loaded" MouseDoubleClick="certificationsDataGrid_MouseDoubleClick">
                     <DataGrid.Columns>
                         <DataGridTextColumn IsReadOnly="True" Width="auto"  Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид технічного (екс) обстеження" Binding="{Binding Type}"/>
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Причина проведення техогляду" Binding="{Binding Reason}"/>
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид перевірки" Binding="{Binding Nature}"/>
-                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Планова дата" Binding="{Binding ScheduleDate}"/>
-                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Фактична дата" Binding="{Binding FactDate}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Планова дата" Binding="{Binding ScheduleDate, StringFormat=dd.MM.yyyy}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Фактична дата" Binding="{Binding FactDate, StringFormat=dd.MM.yyyy}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

@@ -203,7 +203,7 @@
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
