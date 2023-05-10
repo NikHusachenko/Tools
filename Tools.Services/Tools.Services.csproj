@@ -84,6 +84,7 @@
     <Compile Include="ToolServices\Models\ToolsPostModel.cs" />
     <Compile Include="ToolServices\Models\ToolsSortingPostModel.cs" />
     <Compile Include="ToolServices\Models\ToolsSortingGetModel.cs" />
+    <Compile Include="ToolServices\Models\UpdateToolPostModel.cs" />
     <Compile Include="ToolServices\ToolService.cs" />
     <Compile Include="ToolSubgroupServices\IToolSubgroupService.cs" />
     <Compile Include="ToolSubgroupServices\ToolSubgroupService.cs" />

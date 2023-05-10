@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Threading;
 using Tools.Common;
 using Tools.Database.Entities;
 using Tools.Database.Enums;
@@ -7,6 +10,7 @@ using Tools.Services.OrganizationUnitServices;
 using Tools.Services.Response;
 using Tools.Services.ToolGroupServices;
 using Tools.Services.ToolServices;
+using Tools.Services.ToolServices.Models;
 using Tools.Services.ToolSubgroupServices;
 
 namespace Tools.Desktop.Windows
@@ -119,6 +123,59 @@ namespace Tools.Desktop.Windows
 
             MessageBox.Show(Messages.DELETED_SUCCESSFULY);
             this.Close();
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!int.TryParse(equipmentExpirationYearTextBox.Text, out int years))
+            {
+                equipmentExpirationYearLabel.Foreground = Brushes.Red;
+
+                var timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(3);
+                timer.Tick += (s, args) =>
+                {
+                    equipmentExpirationYearLabel.Foreground = Brushes.Black;
+                    timer.Stop();
+                };
+                timer.Start();
+                return;
+            }
+
+            UpdateToolPostModel vm = new UpdateToolPostModel()
+            {
+                Id = _toolEntity.Id,
+                Brand = equipmentBrandTextBox.Text,
+                CommissioningDate = commissioningDateCalendar.SelectedDate.ToString(),
+                CreatingDate = dateOfCreatingCalendar.SelectedDate.ToString(),
+                ExpirationYear = years,
+                FactoryNumber = equipmentFactoryNumberTextBox.Text,
+                Group = equipmentGroupTextBox.Text,
+                IntraFactoryNumber = equipmentIntraFactoryNumberTextBox.Text,
+                Manufacturer = equipmentManufacturerTextBox.Text,
+                Name = equipmentNameTextBox.Text,
+                OrganizationUnit = organizationUnitComboBox.SelectedItem as string,
+                Registration = equipmentRegistrationComboBox.SelectedItem as string,
+                RegistrationNumber = equipmentRegistrationNumberTextBox.Text,
+                Subgroup = equipmentSubgroupTextBox.Text,
+            };
+
+            var validateResponse = await _toolService.ValidateBeforeUpdating(vm);
+            if (validateResponse.IsError)
+            {
+                cancelButton_Click(sender, e);
+                return;
+            }
+
+            var createResponse = await _toolService.Update(validateResponse.Value);
+            if (createResponse.IsError)
+            {
+                cancelButton_Click(sender, e);
+                return;
+            }
+
+            MessageBox.Show(Messages.DATA_UPDATED_SUCCESSFULY);
+            cancelButton_Click(sender, e);
         }
     }
 }

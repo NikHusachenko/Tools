@@ -231,5 +231,42 @@ namespace Tools.Services.ToolServices
                 return ResponseService.Error(ex.Message);
             }
         }
+
+        public async Task<ResponseService<ToolEntity>> ValidateBeforeUpdating(UpdateToolPostModel vm)
+        {
+            ToolEntity dbRecord = await _toolRepository.GetById(vm.Id);
+            if (dbRecord == null)
+            {
+                return ResponseService<ToolEntity>.Error(Errors.NOT_FOUND_ERROR);
+            }
+
+            if (!DateTime.TryParse(vm.CommissioningDate, out DateTime commisioningDate)) return ResponseService<ToolEntity>.Error(Errors.INVALID_DATE);
+            if (!DateTime.TryParse(vm.CreatingDate, out DateTime creatingDate)) return ResponseService<ToolEntity>.Error(Errors.INVALID_DATE);
+
+            RegistrationType registrationType = RegistrationTypeHelper.GetEnumAsStringFromDisplayName(vm.Registration);
+            if (registrationType == 0) registrationType = RegistrationType.NonRegister;
+
+            var response = await _toolSubgroupService.GetByName(vm.Subgroup);
+            if (response.IsError) return ResponseService<ToolEntity>.Error(response.ErrorMessage);
+            long subgroupId = response.Value.Id;
+
+            var unitResponse = await _organizationUnitService.GetByName(vm.OrganizationUnit);
+            if (unitResponse.IsError) return ResponseService<ToolEntity>.Error(unitResponse.ErrorMessage);
+
+            dbRecord.Brand = vm.Brand;
+            dbRecord.CommissioningDate = commisioningDate;
+            dbRecord.CreatingDate = creatingDate;
+            dbRecord.ExpirationYear = vm.ExpirationYear;
+            dbRecord.FactoryNumber = vm.FactoryNumber;
+            dbRecord.IntraFactoryNumber = vm.IntraFactoryNumber;
+            dbRecord.Name = vm.Name;
+            dbRecord.Manufacturer = vm.Manufacturer;
+            dbRecord.OrganizationUnitFK = unitResponse.Value.Id;
+            dbRecord.Registration = registrationType;
+            dbRecord.RegistrationNumber = vm.RegistrationNumber;
+            dbRecord.SubgroupFK = subgroupId;
+
+            return ResponseService<ToolEntity>.Ok(dbRecord);
+        }
     }
 }

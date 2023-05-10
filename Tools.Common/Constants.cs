@@ -20,5 +20,6 @@ namespace Tools.Common
 		public const string REMANED_SUCCESSFULY = "Перейменовано успішно";
 		public const string SAVED_SUCCESSFULY = "Збережено успішно";
 		public const string CONFIRM_REMOVING = "Підтвердіть видалення";
+		public const string DATA_UPDATED_SUCCESSFULY = "Дані успішно оновлено";
 	}
 }

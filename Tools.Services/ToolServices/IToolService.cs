@@ -16,6 +16,7 @@ namespace Tools.Services.ToolServices
         Task<ICollection<ToolEntity>> GetById(ICollection<long> ids);
 
         Task<ResponseService<ToolEntity>> ValidateBeforeCreating(CreateToolEntityPostModel vm);
+        Task<ResponseService<ToolEntity>> ValidateBeforeUpdating(UpdateToolPostModel vm);
         Task<ToolsSortingGetModel> Sorting(ToolsSortingPostModel vm);
     }
 }
