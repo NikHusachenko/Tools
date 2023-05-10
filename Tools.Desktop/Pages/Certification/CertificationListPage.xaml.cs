@@ -134,8 +134,8 @@ namespace Tools.Desktop.Pages
             }
 
             equipmentBrandTextBox.Text = response.Value.Brand;
-            equipmentCommissionDate.Text = response.Value.CommissioningDate.ToString("dd.MM.yyyy");
-            equipmentCreateDate.Text = response.Value.CreatingDate.ToString("dd.MM.yyyy");
+            equipmentCommissionDate.Text = response.Value.CommissioningDate.ToString("yyyy.MM.dd");
+            equipmentCreateDate.Text = response.Value.CreatingDate.ToString("yyyy.MM.dd");
             equipmentNameTextBox.Text = response.Value.Name;
             equipmentUnitTextBox.Text = response.Value.OrganizationUnit.Name;
 

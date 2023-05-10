@@ -53,7 +53,7 @@
         <Style TargetType="DatePicker" x:Key="DatePicker">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="0, 0, 10 0" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
         </Style>
     </Page.Resources>
     
@@ -93,7 +93,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}" >Група обладнання</Label>
-            <TextBox x:Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+            <TextBox x:Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsEnabled="False" />
         </Grid>
 
         <Grid Grid.Row="3">
@@ -104,7 +104,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Підгрупа обладнання</Label>
-            <TextBox x:Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+            <TextBox x:Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsEnabled="False" />
             <Button Grid.Column="2" x:Name="showCatalogButton" Style="{StaticResource Catalog}" Click="showCatalogButton_Click">Каталог</Button>
         </Grid>
 

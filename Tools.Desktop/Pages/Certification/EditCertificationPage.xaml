@@ -87,7 +87,7 @@
                         <Setter Property="Control.Template">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="scheduleExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="scheduleExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
@@ -102,7 +102,7 @@
                         <Setter Property="Control.Template">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

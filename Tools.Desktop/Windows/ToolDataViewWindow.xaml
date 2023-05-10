@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Tools.Desktop.Windows"
         mc:Ignorable="d"
         Width="1000"
-        Height="600">
+        Height="600"
+        Loaded="Window_Loaded">
     
     <Window.Resources>
         <Style TargetType="TextBox" x:Key="Input">
@@ -51,10 +52,9 @@
         </Style>
         <Style TargetType="DatePicker" x:Key="DatePicker">
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Margin" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
             <Setter Property="Height" Value="30" />
-            <Setter Property="Width" Value="150" />
         </Style>
     </Window.Resources>
 
@@ -84,7 +84,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Структурний підрозділ організації</Label>
-            <ComboBox Grid.Column="1" IsReadOnly="True" Name="organizationTextBox" Style="{StaticResource Selector}" />
+            <ComboBox Grid.Column="1" IsReadOnly="True" Name="organizationUnitComboBox" Style="{StaticResource Selector}" />
 
         </Grid>
 
@@ -95,7 +95,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}" >Група обладнання</Label>
-            <TextBox Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+            <TextBox Name="equipmentGroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsEnabled="False" />
         </Grid>
 
         <Grid Grid.Row="3">
@@ -106,8 +106,8 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Підгрупа обладнання</Label>
-            <TextBox Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
-            <Button Grid.Column="2" Content="Каталог" Height="28" Margin="10, 0, 10, 0" Width="150" />
+            <TextBox Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsEnabled="False" />
+            <Button Grid.Column="2" Content="Каталог" Height="28" Margin="10, 0, 10, 0" Width="150" Name="openCatalogButton" Click="openCatalogButton_Click" />
         </Grid>
 
         <Grid Grid.Row="4">
@@ -137,7 +137,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}" >Реєстрація в установах</Label>
-            <ComboBox Name="equipmentRegistrationTextBox" Grid.Column="1" Style="{StaticResource Selector}" />
+            <ComboBox Name="equipmentRegistrationComboBox" Grid.Column="1" Style="{StaticResource Selector}" SelectionChanged="equipmentRegistrationComboBox_SelectionChanged" />
         </Grid>
 
         <Grid Grid.Row="7">
@@ -199,13 +199,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Дата створення</Label>
-                <DatePicker Grid.Column="1" Name="dateOfCreatingTextBox" Style="{StaticResource DatePicker}">
+                <DatePicker Grid.Column="1" Name="dateOfCreatingCalendar" Style="{StaticResource DatePicker}">
                     <DatePicker.Resources>
                         <Style TargetType="{x:Type DatePickerTextBox}">
                             <Setter Property="Control.Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                        <TextBox Height="30" HorizontalAlignment="Stretch" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -228,7 +228,20 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Name="commissioningDateTextBox" IsReadOnly="True" Style="{StaticResource Input}"></TextBox>
+                
+                <DatePicker Grid.Column="0" Name="commissioningDateCalendar" Style="{StaticResource DatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox Height="30" HorizontalAlignment="Stretch" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
             </Grid>
         </Grid>
 
@@ -249,7 +262,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Height="28" Margin="5" Content="Видалити" FontSize="16" Background="IndianRed"></Button>
+            <Button Grid.Column="0" Height="28" Margin="5" Content="Видалити" FontSize="16" Background="IndianRed" Click="Button_Click"></Button>
+            <Button Grid.Column="1" Height="28" Margin="5" Content="Відміна" FontSize="16" Name="cancelButton" Click="cancelButton_Click"></Button>
             <Button Grid.Column="2" Height="28" Margin="5" Content="Зберегти" FontSize="16" Background="LightGreen"></Button>
         </Grid>
     </Grid>

@@ -82,8 +82,8 @@
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид технічного (екс) обстеження" Binding="{Binding Type}"/>
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Причина проведення техогляду" Binding="{Binding Reason}"/>
                         <DataGridTextColumn IsReadOnly="True" Width="*" Header="Вид перевірки" Binding="{Binding Nature}"/>
-                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Планова дата" Binding="{Binding ScheduleDate, StringFormat=dd.MM.yyyy}"/>
-                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Фактична дата" Binding="{Binding FactDate, StringFormat=dd.MM.yyyy}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Планова дата" Binding="{Binding ScheduleDate, StringFormat=yyyy.MM.dd}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Header="Фактична дата" Binding="{Binding FactDate, StringFormat=yyyy.MM.dd}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

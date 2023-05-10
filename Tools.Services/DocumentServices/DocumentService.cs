@@ -29,7 +29,7 @@ namespace Tools.Services.DocumentServices
             para1.Range.InsertParagraphAfter();
 
             Paragraph para2 = word.Content.Paragraphs.Add(para1.Range);
-            para2.Range.Text = $"(Станом на {DateTime.Now.ToString("dd.MM.yyyy")})\n";
+            para2.Range.Text = $"(Станом на {DateTime.Now.ToString("yyyy.MM.dd")})\n";
             para2.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             para1.Range.InsertParagraphAfter();
 
@@ -99,10 +99,10 @@ namespace Tools.Services.DocumentServices
                 cell.Range.Text = tools[i].RegistrationNumber.ToString();
 
                 cell = table.Cell(i + 1, 8);
-                cell.Range.Text = tools[i].CreatingDate.ToString("dd.MM.yyyy");
+                cell.Range.Text = tools[i].CreatingDate.ToString("yyyy.MM.dd");
 
                 cell = table.Cell(i + 1, 9);
-                cell.Range.Text = tools[i].CommissioningDate.ToString("dd.MM.yyyy");
+                cell.Range.Text = tools[i].CommissioningDate.ToString("yyyy.MM.dd");
             }
 
             application.Visible = true;

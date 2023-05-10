@@ -96,8 +96,8 @@ namespace Tools.Desktop.Pages
             equipmentIntraFactoryNumberTextBox.Text = _tools[_selectedIndex].IntraFactoryNumber;
             equipmentManufacturerTextBox.Text = _tools[_selectedIndex].Manufacturer;
             equipmentFactoryNumberTextBox.Text = _tools[_selectedIndex].FactoryNumber;
-            dateOfCreatingTextBox.Text = _tools[_selectedIndex].CreatingDate.ToString("dd.MM.yyyy");
-            commissioningDateTextBox.Text = _tools[_selectedIndex].CommissioningDate.ToString("dd.MM.yyyy");
+            dateOfCreatingTextBox.Text = _tools[_selectedIndex].CreatingDate.ToString("yyyy.MM.dd");
+            commissioningDateTextBox.Text = _tools[_selectedIndex].CommissioningDate.ToString("yyyy.MM.dd");
             equipmentExpirationYearTextBox.Text = _tools[_selectedIndex].ExpirationYear.ToString();
         }
     }

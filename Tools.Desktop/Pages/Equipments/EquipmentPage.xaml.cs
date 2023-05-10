@@ -153,8 +153,12 @@ namespace Tools.Desktop.Pages
 
             ToolsSortingGetModel vm = await _toolService.Sorting(new ToolsSortingPostModel());
             _filteredTools = vm.Tools;
-            equipmentFrame.Navigate(new EquipmentListPage(_toolService,
-                vm.Tools));
+            equipmentFrame.Navigate(new EquipmentListPage(_organizationUnitService,
+                _toolGroupService,
+                _toolSubgroupService,
+                _toolService,
+                vm.Tools,
+                this));
 
             _loadingSemaphore.Release();
         }
@@ -211,8 +215,12 @@ namespace Tools.Desktop.Pages
 
             ToolsSortingGetModel vm = await _toolService.Sorting(response.Value);
             _filteredTools = vm.Tools;
-            equipmentFrame.Navigate(new EquipmentListPage(_toolService,
-                vm.Tools));
+            equipmentFrame.Navigate(new EquipmentListPage(_organizationUnitService,
+                _toolGroupService,
+                _toolSubgroupService,
+                _toolService,
+                vm.Tools,
+                this));
         }
 
         private async Task<ResponseService<ToolsSortingPostModel>> AssemblePostModel()
@@ -257,6 +265,11 @@ namespace Tools.Desktop.Pages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        public void UpdateFrame(object sender, RoutedEventArgs e)
+        {
+            equipmentFrame_Loaded(sender, e);
         }
     }
 }
