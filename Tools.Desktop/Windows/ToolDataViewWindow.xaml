@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tools.Desktop.Windows"
         mc:Ignorable="d"
-        Title="ToolDataViewWindow" Height="450" Width="800">
+        Width="1000"
+        Height="600">
     
     <Window.Resources>
         <Style TargetType="TextBox" x:Key="Input">
@@ -29,15 +30,6 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
-        <Style TargetType="TextBox" x:Key="Selector">
-            <Setter Property="Width" Value="auto" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Height" Value="25" />
-            <Setter Property="Margin" Value="0, 0, 10, 0" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontFamily" Value="Arial" />
-        </Style>
         <Style TargetType="Button" x:Key="Catalog">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Height" Value="25" />
@@ -51,39 +43,36 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Margin" Value="10, 5, 10, 5" />
         </Style>
-        <Style TargetType="TextBox" x:Key="DatePicker">
+        <Style TargetType="ComboBox" x:Key="Selector">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Margin" Value="10, 0, 10, 0" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="0, 0, 10 0" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style TargetType="DatePicker" x:Key="DatePicker">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="150" />
         </Style>
     </Window.Resources>
 
     <Grid x:Name="editEquipmentGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <!-- 1 -->
             <RowDefinition Height="*"/>
-            <!-- 2 -->
             <RowDefinition Height="*"/>
-            <!-- 3 -->
             <RowDefinition Height="*"/>
-            <!-- 4 -->
             <RowDefinition Height="*"/>
-            <!-- 5 -->
             <RowDefinition Height="*"/>
-            <!-- 6 -->
             <RowDefinition Height="*"/>
-            <!-- 7 -->
             <RowDefinition Height="*"/>
-            <!-- 8 -->
             <RowDefinition Height="*"/>
-            <!-- 9 -->
             <RowDefinition Height="*"/>
-            <!-- 10 -->
             <RowDefinition Height="*"/>
-            <!-- 11 -->
             <RowDefinition Height="*"/>
-            <!-- 12 -->
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="Перегляд картки обладнання"></Label>
@@ -95,7 +84,8 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Структурний підрозділ організації</Label>
-            <TextBox Grid.Column="1" IsReadOnly="True" Name="organizationTextBox" Style="{StaticResource Input}"/>
+            <ComboBox Grid.Column="1" IsReadOnly="True" Name="organizationTextBox" Style="{StaticResource Selector}" />
+
         </Grid>
 
         <Grid Grid.Row="2">
@@ -112,10 +102,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Підгрупа обладнання</Label>
             <TextBox Name="equipmentSubgroupTextBox" Grid.Column="1" Style="{StaticResource Input}" IsReadOnly="True" />
+            <Button Grid.Column="2" Content="Каталог" Height="28" Margin="10, 0, 10, 0" Width="150" />
         </Grid>
 
         <Grid Grid.Row="4">
@@ -125,7 +117,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Назва обладнання</Label>
-            <TextBox Name="equipmentNameTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox Name="equipmentNameTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="5">
@@ -135,7 +127,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Марка обладнання</Label>
-            <TextBox Name="equipmentBrandTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox Name="equipmentBrandTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="6">
@@ -145,7 +137,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}" >Реєстрація в установах</Label>
-            <TextBox Name="equipmentRegistrationTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}"></TextBox>
+            <ComboBox Name="equipmentRegistrationTextBox" Grid.Column="1" Style="{StaticResource Selector}" />
         </Grid>
 
         <Grid Grid.Row="7">
@@ -171,7 +163,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Внутрішньозаводський реєстраційний №</Label>
-                <TextBox x:Name="equipmentIntraFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+                <TextBox x:Name="equipmentIntraFactoryNumberTextBox" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
         </Grid>
 
@@ -182,7 +174,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Style="{StaticResource Label}">Виробник</Label>
-            <TextBox x:Name="equipmentManufacturerTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+            <TextBox x:Name="equipmentManufacturerTextBox" Grid.Column="1" Style="{StaticResource Input}" />
         </Grid>
 
         <Grid Grid.Row="9">
@@ -197,8 +189,8 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource Label}">Завод №</Label>
-                <TextBox x:Name="equipmentFactoryNumberTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+                <Label Grid.Column="0" Style="{StaticResource Label}">Заводський №</Label>
+                <TextBox x:Name="equipmentFactoryNumberTextBox" Grid.Column="1" Style="{StaticResource Input}" />
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -207,7 +199,19 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Style="{StaticResource Label}">Дата створення</Label>
-                <TextBox Grid.Column="1" Name="dateOfCreatingTextBox" IsReadOnly="True" Style="{StaticResource Input}"></TextBox>
+                <DatePicker Grid.Column="1" Name="dateOfCreatingTextBox" Style="{StaticResource DatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox Height="28" Width="148" HorizontalAlignment="Left" Name="factExaminationTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
             </Grid>
         </Grid>
 
@@ -236,6 +240,17 @@
 
             <Label x:Name="equipmentExpirationYearLabel" Grid.Column="0" Style="{StaticResource Label}">Стандартний термін служби (років)</Label>
             <TextBox x:Name="equipmentExpirationYearTextBox" IsReadOnly="True" Grid.Column="1" Style="{StaticResource Input}" />
+        </Grid>
+
+        <Grid Grid.Row="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Height="28" Margin="5" Content="Видалити" FontSize="16" Background="IndianRed"></Button>
+            <Button Grid.Column="2" Height="28" Margin="5" Content="Зберегти" FontSize="16" Background="LightGreen"></Button>
         </Grid>
     </Grid>
 </Window>
