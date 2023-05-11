@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Tools.Common;
 using Tools.Database.Entities;
+using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationServices;
@@ -21,6 +22,7 @@ namespace Tools.Desktop.Pages
         private readonly IExaminationReasonService _examinationReasonService;
         private readonly IExaminationTypeService _examinationTypeService;
         private readonly IExaminationService _examinationService;
+        private readonly IDocumentService _documentService;
         private readonly IToolService _toolService;
 
         private readonly ToolsPostModel _model;
@@ -32,6 +34,7 @@ namespace Tools.Desktop.Pages
             IExaminationTypeService examinationTypeService,
             IExaminationService examinationService,
             IToolService toolService,
+            IDocumentService documentService,
             ToolsPostModel model)
 		{
             _examinationNatureService = examinationNatureService;
@@ -39,6 +42,7 @@ namespace Tools.Desktop.Pages
             _examinationTypeService = examinationTypeService;
             _examinationService = examinationService;
             _toolService = toolService;
+            _documentService = documentService;
             _model = model;
 
             _semaphore = new SemaphoreSlim(1);
@@ -96,6 +100,7 @@ namespace Tools.Desktop.Pages
                 _examinationTypeService,
                 _examinationService,
                 _toolService,
+                _documentService,
                 _model));
         }
 
@@ -141,13 +146,7 @@ namespace Tools.Desktop.Pages
                 return;
             }
             DateTime scheduleDate = scheduleExaminationDate.SelectedDate.Value;
-
-            if (!factExaminationDate.SelectedDate.HasValue)
-            {
-                factExaminationDate.SelectedDate= DateTime.Now;
-                return;
-            }
-            DateTime factDate = factExaminationDate.SelectedDate.Value;
+            DateTime? factDate = factExaminationDate.SelectedDate;
 
             examinationResultTextBox.SelectAll();
             string result = examinationResultTextBox.Selection.Text;

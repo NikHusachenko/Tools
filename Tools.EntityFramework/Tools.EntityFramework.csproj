@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202305071201417_AddedOrganizationUnitAsEntity.designer.cs">
       <DependentUpon>202305071201417_AddedOrganizationUnitAsEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305110141330_ActualExaminationDateCanBeNullable.cs" />
+    <Compile Include="Migrations\202305110141330_ActualExaminationDateCanBeNullable.designer.cs">
+      <DependentUpon>202305110141330_ActualExaminationDateCanBeNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305071201417_AddedOrganizationUnitAsEntity.resx">
       <DependentUpon>202305071201417_AddedOrganizationUnitAsEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305110141330_ActualExaminationDateCanBeNullable.resx">
+      <DependentUpon>202305110141330_ActualExaminationDateCanBeNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

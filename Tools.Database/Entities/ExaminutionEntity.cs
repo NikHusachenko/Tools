@@ -6,7 +6,7 @@ namespace Tools.Database.Entities
     {
         public long Id { get; set; }
         public DateTime ScheduleExaminationDate { get; set; }
-        public DateTime ActualExaminationDate { get; set; }
+        public DateTime? ActualExaminationDate { get; set; }
         public string ExaminationResult { get; set; }
 
         public long ExaminationTypeFK { get; set; }

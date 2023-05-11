@@ -89,15 +89,23 @@
             </Grid>
 
             <Grid Grid.Row="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Style="{StaticResource defaultButtonStyle}" Name="addNewCertificateButton" Content="Додати" Click="addNewCertificateButton_Click"></Button>
-                <Button Grid.Column="1" Style="{StaticResource defaultButtonStyle}" Name="editSelectedCertificate" Content="Редагувати" Click="editSelectedCertificate_Click" ></Button>
-                <Button Grid.Column="2" Style="{StaticResource defaultButtonStyle}" Background="IndianRed" Name="deleteSelectedCertificate" Content="Видалити" Click="deleteSelectedCertificate_Click" ></Button>
+                <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource defaultButtonStyle}" Name="addNewCertificateButton" Content="Додати" Background="LightGreen" Click="addNewCertificateButton_Click"></Button>
+                <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource defaultButtonStyle}" Name="editSelectedCertificate" Content="Редагувати" Click="editSelectedCertificate_Click" ></Button>
+                <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource defaultButtonStyle}" Name="printCertifications" Content="Роздрукувати" Click="printCertifications_Click" ></Button>
+                <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource defaultButtonStyle}" Background="IndianRed" Name="deleteSelectedCertificate" Content="Видалити" Click="deleteSelectedCertificate_Click" ></Button>
             </Grid>
         </Grid>
     </Grid>

@@ -9,6 +9,6 @@ namespace Tools.Services.ExaminationServices.Models
         public string Reason { get; set; }
         public string Nature { get; set; }
         public DateTime ScheduleDate { get; set; }
-        public DateTime FactDate { get; set; }
+        public DateTime? FactDate { get; set; }
     }
 }

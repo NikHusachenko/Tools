@@ -85,6 +85,7 @@ namespace Tools.Desktop.Pages
 				_examinationTypeService,
 				_examinationService,
 				_toolService,
+				_documentService,
 				_model));
         }
 

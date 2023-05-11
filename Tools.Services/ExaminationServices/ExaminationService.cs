@@ -95,7 +95,14 @@ namespace Tools.Services.ExaminationServices
 
         public async Task<ResponseService<ExaminationEntity>> GetById(long id)
         {
-            ExaminationEntity dbRecord = await _examinationRepository.GetById(id);
+            ExaminationEntity dbRecord = await _examinationRepository.GetAll()
+                .Where(examination => examination.Id == id)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.Subgroup)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup.Group)
+                .FirstOrDefaultAsync();
+
             if (dbRecord == null)
             {
                 return ResponseService<ExaminationEntity>.Error(Errors.NOT_FOUND_ERROR);

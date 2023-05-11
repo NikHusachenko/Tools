@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Tools.Database.Entities;
-using Tools.Services.Response;
-using Tools.Services.ToolServices.Models;
 
 namespace Tools.Services.DocumentServices
 {
@@ -10,5 +7,8 @@ namespace Tools.Services.DocumentServices
     {
         void PrintTools(IList<ToolEntity> tools);
         void PrintTools(IList<long> ids);
+
+        void PrintCertifications(IList<ExaminationEntity> examinations);
+        void PrintCertifications(IList<long> ids);
     }
 }

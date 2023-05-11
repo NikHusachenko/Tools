@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using Tools.Common;
 using Tools.Database.Entities;
 using Tools.Desktop.Windows;
+using Tools.Services.DocumentServices;
 using Tools.Services.ExaminationNatureServices;
 using Tools.Services.ExaminationReasonServices;
 using Tools.Services.ExaminationServices;
@@ -22,15 +24,19 @@ namespace Tools.Desktop.Pages
         private readonly IExaminationTypeService _examinationTypeService;
         private readonly IExaminationService _examinationService;
         private readonly IToolService _toolService;
+        private readonly IDocumentService _documentService;
         private readonly ToolsPostModel _toolsPostModel;
 
         private readonly SemaphoreSlim _semaphore;
+
+        private ICollection<ExaminationPostMode> _model;
 
         public CertificationListPage(IExaminationNatureService examinationNatureService,
             IExaminationReasonService examinationReasonService,
             IExaminationTypeService examinationTypeService,
             IExaminationService examinationService,
             IToolService toolService,
+            IDocumentService documentService,
             ToolsPostModel toolsPostModel)
 		{
             _examinationNatureService = examinationNatureService;
@@ -38,6 +44,7 @@ namespace Tools.Desktop.Pages
             _examinationTypeService = examinationTypeService;
             _examinationService = examinationService;
             _toolService = toolService;
+            _documentService = documentService;
             _toolsPostModel = toolsPostModel;
 
             _semaphore = new SemaphoreSlim(1);
@@ -53,6 +60,7 @@ namespace Tools.Desktop.Pages
                 _examinationTypeService,
                 _examinationService,
                 _toolService,
+                _documentService,
                 _toolsPostModel));
         }
 
@@ -118,6 +126,8 @@ namespace Tools.Desktop.Pages
                     Type = examination.ExaminationType.Name,
                 });
             }
+
+            _model = model;
             certificationsDataGrid.ItemsSource = model;
 
             _semaphore.Release();
@@ -158,6 +168,11 @@ namespace Tools.Desktop.Pages
             window.ShowDialog();
 
             equipmentDataGrid_Loaded(sender, e);
+        }
+
+        private void printCertifications_Click(object sender, RoutedEventArgs e)
+        {
+            _documentService.PrintCertifications(_model.Select(certificate => certificate.Id).ToList());
         }
     }
 }
