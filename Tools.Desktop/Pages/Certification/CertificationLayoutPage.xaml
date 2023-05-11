@@ -10,16 +10,63 @@
 
     <Page.Resources>
         <Style TargetType="RadioButton" x:Key="RadoButtonStyle">
-            <Setter Property="ItemsControl.BorderBrush" Value="#FF0B0808"/>
             <Setter Property="FontSize" Value="20" />
-            <Setter Property="Margin" Value="10,5,0,5"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <BulletDecorator VerticalAlignment="Center">
+                                <BulletDecorator.Bullet>
+                                    <Grid>
+                                        <Ellipse x:Name="RadioOuterCircle"
+                                     Width="14"
+                                     Height="14"
+                                     StrokeThickness="2"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     Fill="{TemplateBinding Background}" />
+                                        <Ellipse x:Name="RadioInnerCircle"
+                                     Margin="3"
+                                     Width="6"
+                                     Height="6"
+                                     Fill="{TemplateBinding BorderBrush}"
+                                     Visibility="Hidden" />
+                                    </Grid>
+                                </BulletDecorator.Bullet>
+                                <Grid Margin="5,0,0,0">
+                                    <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          RecognizesAccessKey="True" />
+                                </Grid>
+                            </BulletDecorator>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="RadioInnerCircle" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="RadioOuterCircle" Property="StrokeThickness" Value="3" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#888" />
+                                <Setter TargetName="RadioOuterCircle" Property="Fill" Value="#AAA" />
+                                <Setter TargetName="RadioOuterCircle" Property="Stroke" Value="#AAA" />
+                                <Setter TargetName="RadioInnerCircle" Property="Fill" Value="#AAA" />
+                                <Setter TargetName="RadioInnerCircle" Property="Stroke" Value="#AAA" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Label" x:Key="DefaultTextSize">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
         <Style TargetType="Button" x:Key="ButtonStyle">
-            <Setter Property="FontSize" Value="23" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="Arial" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Margin" Value="10, 5, 10, 5" />
@@ -27,7 +74,8 @@
         <Style TargetType="DatePicker" x:Key="DatePicker">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="0, 0, 10 0" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Margin" Value="10" />
         </Style>
     </Page.Resources>
 
@@ -62,52 +110,79 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <RadioButton Grid.Row="0" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="0" Style="{StaticResource RadoButtonStyle}" Name="futureAll" Click="futureAll_Click">
                     майбутні технічні (експертні) обстеження (всі підрозділи)
                 </RadioButton>
-                <RadioButton Grid.Row="1" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="1" Style="{StaticResource RadoButtonStyle}" Name="futureUnit" Click="FutureUnit_Click">
                     майбутні технічні (експертні) дослідження (в обраному підрозділі)
                 </RadioButton>
-                <RadioButton Grid.Row="2" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="2" Style="{StaticResource RadoButtonStyle}" Name="fututreSubgroup" Click="fututreSubgroup_Click">
                     майбутні технічні (експертні) обстеження (вибраної підгрупи обладнання)
                 </RadioButton>
-                <RadioButton Grid.Row="3" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="3" Style="{StaticResource RadoButtonStyle}" Name="futureType" Click="futureType_Click">
                     майбутні технічні (експертні) дослідження (за видами технічних (експертних) досліджень)
                 </RadioButton>
-                <RadioButton Grid.Row="4" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="4" Style="{StaticResource RadoButtonStyle}" Name="expiredAll" Click="expiredAll_Click">
                     прострочені технічні (експертні) обстеження (всі підрозділи)
                 </RadioButton>
-                <RadioButton Grid.Row="5" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="5" Style="{StaticResource RadoButtonStyle}" Name="expiredUnit" Click="expiredUnit_Click">
                     прострочені технічні (експертні) обстеження (в обраному підрозділі)
                 </RadioButton>
-                <RadioButton Grid.Row="6" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="6" Style="{StaticResource RadoButtonStyle}" Name="expiredSubgroup" Click="expiredSubgroup_Click">
                     прострочені технічні (експертні) обстеження (окремої підгрупи обладнання)
                 </RadioButton>
-                <RadioButton Grid.Row="7" Style="{StaticResource RadoButtonStyle}">
+                <RadioButton Grid.Row="7" Style="{StaticResource RadoButtonStyle}" Name="expiredType" Click="expiredType_Click">
                     прострочені технічні (експертні) обстеження (за видами технічних (експертних) обстежень)
                 </RadioButton>
             </Grid>
             <Grid Grid.Row="2" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Приклад кінцевої дати:"></Label>
-                <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Name="dateOfCreatingCalendar" Style="{StaticResource DatePicker}">
-                    <DatePicker.Resources>
-                        <Style TargetType="{x:Type DatePickerTextBox}">
-                            <Setter Property="Control.Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <TextBox Name="dateOfCreatingTextBox" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </DatePicker.Resources>
-                </DatePicker>
+                <Grid Grid.Row="0" Name="dateContainer" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Початкова дата вибірки:"></Label>
+                    <DatePicker Grid.Column="1" Name="dateFromDatePicker" Style="{StaticResource DatePicker}">
+                        <DatePicker.Resources>
+                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBox Name="dateOfCreatingTextBox" FontSize="14" Height="28" IsReadOnly="True" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy.MM.dd}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Grid>
+
+                <Grid Grid.Row="1" Name="unitContainer" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Підрозділ"></Label>
+                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="unitComboBox" />
+                </Grid>
+
+                <Grid Grid.Row="2" Name="examinationTypeContainer" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Name="bottomLabel" Content="Label value" />
+                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="BottomComboBox" />
+                </Grid>
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
