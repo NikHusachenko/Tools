@@ -16,6 +16,13 @@ namespace Tools.Services.ExaminationServices
         Task<ResponseService<ExaminationEntity>> GetById(long id);
         Task<ICollection<ExaminationEntity>> GetByToolFK(long toolFk);
 
-        Task<ICollection<ExaminationEntity>> GetFutureExaminations(DateTime dateFrom);
+        Task<ICollection<ExaminationEntity>> GetFutureExaminations(DateTime endDate);
+        Task<ICollection<ExaminationEntity>> GetFutureByOrganizationUnit(DateTime endDate, OrganizationUnitEntity organizationUnit);
+        Task<ICollection<ExaminationEntity>> GetFutureBySubgroup(DateTime endDate, ToolSubgroupEntity subgroup);
+        Task<ICollection<ExaminationEntity>> GetFutureByExaminationType(DateTime endDate, ExaminationTypeEntity examinationType);
+        Task<ICollection<ExaminationEntity>> GetExpiredAll();
+        Task<ICollection<ExaminationEntity>> GetExpiredByOrganizationUnit(OrganizationUnitEntity organizationUnit);
+        Task<ICollection<ExaminationEntity>> GetExpiredBySubgroup(ToolSubgroupEntity subgroup);
+        Task<ICollection<ExaminationEntity>> GetExpiredByExaminationType(ExaminationTypeEntity examinationType);
     }
 }

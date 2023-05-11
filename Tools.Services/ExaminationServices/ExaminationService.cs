@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -117,6 +118,113 @@ namespace Tools.Services.ExaminationServices
                 .Include(examination => examination.ExaminationNature)
                 .Include(examination => examination.ExaminationReason)
                 .Include(examination => examination.ExaminationType)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetExpiredAll()
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate < DateTime.Now)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetExpiredByExaminationType(ExaminationTypeEntity examinationType)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate < DateTime.Now &&
+                    examination.ExaminationType.Name == examinationType.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetExpiredByOrganizationUnit(OrganizationUnitEntity organizationUnit)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate < DateTime.Now &&
+                    examination.Tool.OrganizationUnit.Name == organizationUnit.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetExpiredBySubgroup(ToolSubgroupEntity subgroup)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate < DateTime.Now &&
+                    examination.Tool.Subgroup.Name == subgroup.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetFutureByExaminationType(DateTime endDate, ExaminationTypeEntity examinationType)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate > DateTime.Now &&
+                    examination.ScheduleExaminationDate <= endDate &&
+                    examination.ExaminationType.Name == examinationType.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetFutureByOrganizationUnit(DateTime endDate, OrganizationUnitEntity organizationUnit)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate > DateTime.Now &&
+                    examination.ScheduleExaminationDate <= endDate &&
+                    examination.Tool.OrganizationUnit.Name == organizationUnit.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
+        public async Task<ICollection<ExaminationEntity>> GetFutureBySubgroup(DateTime endDate, ToolSubgroupEntity subgroup)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate > DateTime.Now &&
+                    examination.ScheduleExaminationDate <= endDate &&
+                    examination.Tool.Subgroup.Name == subgroup.Name)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
                 .ToListAsync();
         }
 

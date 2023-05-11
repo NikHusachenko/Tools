@@ -121,7 +121,7 @@ namespace Tools.Desktop.Windows
             }
 
             DateTime scheduleDate = scheduleExaminationDate.SelectedDate.Value;
-            DateTime factDate = factExaminationDate.SelectedDate.Value;
+            DateTime? factDate = factExaminationDate.SelectedDate;
 
             examinationResultTextBox.SelectAll();
             string result = examinationResultTextBox.Selection.Text;

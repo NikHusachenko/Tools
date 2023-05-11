@@ -275,30 +275,74 @@ namespace Tools.Desktop.Pages
                     }
                 case CertificationSorting.FutureByUnit:
                     {
+                        if (_selectedUnit == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetFutureByOrganizationUnit(_selectedDateFrom, _selectedUnit);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.FutureBySubgroup:
                     {
+                        if (_subgroup == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetFutureBySubgroup(_selectedDateFrom, _subgroup);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.FutureByExaminationType:
                     {
+                        if (_examinationType == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetFutureByExaminationType(_selectedDateFrom, _examinationType);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.ExpiredAll:
                     {
+                        _examinations = await _examinationService.GetExpiredAll();
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.ExpiredByUnit:
                     {
+                        if (_selectedUnit == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetExpiredByOrganizationUnit(_selectedUnit);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.ExpiredBySubgroup:
                     {
+                        if (_subgroup == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetExpiredBySubgroup(_subgroup);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
                 case CertificationSorting.ExpiredByExaminationType:
                     {
+                        if (_examinationType == null)
+                        {
+                            return;
+                        }
+
+                        _examinations = await _examinationService.GetExpiredByExaminationType(_examinationType);
+                        _documentService.PrintFutureCertificationsAll(_examinations.ToList(), "");
                         break;
                     }
             }
