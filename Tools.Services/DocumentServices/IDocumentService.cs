@@ -19,8 +19,8 @@ namespace Tools.Services.DocumentServices
         void PrintTools(IList<ToolEntity> tools);
         void PrintTools(IList<long> ids);
 
-        void PrintFutureCertificationsAll(List<ExaminationEntity> examinations, DateTime dateFrom);
-
+        void PrintFutureCertificationsAll(List<ExaminationEntity> examinations, string title);
+        
         void PrintCertifications(IList<ExaminationEntity> examinations);
         void PrintCertifications(IList<long> ids);
     }

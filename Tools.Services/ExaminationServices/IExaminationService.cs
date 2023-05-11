@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Tools.Database.Entities;
 using Tools.Services.ExaminationServices.Models;
@@ -14,5 +15,7 @@ namespace Tools.Services.ExaminationServices
 
         Task<ResponseService<ExaminationEntity>> GetById(long id);
         Task<ICollection<ExaminationEntity>> GetByToolFK(long toolFk);
+
+        Task<ICollection<ExaminationEntity>> GetFutureExaminations(DateTime dateFrom);
     }
 }

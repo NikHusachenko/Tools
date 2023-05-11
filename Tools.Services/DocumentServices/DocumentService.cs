@@ -660,7 +660,7 @@ namespace Tools.Services.DocumentServices
             PrintCertifications(examinations);
         }
 
-        public void PrintFutureCertificationsAll(List<ExaminationEntity> examinations, DateTime dateFrom)
+        public void PrintFutureCertificationsAll(List<ExaminationEntity> examinations, string title)
         {
             Application application = new Application();
             Document word = application.Documents.Add();
@@ -677,13 +677,106 @@ namespace Tools.Services.DocumentServices
             Paragraph para2 = word.Content.Paragraphs.Add(para1.Range);
             para2.Range.Font.Name = "Times New Roman";
             para2.Range.Font.Size = 11;
-            para2.Range.Text = $"(Станом на {DateTime.Now.ToString("yyyy.MM.dd")})\n";
+            para2.Range.Text = title;
             para2.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             para1.Range.InsertParagraphAfter();
 
             Paragraph para3 = word.Content.Paragraphs.Add(para2.Range);
             para3.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
             para3.Range.InsertParagraphAfter();
+
+            Table table = word.Content.Tables.Add(para3.Range, Math.Max(examinations.Count + 1, 2), 9);
+            table.Range.Font.Name = "Times New Roman";
+            table.Range.Font.Size = 11;
+            table.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.PreferredWidthType = WdPreferredWidthType.wdPreferredWidthPercent;
+            table.PreferredWidth = 100f;
+
+            Cell cell = table.Cell(1, 1);
+            cell.Range.Text = "№";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 2);
+            cell.Range.Text = "Марка обладнання";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 3);
+            cell.Range.Text = "Назва обладнання";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 4);
+            cell.Range.Text = "Підгрупа обладнання";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 5);
+            cell.Range.Text = "Підрозділ";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 6);
+            cell.Range.Text = "Реєстрація";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 7);
+            cell.Range.Text = "Внутрішньозаводський реєстраційний №";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 8);
+            cell.Range.Text = "Причина обстеження";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            cell = table.Cell(1, 9);
+            cell.Range.Text = "Планована дата обстеження";
+            cell.Borders.Enable = 1;
+            cell.Range.Bold = 1;
+
+            for (int i = 0; i < examinations.Count; i++)
+            {
+                cell = table.Cell(i + 2, 1);
+                cell.Range.Text = examinations[i].Id.ToString();
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 2);
+                cell.Range.Text = examinations.First().Tool.Brand;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 3);
+                cell.Range.Text = examinations.First().Tool.Name;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 4);
+                cell.Range.Text = examinations.First().Tool.Subgroup.Name;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 5);
+                cell.Range.Text = examinations.First().Tool.OrganizationUnit.Name;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 6);
+                cell.Range.Text = RegistrationTypeDisplay.GetDisplayName(examinations.First().Tool.Registration);
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 7);
+                cell.Range.Text = examinations.First().Tool.IntraFactoryNumber;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 8);
+                cell.Range.Text = examinations[i].ExaminationReason.Name;
+                cell.Borders.Enable = 1;
+
+                cell = table.Cell(i + 2, 9);
+                cell.Range.Text = examinations[i].ScheduleExaminationDate.ToString("yyyy.MM.dd");
+                cell.Borders.Enable = 1;
+            }
+
+            application.Visible = true;
         }
 
         public void PrintTools(IList<ToolEntity> tools)

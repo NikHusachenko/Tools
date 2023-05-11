@@ -80,7 +80,7 @@
     </Page.Resources>
 
     <Grid Background="White">
-        <Grid ShowGridLines="True">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
@@ -88,7 +88,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" ShowGridLines="False">
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
@@ -109,6 +109,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <RadioButton Grid.Row="0" Style="{StaticResource RadoButtonStyle}" Name="futureAll" Click="futureAll_Click">
                     майбутні технічні (експертні) обстеження (всі підрозділи)
@@ -134,6 +135,7 @@
                 <RadioButton Grid.Row="7" Style="{StaticResource RadoButtonStyle}" Name="expiredType" Click="expiredType_Click">
                     прострочені технічні (експертні) обстеження (за видами технічних (експертних) обстежень)
                 </RadioButton>
+                <Separator Grid.Row="8" />
             </Grid>
             <Grid Grid.Row="2" >
                 <Grid.RowDefinitions>
@@ -149,7 +151,7 @@
                     </Grid.ColumnDefinitions>
                     
                     <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Початкова дата вибірки:"></Label>
-                    <DatePicker Grid.Column="1" Name="dateFromDatePicker" Style="{StaticResource DatePicker}">
+                    <DatePicker Grid.Column="1" Name="dateFromDatePicker" Style="{StaticResource DatePicker}" SelectedDateChanged="dateFromDatePicker_SelectedDateChanged">
                         <DatePicker.Resources>
                             <Style TargetType="{x:Type DatePickerTextBox}">
                                 <Setter Property="Control.Template">
@@ -171,7 +173,17 @@
                     </Grid.ColumnDefinitions>
                     
                     <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Підрозділ"></Label>
-                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="unitComboBox" />
+                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="unitComboBox" SelectionChanged="unitComboBox_SelectionChanged" />
+                </Grid>
+
+                <Grid Grid.Row="2" Name="examinationSubgroupContainer" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Підгрупа обладнання" />
+                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="subgroupComboBox" SelectionChanged="subgroupComboBox_SelectionChanged" />
                 </Grid>
 
                 <Grid Grid.Row="2" Name="examinationTypeContainer" Visibility="Hidden">
@@ -179,9 +191,9 @@
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
-                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Name="bottomLabel" Content="Label value" />
-                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="BottomComboBox" />
+
+                    <Label Grid.Column="0" Style="{StaticResource DefaultTextSize}" Content="Вид технічого огляду" />
+                    <ComboBox Grid.Column="1" Height="28" HorizontalAlignment="Stretch" FontSize="14" Margin="10" Name="examinationTypeComboBox" SelectionChanged="examinationTypeComboBox_SelectionChanged" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
@@ -190,7 +202,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Style="{StaticResource ButtonStyle}">Вихід</Button>
-                <Button Grid.Column="1" Style="{StaticResource ButtonStyle}">Роздрукувати</Button>
+                <Button Grid.Column="1" Style="{StaticResource ButtonStyle}" Name="PrintButton" Click="PrintButton_Click">Роздрукувати</Button>
             </Grid>
         </Grid>
     </Grid>

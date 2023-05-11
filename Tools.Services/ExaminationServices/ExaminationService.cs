@@ -120,6 +120,21 @@ namespace Tools.Services.ExaminationServices
                 .ToListAsync();
         }
 
+        public async Task<ICollection<ExaminationEntity>> GetFutureExaminations(DateTime endDate)
+        {
+            return await _examinationRepository.GetAll()
+                .Where(examination => !examination.ActualExaminationDate.HasValue &&
+                    examination.ScheduleExaminationDate > DateTime.Now &&
+                    examination.ScheduleExaminationDate <= endDate)
+                .Include(examination => examination.ExaminationNature)
+                .Include(examination => examination.ExaminationReason)
+                .Include(examination => examination.ExaminationType)
+                .Include(examination => examination.Tool)
+                .Include(examination => examination.Tool.OrganizationUnit)
+                .Include(examination => examination.Tool.Subgroup)
+                .ToListAsync();
+        }
+
         public async Task<ResponseService<ExaminationEntity>> Update(UpdateExaminationPostModel vm)
         {
             ExaminationEntity dbRecord = await _examinationRepository.GetBy(examination => examination.Id == vm.Id);
